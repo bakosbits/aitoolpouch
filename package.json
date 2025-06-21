@@ -1,0 +1,22 @@
+{
+  "name": "aitoolpouch",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "NODE_OPTIONS='--max-old-space-size=4096' next dev",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "airtable": "^0.11.1",
+    "next": "14.1.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6"
+  }
+}
