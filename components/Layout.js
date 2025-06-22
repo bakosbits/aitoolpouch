@@ -1,9 +1,14 @@
+// Layout.js
 import { useState } from 'react';
 import Sidebar from './Sidebar';
 import MobileMenu from './MobileMenu';
+import { useRouter } from 'next/router';
+import generateBreadcrumbs from '@/utils/generateBreadcrumbs';
 
 export default function Layout({ children, categories }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const router = useRouter();
+  const breadcrumbs = generateBreadcrumbs(router.asPath);  
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -12,7 +17,7 @@ export default function Layout({ children, categories }) {
         <h1 className="text-lg font-bold">Header</h1>
         <button
           className="md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={() => setMenuOpen(!menuOpen)}  // Toggle the mobile menu
           aria-label="Toggle menu"
           type="button"
         >
@@ -28,16 +33,13 @@ export default function Layout({ children, categories }) {
       )}
 
       <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar */}
+        {/* Sidebar: Always rendered */}
         <aside className="hidden md:block w-64 bg-gray-200 border-r">
           <Sidebar categories={categories} />
         </aside>
 
-        {/* Shared container for main content + footer */}
         <div className="flex flex-col flex-1 max-w-7xl mx-auto px-4 w-full">
-          <main className="flex-1 overflow-y-auto">
-            {children}
-          </main>
+          <main className="flex-1 overflow-y-auto">{children}</main>
 
           <footer className="border-t py-4 text-gray-600">
             <nav className="flex justify-center space-x-6">
