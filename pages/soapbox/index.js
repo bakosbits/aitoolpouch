@@ -1,3 +1,4 @@
+
 import { getPublishedArticles } from '@/lib/airtable'
 import Link from 'next/link'
 
@@ -8,15 +9,15 @@ export async function getStaticProps() {
 
 export default function BlogPage({ articles }) {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">AI Tool Pouch Blog</h1>
+    <div className="max-w-4xl mx-auto w-full px-4 py-4">
+      <h1 className="text-3xl font-bold mb-6">AI Tool Pouch Blog</h1>
       <ul className="space-y-6">
         {articles.map((article) => (
-          <li key={article.id} className="border-b pb-4">
+          <li key={article.id} className="bg-gray-100 border border-gray-300 p-4 rounded">
             <Link href={`/blog/${article.Slug}`}>
-              <h2 className="text-xl font-semibold text-blue-600 hover:underline">{article.Title}</h2>
+              <h2 className="text-xl font-bold text-blue-700 hover:underline">{article.Title}</h2>
             </Link>
-            <p className="text-sm text-gray-700">{article.Excerpt}</p>
+            <p className="text-sm text-gray-700 mt-2">{article.Excerpt}</p>
           </li>
         ))}
       </ul>

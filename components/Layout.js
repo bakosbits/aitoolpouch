@@ -1,55 +1,48 @@
-// Layout.js
-import { useState } from 'react';
-import Sidebar from './Sidebar';
-import MobileMenu from './MobileMenu';
-import { useRouter } from 'next/router';
-import generateBreadcrumbs from '@/utils/generateBreadcrumbs';
+import Link from 'next/link';
 
-export default function Layout({ children, categories }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const router = useRouter();
-  const breadcrumbs = generateBreadcrumbs(router.asPath);  
 
-  return (
-    <div className="flex flex-col min-h-screen">
-      {/* Header */}
-      <header className="w-full h-16 bg-gray-800 text-white flex items-center justify-between px-4">
-        <h1 className="text-lg font-bold">Header</h1>
-        <button
-          className="md:hidden"
-          onClick={() => setMenuOpen(!menuOpen)}  // Toggle the mobile menu
-          aria-label="Toggle menu"
-          type="button"
-        >
-          ☰
-        </button>
-      </header>
+export default function Layout({ children, categories = [] }) {
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-gray-200 border-b shadow-md z-50">
-          <MobileMenu categories={categories} />
+
+    return (
+        <div className="flex flex-col min-h-screen bg-white text-gray-900 relative z-[9999]">
+            <header className="bg-white border-white-300">
+                <div className="max-w-4xl mx-auto w-full px-4 py-4 flex items-center justify-between">
+                    <Link href="/" className="text-2xl font-extrabold tracking-tight text-gray-900">
+                        AI Tool Pouch
+                    </Link>
+                    <nav className="flex items-center space-x-6 font-semibold">
+                        <Link href="/foundational-models" className="hover:text-blue-600 transition-colors duration-150">
+                            The Foundational Models
+                        </Link>
+
+
+                        <Link href="/soapbox" className="hover:text-blue-600 transition-colors duration-150">
+                            The SoapBox
+                        </Link>
+                    </nav>
+                </div>
+            </header>
+
+            <main className="relative z-[10] flex-1">
+                <div className="max-w-6xl mx-auto w-full px-4 py-10 ">{children}</div>
+            </main>
+
+            <footer className="bg-white border-white-300 py-4 text-sm text-gray-600">
+                <div className="max-w-4xl mx-auto w-full px-4">
+                    <nav className="flex justify-center space-x-6">
+                        <Link href="/about" className="hover:text-blue-600 transition">
+                            About
+                        </Link>
+                        <Link href="/contact" className="hover:text-blue-600 transition">
+                            Contact
+                        </Link>
+                        <Link href="/legal" className="hover:text-blue-600 transition">
+                            Legal
+                        </Link>
+                    </nav>
+                </div>
+            </footer>
         </div>
-      )}
-
-      <div className="flex flex-1 overflow-hidden">
-        {/* Sidebar: Always rendered */}
-        <aside className="hidden md:block w-64 bg-gray-200 border-r">
-          <Sidebar categories={categories} />
-        </aside>
-
-        <div className="flex flex-col flex-1 max-w-7xl mx-auto px-4 w-full">
-          <main className="flex-1 overflow-y-auto">{children}</main>
-
-          <footer className="border-t py-4 text-gray-600">
-            <nav className="flex justify-center space-x-6">
-              <a href="/about" className="hover:underline">About</a>
-              <a href="/contact" className="hover:underline">Contact</a>
-              <a href="/legal" className="hover:underline">Legal</a>
-            </nav>
-          </footer>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }
