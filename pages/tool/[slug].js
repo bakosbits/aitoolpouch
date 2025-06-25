@@ -1,35 +1,34 @@
-// pages/tools/[toolSlug].js
-import { getToolBySlug } from '@/lib/airtable'; // Function to fetch tool details
+import { getAllTools, getAllCategories } from '@/lib/airtable'
+import ToolDetailCard from '@/components/ToolDetailCard'
 
 export async function getStaticPaths() {
-  const tools = await getAllTools(); // Fetch all tools from Airtable
-  const paths = tools.map((tool) => ({
-    params: { toolSlug: tool.Slug }, // Generate paths based on tool slug
-  }));
+  const tools = await getAllTools()
 
-  return { paths, fallback: false }; // Static generation for tool pages
+  const paths = tools.map((tool) => ({
+    params: { slug: tool.Slug.toLowerCase() }
+  }))
+
+  return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
-  const { toolSlug } = params;
+  const tools = await getAllTools()
+  const categories = await getAllCategories()
 
-  // Fetch the specific tool by its slug
-  const tool = await getToolBySlug(toolSlug);
+  const tool = tools.find(t => t.Slug.toLowerCase() === params.slug)
 
   return {
     props: {
-      tool, // Pass tool data to the page
-    },
-  };
+      tool,
+      categories // ✅ ADD THIS
+    }
+  }
 }
 
-export default function ToolPage({ tool }) {
-  // Render tool details (no comparison functionality here)
+export default function ToolPage({ tool, categories }) {
   return (
-    <div>
-      <h1 className="text-2xl font-bold mb-4">{tool.Name}</h1>
-      <p className="text-gray-700 mb-4">{tool.Description}</p>
-      {/* Render additional tool details here */}
+    <div className="max-w-4xl mx-auto w-full px-4 py-4">
+      <ToolDetailCard tool={tool} />
     </div>
-  );
+  )
 }

@@ -1,5 +1,5 @@
-
 import { getAllTools, getAllCategories } from '@/lib/airtable'
+import ToolCompareCard from '@/components/ToolCompareCard'
 
 export async function getStaticPaths() {
   const tools = await getAllTools()
@@ -42,37 +42,17 @@ export default function ComparePage({ toolA, toolB }) {
 
   return (
     <div className="max-w-4xl mx-auto w-full px-4 py-4">
-      <h1 className="text-3xl font-bold mb-8">
-        Compare {toolA.Name} vs {toolB.Name}
+      <h1 className="text-2xl font-bold mb-8">
+        Compare {toolA.Name}  -to-  {toolB.Name}
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* Start here */}
         {[toolA, toolB].map((tool, index) => (
-          <div key={index} className="p-6 bg-gray-100 border border-gray-300 rounded">
-            <h2 className="text-2xl font-semibold mb-2">{tool.Name}</h2>
-            <p className="text-gray-700 mb-4">{tool.Description}</p>
-            {tool['Base Model'] && (
-              <p className="text-sm text-blue-500 mb-2">
-                Powered by <strong>{tool['Base Model']}</strong>
-              </p>
-            )}
-            {tool.Why && (
-              <p className="text-sm text-gray-600 italic mb-4">
-                Why it matters: {tool.Why}
-              </p>
-            )}
-            {tool.Link && (
-              <a
-                href={tool.Link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block mt-4 px-4 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
-              >
-                Visit Tool Website
-              </a>
-            )}
-          </div>
+          <ToolCompareCard key={index} tool={tool} />
         ))}
+        {/* end here */}
       </div>
     </div>
   );

@@ -1,17 +1,19 @@
-import { getAllCategories } from '@/lib/airtable'
+import { getAllCategories, getAllTools } from '@/lib/airtable'
 
 export async function getStaticProps() {
   const categories = await getAllCategories()
+  const tools = await getAllTools()
 
   return {
     props: {
-      categories
+      categories,
+      tools
     }
   }
 }
 
 
-export default function Home() {
+export default function Home({ categories, tools }) {
   return (
     <div className="pt-16 flex flex-col px-4 py-4 items-center">
       <h1 className="text-3xl font-bold mb-4 text-center">Welcome to AI Tool Pouch</h1>
