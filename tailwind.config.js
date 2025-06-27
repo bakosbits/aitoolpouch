@@ -9,8 +9,20 @@ module.exports = {
       colors: {
         brandDark: '#3F3F44',
         brandLight: '#F7F7F7',
+        apocalypse: '#39FF14',
+        grayText: '#9CA3AF',
+        headingWhite: '#FFFFFF',
+        backgroundDark: '#1F2937',
+        accentGreen: '#58FF8C',  // bright but less aggressive than neon
+        cardDark: '#2C3340',  // rich slate-gray, easy on the eyes        
       },
-    },
+      
+      fontFamily: {
+      sans: ['Inter', 'sans-serif'],      // optional default override
+      heading: ['Inter', 'sans-serif'],   // for headings
+      body: ['Inter', 'sans-serif'],      // for body if you want consistency   
+      },
+    },  
   },
   plugins: [],
-}
+};

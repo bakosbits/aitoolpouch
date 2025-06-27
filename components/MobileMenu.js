@@ -13,7 +13,7 @@ export default function MobileMenu({ categories }) {
       >
         {/* Hamburger icon */}
         <svg
-          className="h-6 w-6 text-gray-700"
+          className="h-6 w-6 text-grayText"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -45,12 +45,12 @@ export default function MobileMenu({ categories }) {
           <ul className="flex flex-col space-y-2 p-4">
             <li>
               <Link href="/">
-                <a className="block text-gray-700 hover:text-blue-600">Home</a>
+                <a className="block text-grayText hover:text-headingWhite">Home</a>
               </Link>
             </li>
             <li>
               <Link href="/blog">
-                <a className="block text-gray-700 hover:text-blue-600">Blog</a>
+                <a className="block text-grayText hover:text-HeadingWhite">Blog</a>
               </Link>
             </li>
             <li>
@@ -59,7 +59,7 @@ export default function MobileMenu({ categories }) {
                 {categories.map((cat) => (
                   <li key={cat.slug}>
                     <Link href={`/category/${cat.slug}`}>
-                      <a className="block text-gray-700 hover:text-blue-600">{cat.name}</a>
+                      <a className="block text-grayText hover:text-headingWhite">{cat.name}</a>
                     </Link>
                   </li>
                 ))}

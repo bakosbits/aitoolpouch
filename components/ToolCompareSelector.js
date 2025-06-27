@@ -13,11 +13,12 @@ export default function ToolCompareSelector({ tools }) {
   };
 
   return (
-    <div className="bg-gray-100 rounded">
-      <div className="max-w-4xl w-full px-4 py-4">
+    <div className="bg-cardDark rounded">
+      <div className="max-w-6xl mx-auto px-4 py-4">
+
         <div className="flex flex-col md:flex-row md:items-end md:space-x-4 space-y-4 md:space-y-0">
           <div className="flex-1">
-            <label htmlFor="toolA" className="block text-sm font-medium mb-1">
+            <label htmlFor="toolA" className="text-headingWhite block  font-medium mb-1">
               Select Your 1st Vendor:
             </label>
             <select
@@ -36,7 +37,7 @@ export default function ToolCompareSelector({ tools }) {
           </div>
 
           <div className="flex-1">
-            <label htmlFor="toolB" className="block text-sm font-medium mb-1">
+            <label htmlFor="toolB" className="text-headingWhite block  font-medium mb-1">
               Select Your 2nd Vendor:
             </label>
             <select
@@ -55,11 +56,15 @@ export default function ToolCompareSelector({ tools }) {
           </div>
 
           <div className="mt-2 md:mt-0">
+
             <button
               onClick={handleCompare}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded transition-colors duration-150"
+              className="flex items-center gap-1 bg-accentGreen text-backgroundDark px-3 py-1.5 rounded font-semibold hover:bg-headingWhite transition"
             >
-              Compare
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 20 20">
+                <path d="M10 0 L8.6 1.4 15.2 8H0v2h15.2l-6.6 6.6L10 20l10-10z" />
+              </svg>
+              Go
             </button>
           </div>
         </div>

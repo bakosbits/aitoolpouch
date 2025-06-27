@@ -2,6 +2,8 @@
 
 A professionally structured directory of AI tools, organized by profession and use case.
 
+![screenshot](imageFolder/screenshot.png)
+
 Built with:
 
 - 🧱 **Next.js** for performance and SEO

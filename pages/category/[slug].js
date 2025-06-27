@@ -2,6 +2,7 @@ import { getAllCategories, getToolsByCategory } from '@/lib/airtable';
 import ToolCard from '@/components/ToolCard';
 import ToolCompareSelector from '@/components/ToolCompareSelector';
 
+
 export async function getStaticPaths() {
   const categories = await getAllCategories();
 
@@ -13,18 +14,33 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const decodedSlug = params.slug.replace(/-/g, ' ');
-  const tools = await getToolsByCategory(decodedSlug);
+  const slug = params.slug;
+
+  // Fetch categories first so we can use them to get the display name
   const categories = await getAllCategories();
+
+  // Find the full category record by matching slug
+  const matchingCategory = categories.find((cat) => cat.slug === slug);
+
+  // If the slug is invalid (no match), return 404
+  if (!matchingCategory) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // Then get all tools in this category using the slug
+  const tools = await getToolsByCategory(slug);
 
   return {
     props: {
       tools,
-      category: decodedSlug,
-      categories,
+      category: matchingCategory.name, // This is the display name for the heading
+      categories, // optional, depending on whether you use this in the layout
     },
   };
 }
+
 
 export default function CategoryPage({ tools, category }) {
   if (!category) {
@@ -33,10 +49,10 @@ export default function CategoryPage({ tools, category }) {
 
   return (
 
-    <div className=" max-w-4xl mx-auto px-4 py-10">
-
-      {/* <div className="max-w-6xl mx-auto w-full px-4 py-10"> */}
-      <h1 className="text-3xl font-bold mb-6 capitalize">{category.name}</h1>
+    <div className="max-w-6xl mx-auto py-12">
+      <h1 className="text-2xl text-headingWhite font-bold mb-8 capitalize">
+        Explore The {category}
+      </h1>
 
       {tools.length > 1 && (
         <div className="mb-8">
