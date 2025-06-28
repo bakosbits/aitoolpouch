@@ -1,5 +1,5 @@
 import { getAllTools, getAllCategories } from '@/lib/airtable'
-import ToolCompareCard from '@/components/ToolCompareCard'
+import ToolDetailCard from '@/components/ToolCompareCard'
 import BackButton from '@/components/BackButton';
 
 export async function getStaticPaths() {
@@ -54,7 +54,7 @@ export default function ComparePage({ toolA, toolB }) {
 
         {/* Start here */}
         {[toolA, toolB].map((tool, index) => (
-          <ToolCompareCard key={index} tool={tool} />
+          <ToolDetailCard key={index} tool={tool} />
         ))}
         {/* end here */}
       </div>

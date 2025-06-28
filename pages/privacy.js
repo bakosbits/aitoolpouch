@@ -1,15 +1,4 @@
 import React from 'react';
-import { getAllCategories } from '@/lib/airtable';
-
-export async function getStaticProps() {
-  const categories = await getAllCategories();
-
-  return {
-    props: {
-      categories,
-    },
-  };
-}
 
 export default function PrivacyPolicyPage() {
 

@@ -51,7 +51,7 @@ export default function CategoryPage({ tools, category }) {
 
     <div className="max-w-6xl mx-auto py-12">
       <h1 className="text-2xl text-headingWhite font-bold mb-8 capitalize">
-        Explore The {category}
+        Compare Tools for {category}
       </h1>
 
       {tools.length > 1 && (

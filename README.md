@@ -2,7 +2,9 @@
 
 A professionally structured directory of AI tools, organized by profession and use case.
 
+
 ![screenshot](https://github.com/user-attachments/assets/fa5b8a20-3db8-4c67-9289-11d9668f1a52)
+
 
 Built with:
 
