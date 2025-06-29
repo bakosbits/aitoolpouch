@@ -4,8 +4,21 @@
 @tailwind utilities;
 
 /* styles/globals.css */
-body {
+html, body {
   @apply font-body;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 heading {

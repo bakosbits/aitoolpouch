@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import Link from 'next/link';
+import { useState } from 'react'
+import Link from 'next/link'
 
-export default function MobileMenu({ categories }) {
-  const [open, setOpen] = useState(false);
+export default function MobileMenu({ categories = [] }) {
+  const [open, setOpen] = useState(false)
 
   return (
-    <div className="lg:hidden relative">
+    <div className="lg:hidden relative z-50">
+      {/* Toggle Button */}
       <button
         onClick={() => setOpen(!open)}
         aria-label="Toggle menu"
         className="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
       >
-        {/* Hamburger icon */}
         <svg
           className="h-6 w-6 text-grayText"
           xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +21,6 @@ export default function MobileMenu({ categories }) {
           aria-hidden="true"
         >
           {open ? (
-            // X icon when open
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -29,7 +28,6 @@ export default function MobileMenu({ categories }) {
               d="M6 18L18 6M6 6l12 12"
             />
           ) : (
-            // Hamburger icon when closed
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -40,34 +38,38 @@ export default function MobileMenu({ categories }) {
         </svg>
       </button>
 
+      {/* Full-screen menu panel */}
       {open && (
-        <nav className="absolute top-full left-0 w-full bg-white shadow-md border-t border-gray-200 z-50">
-          <ul className="flex flex-col space-y-2 p-4">
+        <nav className="fixed inset-0 z-50 bg-backgroundDark text-headingWhite p-6">
+          {/* Close button */}
+          <button
+            onClick={() => setOpen(false)}
+            aria-label="Close menu"
+            className="absolute top-4 right-4 text-3xl text-white"
+          >
+            &times;
+          </button>
+
+          {/* Menu Links */}
+          <ul className="flex flex-col gap-6 mt-16 text-xl">
             <li>
-              <Link href="/">
-                <a className="block text-grayText hover:text-headingWhite">Home</a>
+              <Link href="/" onClick={() => setOpen(false)}>
+                Home
               </Link>
             </li>
             <li>
-              <Link href="/blog">
-                <a className="block text-grayText hover:text-HeadingWhite">Blog</a>
+              <Link href="/categories" onClick={() => setOpen(false)}>
+                Categories
               </Link>
             </li>
             <li>
-              <span className="block font-medium text-gray-900 pb-2">Browse Categories</span>
-              <ul className="pl-4 border-l border-gray-300 space-y-1">
-                {categories.map((cat) => (
-                  <li key={cat.slug}>
-                    <Link href={`/category/${cat.slug}`}>
-                      <a className="block text-grayText hover:text-headingWhite">{cat.name}</a>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+              <Link href="/tools" onClick={() => setOpen(false)}>
+                Browse All
+              </Link>
             </li>
           </ul>
         </nav>
       )}
     </div>
-  );
+  )
 }

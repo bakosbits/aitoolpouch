@@ -43,9 +43,14 @@ export async function getStaticProps({ params }) {
 
 
 export default function CategoryPage({ tools, category }) {
+  
   if (!category) {
     return <p className="text-red-600 text-center mt-6">Category not found.</p>;
   }
+
+  const sortedTools = [...tools].sort((a, b) =>
+    (a.Name || '').localeCompare(b.Name || '')
+  );
 
   return (
 
@@ -62,8 +67,8 @@ export default function CategoryPage({ tools, category }) {
 
       <div className="w-full">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.map((tool) => (
-            <li key={tool.id}>
+          {sortedTools.map((tool) => (
+            <li key={tool.Name}>
               <ToolCard tool={tool} />
             </li>
           ))}

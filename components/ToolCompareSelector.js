@@ -19,7 +19,7 @@ export default function ToolCompareSelector({ tools }) {
         <div className="flex flex-col md:flex-row md:items-end md:space-x-4 space-y-4 md:space-y-0">
           <div className="flex-1">
             <label htmlFor="toolA" className="text-headingWhite block  font-medium mb-1">
-              Select Your 1st Vendor:
+              Select Your 1st Tool:
             </label>
             <select
               id="toolA"
@@ -38,7 +38,7 @@ export default function ToolCompareSelector({ tools }) {
 
           <div className="flex-1">
             <label htmlFor="toolB" className="text-headingWhite block  font-medium mb-1">
-              Select Your 2nd Vendor:
+              Select Your 2nd Tool:
             </label>
             <select
               id="toolB"

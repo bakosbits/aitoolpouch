@@ -9,9 +9,10 @@ export default function LegalPage() {
         {/* Left: Image Column */}
         <div className="w-full md:w-[35%] flex justify-center items-start">
           <img
-            src={`/images/image5.jpg`}
-            alt="page image"
-            className="w-auto h-auto object-cover rounded-lg shadow-2xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+          src="/images/wrench3.jpg" 
+          style= {{ filter: 'grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)' }}
+          alt="AI Wrenches"
+          className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
           />
         </div>
 

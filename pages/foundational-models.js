@@ -93,7 +93,7 @@ export default function FoundationalModelsPage() {
         It serves as a building block for many derivative models used in academia and lightweight commercial applications.</p>
       <div className="flex items-center space-x-4">
         <img
-          src="/logos/dall-e.png"
+          src="/logos/dall·e.png"
           alt="DALL-E logo"
           className="h-10 w-10 object-contain"
         />

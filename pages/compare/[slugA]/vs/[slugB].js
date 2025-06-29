@@ -24,7 +24,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const tools = await getAllTools()
-  const categories = await getAllCategories()
+
 
   const toolA = tools.find(t => t.Slug.toLowerCase() === params.slugA)
   const toolB = tools.find(t => t.Slug.toLowerCase() === params.slugB)
@@ -33,7 +33,6 @@ export async function getStaticProps({ params }) {
     props: {
       toolA,
       toolB,
-      categories
     }
   }
 }

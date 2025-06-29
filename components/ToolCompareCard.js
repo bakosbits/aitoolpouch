@@ -71,7 +71,7 @@ export default function ToolCompareCard({ tool }) {
         >
           <path d="M10 0 L8.6 1.4 15.2 8H0v2h15.2l-6.6 6.6L10 20l10-10z" />
         </svg>
-        Visit Site
+        Visit {tool.Name}
       </a>
     </div>
   )

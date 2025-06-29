@@ -25,7 +25,7 @@ const pricingList = Array.isArray(tool.Pricing) ? tool.Pricing : [];
 
       <p className="text-grayText mb-2 mt-6">{tool.Description}</p>
       {tool['Base Model'] && (
-        <p className="text-accentGreen mb-4">
+        <p className="text-grayText mb-4">
           Powered by {tool['Base Model']}
         </p>
       )}
@@ -72,7 +72,7 @@ const pricingList = Array.isArray(tool.Pricing) ? tool.Pricing : [];
         >
           <path d="M10 0 L8.6 1.4 15.2 8H0v2h15.2l-6.6 6.6L10 20l10-10z" />
         </svg>
-        Visit Site
+        Visit {tool.Name}
       </a>
     </div>
   )
