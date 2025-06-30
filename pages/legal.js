@@ -7,7 +7,7 @@ export default function LegalPage() {
                 {/* Left: Image Column */}
                 <div className="w-full md:w-[35%] flex justify-center items-start">
                     <img
-                        src="/images/wrench3.jpg"
+                        src="/images/wrench3.webp"
                         style={{
                             filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",
                         }}

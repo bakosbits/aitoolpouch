@@ -79,7 +79,7 @@ export default function Home({ tools }) {
                 <div className="w-full lg:w-1/2 flex justify-center px-2">
                     <div className="w-full max-w-full lg:max-w-[600px]">
                         <img
-                            src="/images/wrench1.jpg"
+                            src="/images/wrench1.webp"
                             style={{
                                 transform: "scaleX(-1)",
                                 filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",

@@ -31,7 +31,7 @@ export default function FoundationalModelsPage() {
 
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/openai.png"
+                    src="/logos/openai.webp"
                     alt="GPT logo"
                     className="h-10 w-10 object-contain"
                 />
@@ -61,7 +61,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/claude.png"
+                    src="/logos/claude.webp"
                     alt="GPT logo"
                     className="h-10 w-10 object-contain"
                 />
@@ -90,7 +90,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/gemini.png"
+                    src="/logos/gemini.webp"
                     alt="Gemini logo"
                     className="h-10 w-10 object-contain"
                 />
@@ -117,7 +117,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/mistral.png"
+                    src="/logos/mistral.webp"
                     alt="Mistral logo"
                     className="h-10 w-10 object-contain"
                 />
@@ -145,7 +145,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/llama.png"
+                    src="/logos/llama.webp"
                     alt="LLaMA logo"
                     className="h-10 w-10 object-contain"
                 />
@@ -172,7 +172,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/dall·e.png"
+                    src="/logos/dall·e.webp"
                     alt="DALL-E logo"
                     className="h-10 w-10 object-contain"
                 />

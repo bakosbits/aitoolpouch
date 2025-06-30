@@ -33,7 +33,7 @@ export default async function handler(req, res) {
         // Email to site owner (you)
         await transporter.sendMail({
             from: `"AI Tool Pouch" <${process.env.GMAIL_USER}>`,
-            to: "yourname@yourdomain.com",
+            to: "webmaster@aitoolpouch.com",
             subject: `New Contact Submission from ${name}`,
             text: `
 New message received:
