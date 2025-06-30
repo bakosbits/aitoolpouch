@@ -37,7 +37,7 @@ export default function ToolsPage({ tools }) {
     return (
         <div className="max-w-6xl mx-auto py-12">
             <h1 className="text-3xl text-headingWhite font-bold mb-6 capitalize">
-                Explore All Tools
+                Browsing All Tools
             </h1>
 
             <div className="w-full">

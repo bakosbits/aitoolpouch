@@ -41,7 +41,7 @@ export default function ToolPage({ tool }) {
                     <img
                         src="/images/wrench1.jpg"
                         style={{
-                            filter: 'grayscale(.5) saturate(110%) brightness(0.95) contrast(0.98)',
+                            filter: 'grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)',
                         }}
                         alt="AI Wrenches"
                         className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
@@ -82,13 +82,11 @@ export default function ToolPage({ tool }) {
                 { /* Right: Content Column */}
                 <div className="w-full md:w-[53%]">
 
-                    {/* Heading on its own line */}
-
 
                     {/* Flex container with left/right items on same row */}
                     <div className="flex justify-between items-center">
                         <h1 className="text-2xl text-headingWhite font-bold mb-2">
-                            {tool.Name}
+                            Reviewing {tool.Name}
                         </h1>
                       
                             <BackButton />
