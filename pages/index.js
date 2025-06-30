@@ -21,15 +21,17 @@ export default function Home({ tools }) {
 
                 {/* Left Column: Text */}
                 <div className="w-full lg:w-1/2 flex justify-center px-2">
-                    <div className="w-full lg:w-[85%] max-w-none lg:mt-[10%] text-left">
+                    <div className="w-full lg:w-[85%] max-w-none lg:mt-[8%] text-left">
 
                         <h1 className="text-headingWhite text-3xl md:text-4xl font-bold mb-4">
                             Welcome
                         </h1>
-                        <p className="text-grayText">
+                        <p className="text-grayText mb-4">
                             You can't help but notice the endless sea of AI driven tools in the market
                             today. It's no suprise that many of us end up feeling overwhelmed
-                            when deciding on the right AI tool. The Paradox of Choice strikes again! 
+                            when deciding on the right AI tool.
+                        </p>
+                        <p className="text-grayText">    
                             Are you new to AI? Maybe you have a project with
                             increased productivity goals and you're not sure where to start? 
                             You don't have to fumble through countless feature lists to find a solution.
