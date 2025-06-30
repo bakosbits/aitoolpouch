@@ -40,7 +40,7 @@ export default function MobileMenu({ categories = [] }) {
 
             {/* Full-screen menu panel */}
             {open && (
-                <nav className="fixed inset-0 z-50 bg-backgroundDark text-headingWhite p-6">
+                <nav className="fixed inset-0 z-50 bg-backgroundDark text-grayText p-6">
                     {/* Close button */}
                     <button
                         onClick={() => setOpen(false)}
@@ -51,9 +51,11 @@ export default function MobileMenu({ categories = [] }) {
                     </button>
 
                     {/* Menu Links */}
-                    <ul className="flex flex-col gap-6 mt-16 text-xl">
+                    <ul className="flex flex-col gap-6 mt-16 text-xl text-grayText">
                         <li>
-                            <Link href="/" onClick={() => setOpen(false)}>
+                            <Link href="/" onClick={() => setOpen(false)}
+                            className="hover:text-accentGreen"
+                            >
                                 Home
                             </Link>
                         </li>
@@ -61,12 +63,16 @@ export default function MobileMenu({ categories = [] }) {
                             <Link
                                 href="/categories"
                                 onClick={() => setOpen(false)}
-                            >
+                                className="hover:text-accentGreen"
+                                >
                                 Categories
                             </Link>
                         </li>
                         <li>
-                            <Link href="/tools" onClick={() => setOpen(false)}>
+                            <Link href="/tools" 
+                                onClick={() => setOpen(false)}
+                                className="hover:text-accentGreen"
+                                >
                                 Browse All
                             </Link>
                         </li>

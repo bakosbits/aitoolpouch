@@ -9,7 +9,7 @@ export default function Layout({
     return (
         <div className="flex flex-col min-h-screen bg-backgroundDark text-grayText w-full overflow-x-hidden">
             {/* Header */}
-            <header className="bg-backgroundDark w-full text-grayText">
+            <header className="w-full text-grayText">
                 {/* Unified Header */}
                 <div className="w-full px-4 py-4 flex items-center justify-between">
                     {/* Logo (always visible) */}
@@ -57,48 +57,48 @@ export default function Layout({
             </main>
 
             {/* Footer */}
-            <footer className="bg-backgroundDark py-4  text-grayText">
+            <footer className="py-4  text-grayText">
                 <div className="w-full px-6 max-w-6xl mx-auto font-semibold">
                     <nav className="flex flex-wrap justify-center space-x-6">
                         <Link
                             href="/about"
-                            className="text-grayText hover:text-headingWhite transition"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             About
                         </Link>
                         <Link
                             href="/contact"
-                            className="text-grayText hover:text-headingWhite transition"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Contact
                         </Link>
                         <Link
                             href="/legal"
-                            className="text-grayText hover:text-headingWhite transition"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Legal
                         </Link>
                         <Link
                             href="/privacy"
-                            className="text-grayText hover:text-headingWhite transition"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Privacy
                         </Link>
                         <Link
                             href="/terms"
-                            className="text-grayText hover:text-headingWhite transition"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Terms
                         </Link>
                         <Link
                             href="/foundational-models"
-                            className="text-grayText hover:text-headingWhite transition "
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
                         >
                             Foundational Models
                         </Link>
                         {/* <Link
                             href="/blog"
-                            className="text-grayText hover:text-headingWhite transition "
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
                         >
                             Blog
                         </Link> */}

@@ -21,32 +21,29 @@ export default function Home({ tools }) {
 
                 {/* Left Column: Text */}
                 <div className="w-full lg:w-1/2 flex justify-center px-2">
-                    <div className="w-full lg:w-[85%] max-w-none lg:mt-[15%] text-left">
+                    <div className="w-full lg:w-[85%] max-w-none lg:mt-[10%] text-left">
 
                         <h1 className="text-headingWhite text-3xl md:text-4xl font-bold mb-4">
                             Welcome
                         </h1>
                         <p className="text-grayText">
-                            There is an endless sea of AI driven tools in the market
+                            You can't help but notice the endless sea of AI driven tools in the market
                             today. It's no a suprise that many of us end up feeling overwhelmed
                             when deciding on the right AI tool. The Paradox of Choice strikes again! 
                             Are you new to AI? Maybe you have a project with
-                            increased productivity goals? You don't have to fumble
-                            through countless feature lists to find a solution.
-                            Here you'll be presented with information in a way that
-                            enables quick, well informed choices.
+                            increased productivity goals and you're not sure where to start? 
+                            You don't have to fumble through countless feature lists to find a solution.
+                            We hope you find our information to be laid out in a format that enables you to 
+                            make quick, well informed choices.
                         </p>
                         <h1 className="text-headingWhite text-xl md:text-xl font-bold mt-6 mb-4">
                             Discover powerful AI tools tailored to your profession.
                         </h1>
-                        <p className="text-grayText">
+                        <p className="text-grayText mb-4">
                             We'll show you a manageable list of tools to choose
                             from. From there you'll have access to relevant details for each tool in your
                             target category. You can conduct side-by-side comparisons to help you narrow down
-                            your search to something that best fits your needs.
-                        </p>
-                        <p className="text-grayText mt-6 mb-4">
-                            Here you'll find answers to three key questions:
+                            your search to something that best fits your needs. Here you'll find answers to three key questions:
                         </p>
                         <ul className="text-grayText">
                             <li>1. <strong>Who</strong> is it for.</li>
