@@ -66,7 +66,7 @@ export default function ToolDetailCard({ tool }) {
                     <div className="flex flex-wrap gap-2">
                         {pricingList.map((item, index) => (
                             <span key={index}>
-                                <p className="text-grayText mb-4">{item}</p>
+                                <p className="text-grayText mb-4">{item} </p>
                             </span>
                         ))}
                     </div>

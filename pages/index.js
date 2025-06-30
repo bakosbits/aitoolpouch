@@ -28,7 +28,7 @@ export default function Home({ tools }) {
                         </h1>
                         <p className="text-grayText">
                             You can't help but notice the endless sea of AI driven tools in the market
-                            today. It's no a suprise that many of us end up feeling overwhelmed
+                            today. It's no suprise that many of us end up feeling overwhelmed
                             when deciding on the right AI tool. The Paradox of Choice strikes again! 
                             Are you new to AI? Maybe you have a project with
                             increased productivity goals and you're not sure where to start? 

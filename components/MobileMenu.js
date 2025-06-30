@@ -40,18 +40,18 @@ export default function MobileMenu({ categories = [] }) {
 
             {/* Full-screen menu panel */}
             {open && (
-                <nav className="fixed inset-0 z-50 bg-backgroundDark text-accentGreen p-6">
+                <nav className="fixed inset-0 z-50 bg-backgroundDark text-grayText p-6">
                     {/* Close button */}
                     <button
                         onClick={() => setOpen(false)}
                         aria-label="Close menu"
-                        className="absolute top-4 right-4 text-3xl text-accentGreen"
+                        className="absolute top-4 right-4 text-3xl text-grayText"
                     >
                         &times;
                     </button>
 
                     {/* Menu Links */}
-                    <ul className="flex flex-col gap-6 mt-16 text-xl text-accentGreen">
+                    <ul className="flex flex-col gap-6 mt-16 text-xl text-grayText">
                         <li>
                             <Link href="/" onClick={() => setOpen(false)}
                             className="hover:text-headingWhite"
