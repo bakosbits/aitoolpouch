@@ -14,7 +14,7 @@ export async function getStaticProps() {
 
 export default function Home({ tools }) {
     return (
-        <div className="w-full flex flex-col md:flex-row items-start justify-between  px-20 py-20">
+        <div className="w-full flex flex-col md:flex-row items-start justify-between px-4 sm:px-8 md:px-20 py-12 md:py-20">
             {/* Left: Text centered in its own div */}
             <div className="md:w-[60%] w-full flex text-center">
                 <div className="w-full mt-[5%]">
