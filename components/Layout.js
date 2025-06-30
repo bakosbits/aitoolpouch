@@ -96,12 +96,12 @@ export default function Layout({
                         >
                             Foundational Models
                         </Link>
-                        <Link
+                        {/* <Link
                             href="/blog"
                             className="text-grayText hover:text-headingWhite transition "
                         >
                             Blog
-                        </Link>
+                        </Link> */}
                     </nav>
                 </div>
             </footer>
