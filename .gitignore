@@ -17,6 +17,3 @@ yarn-error.log*
 
 # Prettier
 .prettierrc
-
-# Blog
-/blog*
