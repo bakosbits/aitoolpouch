@@ -13,72 +13,51 @@ export async function getStaticProps() {
 }
 
 export default function Home({ tools }) {
+
     return (
-        <div className="w-full flex flex-col md:flex-row items-start justify-between px-4 sm:px-8 md:px-20 py-12 md:py-20">
-            {/* Left: Text centered in its own div */}
-            <div className="md:w-[60%] w-full flex text-center">
-                <div className="w-full mt-[5%]">
-                    <div className="max-w-2xl mx-auto text-center">
+        // Full-page wrapper with background
+        <div className="w-full px-4 sm:px-8 md:px-20 py-12">
+            <div className="w-full lg:w-[80%] mx-auto flex flex-col lg:flex-row items-start gap-y-12 lg:gap-x-12">
 
-
+                {/* Left Column: Text */}
+                <div className="w-full lg:w-1/2 flex justify-center px-2">
+                    <div className="w-full lg:w-[85%] max-w-none lg:mt-[15%] text-left">
 
                         <h1 className="text-headingWhite text-3xl md:text-4xl font-bold mb-4">
-                            Welcome to The AI Tool Pouch
+                            Welcome
                         </h1>
                         <p className="text-grayText">
                             There is an endless sea of AI driven tools in the market
-                            today.
-                        </p>
-                        <p className="text-grayText">
+                            today. It's no a suprise that many of us end up feeling overwhelmed
+                            when deciding on the right AI tool. The Paradox of Choice strikes again! 
                             Are you new to AI? Maybe you have a project with
-                            increased productivity goals?
+                            increased productivity goals? You don't have to fumble
+                            through countless feature lists to find a solution.
+                            Here you'll be presented with information in a way that
+                            enables quick, well informed choices.
                         </p>
-                        <p className="text-grayText">
-                            You don't have to fumble through countless feature lists
-                            to find a solution.
-                        </p>
-                        <p className="text-grayText">
-                            We'll present information in a way that enables quick,
-                            well informed choices.
-                        </p>
-                        <h1 className="text-headingWhite text-xl md:text-xl font-bold mt-4 mb-4">
+                        <h1 className="text-headingWhite text-xl md:text-xl font-bold mt-6 mb-4">
                             Discover powerful AI tools tailored to your profession.
                         </h1>
                         <p className="text-grayText">
                             We'll show you a manageable list of tools to choose
-                            from.
+                            from. From there you'll have access to relevant details for each tool in your
+                            target category. You can conduct side-by-side comparisons to help you narrow down
+                            your search to something that best fits your needs.
                         </p>
-                        <p className="text-grayText">
-                            We'll show you detailed side by side comparisons.
+                        <p className="text-grayText mt-6 mb-4">
+                            Here you'll find answers to three key questions:
                         </p>
-                        <p className="text-grayText">
-                            We'll show you <strong>who</strong> each one is for.
-                        </p>
-                        <p className="text-grayText">
-                            We'll show you <strong>what</strong> each one does.
-                        </p>
-                        <p className="text-grayText">
-                            We'll show you <strong>why</strong> each one should
-                            matter.
-                        </p>
-                        <p className="text-grayText">
-                            We'll link back to he vendor so you know{" "}
-                            <strong>where</strong> to get each one.
-                        </p>
+                        <ul className="text-grayText">
+                            <li>1. <strong>Who</strong> is it for.</li>
+                            <li>2. <strong>What</strong> does it do.</li>
+                            <li>3. <strong>Why</strong> does it matter.</li>
+                        </ul>
 
-                        <p className="text-grayText mt-4 mb-4">
-                            <strong>- so act now -</strong>
-                        </p>
-
-                        <p className="text-grayText">
+                        <p className="text-grayText mt-6 mb-4">
                             Stop fumbling through feature lists.
-                        </p>
-                        <p className="text-grayText">
                             You can quickly determine which tools belong in your
-                            tool pouch.
-                        </p>
-                        <p className="text-grayText mb-4">
-                            Select from one of our
+                            tool pouch. Select from one of our
                             <Link
                                 href="/categories"
                                 className="text-accentGreen hover:text-headingWhite transition"
@@ -88,28 +67,31 @@ export default function Home({ tools }) {
                             </Link>
                             to get started.
                         </p>
-                        <p className="text-grayText mt- mb-6">
-                            <strong>- or -</strong>
+                        <p className="text-grayText mt-6 mb-4">
+                            ...or search for a tool that you already had in mind:
                         </p>
 
-                        {/* Search Bar Form wired to tool/[slug] */}
-                        <SearchBar tools={tools} />
+                        <div className="w-[85%] lg:w-[100%] text-left mt-6 mb-4">
+                            <SearchBar tools={tools} />
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br />
-            <br />
-            {/* Right: Image aligned right */}
-            <div className="w-full md:w-[40%] flex justify-center">
-                <img
-                    src="/images/wrench1.jpg"
-                    style={{
-                        transform: "scaleX(-1)",
-                        filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",
-                    }}
-                    alt="AI Wrenches"
-                    className="object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
-                />
+
+
+                {/* Right: Image aligned right */}
+                <div className="w-full lg:w-1/2 flex justify-center px-2">
+                    <div className="w-full max-w-full lg:max-w-[600px]">
+                        <img
+                            src="/images/wrench1.jpg"
+                            style={{
+                                transform: "scaleX(-1)",
+                                filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",
+                            }}
+                            alt="AI Wrenches"
+                            className="object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     );

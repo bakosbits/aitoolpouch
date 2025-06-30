@@ -39,8 +39,8 @@ export default function SearchBar({ tools }) {
     }
 
     return (
-        <form onSubmit={handleSearch} className="w-full max-w-md mx-auto py=12">
-            <div className="flex items-center gap-4">
+        <form onSubmit={handleSearch} className="gap-4">
+            <div className="w-full flex justify-start gap-4">
                 <div className="flex-grow">
                     <input
                         type="text"

@@ -35,13 +35,14 @@ export default function ToolsPage({ tools }) {
     const paginatedTools = sortedTools.slice(startIndex, endIndex);
 
     return (
-        <div className="max-w-6xl mx-auto py-12">
+        <div className="w-full lg:w-[80%] mx-auto flex flex-col items-start py-12">
+              {/* <div className="max-w-6xl mx-auto py-12"> */}
             <h1 className="text-3xl text-headingWhite font-bold mb-6 capitalize">
                 Browsing All Tools
             </h1>
 
             <div className="w-full">
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {paginatedTools.map((tool) => (
                         <li key={tool.Name}>
                             <ToolCard tool={tool} />
