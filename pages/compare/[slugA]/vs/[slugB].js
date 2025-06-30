@@ -33,6 +33,7 @@ export async function getStaticProps({ params }) {
             toolA,
             toolB,
         },
+        revalidate: 21600,
     };
 }
 

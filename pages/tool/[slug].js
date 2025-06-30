@@ -22,8 +22,9 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            tool
-        }
+            tool,
+        },
+        revalidate: 21600,
     }
 }
 

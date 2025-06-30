@@ -12,6 +12,7 @@ export async function getStaticProps() {
         props: {
             tools,
         },
+        revalidate: 21600,
     };
 }
 
@@ -36,7 +37,7 @@ export default function ToolsPage({ tools }) {
 
     return (
         <div className="w-full lg:w-[80%] mx-auto flex flex-col items-start py-12">
-              {/* <div className="max-w-6xl mx-auto py-12"> */}
+            {/* <div className="max-w-6xl mx-auto py-12"> */}
             <h1 className="text-3xl text-headingWhite font-bold mb-6 capitalize">
                 Browsing All Tools
             </h1>
@@ -53,17 +54,16 @@ export default function ToolsPage({ tools }) {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-                <div className="flex justify-center mt-10 space-x-2">
+                <div className="flex justify-end w-full mt-10 space-x-2">
                     {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                         (page) => (
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className={`px-4 py-2 rounded ${
-                                    currentPage === page
+                                className={`px-4 py-2 rounded ${currentPage === page
                                         ? "bg-accentGreen text-black font-bold"
                                         : "bg-gray-700 text-white"
-                                }`}
+                                    }`}
                             >
                                 {page}
                             </button>

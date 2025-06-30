@@ -34,9 +34,10 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             tools,
-            category: matchingCategory.name, // This is the display name for the heading
-            categories, // optional, depending on whether you use this in the layout
+            category: matchingCategory.name,
+            categories, 
         },
+        revalidate: 21600,
     };
 }
 
