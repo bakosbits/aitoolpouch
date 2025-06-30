@@ -17,7 +17,7 @@ export default function ToolCard({ tool }) {
             <p className=" text-grayText mb-2 mt-6">{tool.Description}</p>
 
             {tool["Base Model"] && (
-                <p className="text-xs text-grayText mb-4">
+                <p className="text-grayText mb-4">
                     Powered by {tool["Base Model"]}
                 </p>
             )}

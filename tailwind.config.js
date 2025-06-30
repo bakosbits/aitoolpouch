@@ -11,9 +11,9 @@ module.exports = {
                 brandLight: "#F7F7F7",
                 apocalypse: "#39FF14",
                 grayText: "#9CA3AF",
-                headingWhite: "#FFFFFF",
+                headingWhite: "#cbcbcb", // silvery white
                 backgroundDark: "#1F2937",
-                accentGreen: "#58FF8C", // Zombie green
+                accentGreen: "#2E8B57", // sea green
                 cardDark: "#2C3340", // rich slate-gray
             },
 

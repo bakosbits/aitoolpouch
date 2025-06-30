@@ -24,19 +24,19 @@ export default function Layout({
                     <nav className="hidden lg:flex items-center space-x-6 font-semibold">
                         <Link
                             href="/"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Home
                         </Link>
                         <Link
                             href="/categories"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Categories
                         </Link>
                         <Link
                             href="/tools"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Browse All
                         </Link>
@@ -57,48 +57,48 @@ export default function Layout({
             </main>
 
             {/* Footer */}
-            <footer className="py-4  text-grayText">
+            <footer className="py-4  text-accentGreen">
                 <div className="w-full px-6 max-w-6xl mx-auto font-semibold">
                     <nav className="flex flex-wrap justify-center space-x-6">
                         <Link
                             href="/about"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             About
                         </Link>
                         <Link
                             href="/contact"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Contact
                         </Link>
                         <Link
                             href="/legal"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Legal
                         </Link>
                         <Link
                             href="/privacy"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Privacy
                         </Link>
                         <Link
                             href="/terms"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                         >
                             Terms
                         </Link>
                         <Link
                             href="/foundational-models"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150 "
                         >
                             Foundational Models
                         </Link>
                         {/* <Link
                             href="/blog"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
+                            className="text-accentGreen hover:text-headingWhite transition-colors duration-150 "
                         >
                             Blog
                         </Link> */}
