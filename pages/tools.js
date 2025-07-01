@@ -38,7 +38,6 @@ export default function ToolsPage({ tools }) {
 
     return (
         <div className="w-full lg:w-[80%] mx-auto flex flex-col items-start py-12">
-
             <div className="w-full flex justify-between items-center mb-2">
                 <h1 className="text-3xl text-headingWhite font-bold Capitalize">
                     Browsing All Tools
@@ -64,10 +63,11 @@ export default function ToolsPage({ tools }) {
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className={`px-4 py-2 rounded ${currentPage === page
-                                    ? "bg-accentGreen text-black font-bold"
-                                    : "bg-gray-700 text-white"
-                                    }`}
+                                className={`px-4 py-2 rounded ${
+                                    currentPage === page
+                                        ? "bg-accentGreen text-black font-bold"
+                                        : "bg-gray-700 text-white"
+                                }`}
                             >
                                 {page}
                             </button>

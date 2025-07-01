@@ -53,33 +53,38 @@ export default function MobileMenu({ categories = [] }) {
                     {/* Menu Links */}
                     <ul className="flex flex-col gap-6 mt-16 text-xl text-grayText">
                         <li>
-                            <Link href="/" onClick={() => setOpen(false)}
-                            className="hover:text-headingWhite"
+                            <Link
+                                href="/"
+                                onClick={() => setOpen(false)}
+                                className="hover:text-headingWhite"
                             >
                                 Home
                             </Link>
                         </li>
                         <li>
-                            <Link href="/foundational-models" onClick={() => setOpen(false)}
-                            className="hover:text-headingWhite"
+                            <Link
+                                href="/foundational-models"
+                                onClick={() => setOpen(false)}
+                                className="hover:text-headingWhite"
                             >
                                 Foundational Models
                             </Link>
-                        </li>                        
+                        </li>
                         <li>
                             <Link
                                 href="/categories"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
-                                >
+                            >
                                 Browse Categories
                             </Link>
                         </li>
                         <li>
-                            <Link href="/tools" 
+                            <Link
+                                href="/tools"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
-                                >
+                            >
                                 Browse All Tools
                             </Link>
                             {/* <Link href="/blog" 

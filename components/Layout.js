@@ -33,7 +33,7 @@ export default function Layout({
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Foundational Models
-                        </Link>                        
+                        </Link>
                         <Link
                             href="/categories"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"

@@ -23,7 +23,6 @@ export default function CategoriesPage({ categories }) {
     return (
         <div className="w-[80%] mx-auto py-12">
             <div className="flex flex-col md:flex-row items-start gap-y-12 lg:gap-x-12">
-
                 {/* Left: Image Column */}
                 <div className="w-full md:w-[35%] flex justify-center items-start">
                     <img
@@ -46,21 +45,21 @@ export default function CategoriesPage({ categories }) {
                     </h1>
                     <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[...categories]
-                        .sort((a, b) => a.name.localeCompare(b.name))
-                        .map((cat) => (
-                            <Link
-                                key={cat.id}
-                                href={`/category/${cat.slug}`}
-                                className="block bg-cardDark p-6 rounded-md"
-                            >
-                                <h2 className="text-lg text-accentGreen hover:text-headingWhite font-bold">
-                                    {cat.name}
-                                </h2>
-                                <p className=" text-grayText mt-1">
-                                    {cat.description}
-                                </p>
-                            </Link>
-                        ))}
+                            .sort((a, b) => a.name.localeCompare(b.name))
+                            .map((cat) => (
+                                <Link
+                                    key={cat.id}
+                                    href={`/category/${cat.slug}`}
+                                    className="block bg-cardDark p-6 rounded-md"
+                                >
+                                    <h2 className="text-lg text-accentGreen hover:text-headingWhite font-bold">
+                                        {cat.name}
+                                    </h2>
+                                    <p className=" text-grayText mt-1">
+                                        {cat.description}
+                                    </p>
+                                </Link>
+                            ))}
                     </div>
                 </div>
             </div>
