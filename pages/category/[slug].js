@@ -1,6 +1,7 @@
 import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
 import ToolCompareSelector from "@/components/ToolCompareSelector";
+import BackButton from "@/components/BackButton";
 
 export async function getStaticPaths() {
     const categories = await getAllCategories();
@@ -35,7 +36,7 @@ export async function getStaticProps({ params }) {
         props: {
             tools,
             category: matchingCategory.name,
-            categories, 
+            categories,
         },
         revalidate: 21600,
     };
@@ -54,16 +55,18 @@ export default function CategoryPage({ tools, category }) {
 
     return (
         <div className="max-w-6xl mx-auto py-12">
-            <h1 className="text-2xl text-headingWhite font-bold mb-8 capitalize">
-                Compare Tools for {category}
-            </h1>
+            <div className="flex justify-between items-center">
+                <h1 className="text-3xl text-headingWhite font-bold mb-2">
+                    Compare Tools for {category}
+                </h1>
+                <BackButton />
+            </div>
 
             {tools.length > 1 && (
                 <div className="mb-8">
                     <ToolCompareSelector tools={tools} />
                 </div>
             )}
-
             <div className="w-full">
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {sortedTools.map((tool) => (

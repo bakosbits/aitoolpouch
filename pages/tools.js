@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getAllTools } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
+import BackButton from "@/components/BackButton";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -37,10 +38,13 @@ export default function ToolsPage({ tools }) {
 
     return (
         <div className="w-full lg:w-[80%] mx-auto flex flex-col items-start py-12">
-            {/* <div className="max-w-6xl mx-auto py-12"> */}
-            <h1 className="text-3xl text-headingWhite font-bold mb-6 capitalize">
-                Browsing All Tools
-            </h1>
+
+            <div className="w-full flex justify-between items-center mb-2">
+                <h1 className="text-3xl text-headingWhite font-bold Capitalize">
+                    Browsing All Tools
+                </h1>
+                <BackButton />
+            </div>
 
             <div className="w-full">
                 <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -61,8 +65,8 @@ export default function ToolsPage({ tools }) {
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
                                 className={`px-4 py-2 rounded ${currentPage === page
-                                        ? "bg-accentGreen text-black font-bold"
-                                        : "bg-gray-700 text-white"
+                                    ? "bg-accentGreen text-black font-bold"
+                                    : "bg-gray-700 text-white"
                                     }`}
                             >
                                 {page}

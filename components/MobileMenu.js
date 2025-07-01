@@ -60,12 +60,19 @@ export default function MobileMenu({ categories = [] }) {
                             </Link>
                         </li>
                         <li>
+                            <Link href="/foundational-models" onClick={() => setOpen(false)}
+                            className="hover:text-headingWhite"
+                            >
+                                Foundational Models
+                            </Link>
+                        </li>                        
+                        <li>
                             <Link
                                 href="/categories"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
                                 >
-                                Categories
+                                Browse Categories
                             </Link>
                         </li>
                         <li>
@@ -73,8 +80,14 @@ export default function MobileMenu({ categories = [] }) {
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
                                 >
-                                Browse All
+                                Browse All Tools
                             </Link>
+                            {/* <Link href="/blog" 
+                                onClick={() => setOpen(false)}
+                                className="hover:text-headingWhite"
+                                >
+                                Blog
+                            </Link>                             */}
                         </li>
                     </ul>
                 </nav>

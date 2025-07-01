@@ -29,7 +29,7 @@ export default function CategoriesPage({ categories }) {
                     <img
                         src="/images/wrench1.webp"
                         style={{
-                            filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",
+                            filter: "saturate(110%) brightness(.85) contrast(1)",
                         }}
                         alt="AI Wrenches"
                         className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
@@ -41,7 +41,7 @@ export default function CategoriesPage({ categories }) {
 
                 {/* Right: Content Column */}
                 <div className="w-full md:w-[53%]">
-                    <h1 className="text-2xl text-headingWhite font-bold mt-6 mb-8 ">
+                    <h1 className="text-3xl text-headingWhite font-bold mt-6 mb-8 ">
                         Explore Our Categories
                     </h1>
                     <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -29,6 +29,12 @@ export default function Layout({
                             Home
                         </Link>
                         <Link
+                            href="/foundational-models"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                        >
+                            Foundational Models
+                        </Link>                        
+                        <Link
                             href="/categories"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
@@ -38,8 +44,14 @@ export default function Layout({
                             href="/tools"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
-                            Browse All
+                            All Tools
                         </Link>
+                        {/* <Link
+                            href="/blog"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                        >
+                            Blog
+                        </Link>                         */}
                     </nav>
 
                     {/* Mobile Menu Toggle */}
@@ -90,18 +102,6 @@ export default function Layout({
                         >
                             Terms
                         </Link>
-                        <Link
-                            href="/foundational-models"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
-                        >
-                            Foundational Models
-                        </Link>
-                        {/* <Link
-                            href="/blog"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150 "
-                        >
-                            Blog
-                        </Link> */}
                     </nav>
                 </div>
             </footer>

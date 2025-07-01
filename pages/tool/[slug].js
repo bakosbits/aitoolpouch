@@ -42,14 +42,13 @@ export default function ToolPage({ tool }) {
                     <img
                         src="/images/wrench1.webp"
                         style={{
-                            filter: 'grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)',
+                            filter: 'saturate(110%) brightness(0.95) contrast(1)',
                         }}
                         alt="AI Wrenches"
                         className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
                     />
 
-                    {/* Spacer */}
-                    <p className="text-headingWhite mt-12 mb-2"></p>
+
 
                     <p className="text-headingWhite mt-12 mb-4">
                         {tool.Name} Can Be Found In The Following Categories:
@@ -85,13 +84,11 @@ export default function ToolPage({ tool }) {
 
 
                     {/* Flex container with left/right items on same row */}
-                    <div className="flex justify-between items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold mb-2">
+                    <div className="flex justify-between items-center mb-2">
+                        <h1 className="text-3xl text-headingWhite font-bold ">
                             Reviewing {tool.Name}
-                        </h1>
-                      
+                        </h1>                
                             <BackButton />
-                    
                     </div>
                     <ToolDetailCard tool={tool} />
                 </div>

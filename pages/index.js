@@ -49,9 +49,9 @@ export default function Home({ tools }) {
                             your search to something that best fits your needs. Here you'll find answers to three key questions:
                         </p>
                         <ul className="text-grayText">
-                            <li>1. <strong>Who</strong> is it for.</li>
-                            <li>2. <strong>What</strong> does it do.</li>
-                            <li>3. <strong>Why</strong> does it matter.</li>
+                            <li>1. <strong>Who</strong> is it for?</li>
+                            <li>2. <strong>What</strong> does it do?</li>
+                            <li>3. <strong>Why</strong> does it matter?</li>
                         </ul>
 
                         <p className="text-grayText mt-6 mb-4">
@@ -82,10 +82,10 @@ export default function Home({ tools }) {
                 <div className="w-full lg:w-1/2 flex justify-center px-2">
                     <div className="w-full max-w-full lg:max-w-[600px]">
                         <img
-                            src="/images/wrench1.webp"
+                            src="/images/toolbox.webp"
                             style={{
                                 transform: "scaleX(-1)",
-                                filter: "grayscale(.7) saturate(110%) brightness(0.95) contrast(0.98)",
+                                filter: "saturate(110%) brightness(0.95) contrast(1)",
                             }}
                             alt="AI Wrenches"
                             className="object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
