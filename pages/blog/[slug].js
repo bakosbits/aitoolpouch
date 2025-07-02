@@ -1,5 +1,8 @@
+import { getAllArticles } from "@/lib/airtable";
+
 export async function getStaticPaths() {
-  const posts = await getAllPublishedPosts(); // e.g., from Airtable
+  const posts = await getAllArticles(); // e.g., from Airtable
+
 
   if (!posts || posts.length === 0) {
     return {
@@ -17,7 +20,6 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
 
 export async function getStaticProps({ params }) {
     const articles = await getAllArticles();
