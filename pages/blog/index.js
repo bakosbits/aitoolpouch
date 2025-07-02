@@ -1,15 +1,15 @@
-// import Link from "next/link";
-// import { getAllArticles } from "@/lib/airtable";
+import Link from "next/link";
+import { getAllArticles } from "@/lib/airtable";
 
-// export async function getStaticProps() {
-//     const articles = await getAllArticles();
-//     return {
-//         props: {
-//             articles,
-//         },
-//         revalidate: 21600,
-//     };
-// }
+export async function getStaticProps() {
+    const articles = await getAllArticles();
+    return {
+        props: {
+            articles,
+        },
+        revalidate: 21600,
+    };
+}
 
 export default function BlogIndex({ articles }) {
     return (
