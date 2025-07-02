@@ -51,7 +51,7 @@ export default function Layout({
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Blog
-                        </Link>                        
+                        </Link>
                     </nav>
 
                     {/* Mobile Menu Toggle */}

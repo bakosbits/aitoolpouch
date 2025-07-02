@@ -87,12 +87,13 @@ export default function MobileMenu({ categories = [] }) {
                             >
                                 Browse All Tools
                             </Link>
-                            <Link href="/blog" 
+                            <Link
+                                href="/blog"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
-                                >
+                            >
                                 Blog
-                            </Link>                            
+                            </Link>
                         </li>
                     </ul>
                 </nav>
