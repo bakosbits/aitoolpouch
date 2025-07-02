@@ -16,9 +16,9 @@ export default function BlogIndex({ articles }) {
     return (
         <div className="w-full max-w-5xl mx-auto px-6 py-16">
             <h1 className="text-3xl md:text-4xl font-bold text-headingWhite mb-8">
-                The Voice Of Reason
+                Comming Soon
             </h1>
-            <ul className="space-y-6">
+            {/* <ul className="space-y-6">
                 {articles.map((article) => (
                     <li
                         key={article.id}
@@ -40,6 +40,6 @@ export default function BlogIndex({ articles }) {
                     </li>
                 ))}
             </ul>
-        </div>
+        </div> */}
     );
 }

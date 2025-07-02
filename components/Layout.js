@@ -46,12 +46,12 @@ export default function Layout({
                         >
                             All Tools
                         </Link>
-                        {/* <Link
+                        <Link
                             href="/blog"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Blog
-                        </Link>                         */}
+                        </Link>                        
                     </nav>
 
                     {/* Mobile Menu Toggle */}
