@@ -22,6 +22,7 @@ export async function getStaticPaths() {
     };
 }
 
+
 export async function getStaticProps({ params }) {
     const articles = await getAllArticles();
     const article = articles.find((a) => a.slug === params.slug);
