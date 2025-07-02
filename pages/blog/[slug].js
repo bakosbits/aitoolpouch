@@ -1,24 +1,21 @@
 import { getAllArticles } from "@/lib/airtable";
 
 export async function getStaticPaths() {
-  const posts = await getAllArticles(); // e.g., from Airtable
+  const articles = await getAllArticles();
 
-    if (!posts || posts.length === 0) {
+    if (!articles || articles.length === 0) {
         return {
         paths: [],
         fallback: false // or 'blocking' if preferred
     };
 }
 
-    const paths = articles
-        .filter((article) => article.slug)
-        .map((article) => ({
-            params: { slug: article.slug },
-        }));
+  const paths = articles && articles.length
+    ? articles.map((article) => ({ params: { slug: article.slug } }))
+    : [];
 
     return {
         paths,
-        paths ,
         fallback: false,
     };
 }
