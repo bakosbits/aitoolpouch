@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   if (!posts || posts.length === 0) {
     return {
       paths: [],
-      fallback: false, // Prevents dynamic generation of slugs
+      fallback: false,
     };
   }
 
