@@ -14,6 +14,8 @@ export async function getStaticPaths() {
     ? posts.map((post) => ({ params: { slug: post.slug } }))
     : [];
 
+    console.log('🛠 Blog paths being built:', paths)
+
     return {
         paths,
         fallback: false,
