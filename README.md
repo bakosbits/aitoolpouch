@@ -2,7 +2,8 @@
 
 A professionally structured directory of AI tools, organized by profession and use case.
 
-![image](https://github.com/user-attachments/assets/d46516f9-f467-468a-ba13-836103dae58c)
+![image](https://github.com/user-attachments/assets/4828a5d0-01d1-45d3-aab2-33456b6bd869)
+
 
 Built with:
 
@@ -20,6 +21,8 @@ Built with:
 - Airtable integration ready (just add your `.env.local`)
 - Fully responsive and fast-loading
 - Easy to deploy to Vercel, Netlify, or Render
+
+![image](https://github.com/user-attachments/assets/5ca7ca32-2e94-47ba-bdd9-1f359d5587c2)
 
 ---
 
