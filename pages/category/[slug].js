@@ -54,23 +54,23 @@ export default function CategoryPage({ tools, category }) {
     );
 
     return (
-        <div className="max-w-6xl mx-auto py-12">
-            <div className="flex justify-between items-center">
-                <h1 className="text-3xl text-headingWhite font-bold mb-2">
+        <div className="max-w-6xl mx-auto">
+            <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
+                <h1 className="text-3xl text-headingWhite font-bold">
                     Compare Tools for {category}
                 </h1>
                 <BackButton />
             </div>
 
             {tools.length > 1 && (
-                <div className="mb-8">
+                <div className="mb-6">
                     <ToolCompareSelector tools={tools} />
                 </div>
             )}
             <div className="w-full">
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                     {sortedTools.map((tool) => (
-                        <li key={tool.Name}>
+                        <li key={tool.Name} className="h-full">
                             <ToolCard tool={tool} />
                         </li>
                     ))}

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 
 export default function FoundationalModelsPage() {
     return (
-        <div className="max-w-6xl mx-auto w-full py-12">
+        <div className="max-w-5xl mx-auto w-full">
             <h1 className="text-3xl text-headingWhite font-bold mb-6">
                 Foundational Models: Understanding the Core of Modern AI
             </h1>
@@ -172,7 +172,7 @@ export default function FoundationalModelsPage() {
             </p>
             <div className="flex items-center space-x-4">
                 <img
-                    src="/logos/dall·e.webp"
+                    src="/logos/openai.webp"
                     alt="DALL-E logo"
                     className="h-10 w-10 object-contain"
                 />

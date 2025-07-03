@@ -52,13 +52,11 @@ ${message}
             to: email,
             subject: `Thanks for contacting AI Tool Pouch!`,
             text: `Hi ${name},
+                Thanks for reaching out - your message has been received and we'll be in touch shortly.
 
-Thanks for reaching out — your message has been received and we'll be in touch shortly.
+                If this wasn’t you, feel free to ignore this email.
 
-If this wasn’t you, feel free to ignore this email.
-
-— The AI Tool Pouch Team
-                `,
+                - The AI Tool Pouch Team`,
         });
 
         return res.status(200).json({ success: true });

@@ -13,7 +13,7 @@ export async function getStaticProps() {
 
 export default function BlogIndex({ posts }) {
     return (
-        <div className="w-full max-w-5xl mx-auto px-6 py-16">
+        <div className="w-full max-w-5xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-headingWhite mb-8">
                 Bit by Bit
             </h1>
@@ -32,13 +32,11 @@ export default function BlogIndex({ posts }) {
                             {post.date}
                         </p>
                         {post.summary && (
-                            <p className="text-grayText mt-2">
-                                {post.summary}
-                            </p>
+                            <p className="text-grayText mt-2">{post.summary}</p>
                         )}
                     </li>
                 ))}
             </ul>
-        </div> 
+        </div>
     );
 }

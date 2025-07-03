@@ -33,69 +33,35 @@ export default function ToolPage({ tool }) {
         : [];
 
     return (
-        <div className="w-[80%] mx-auto py-12">
-            <div className="flex flex-col md:flex-row items-start gap-10">
-                {/* Left: Image + Caption Column */}
-                <div className="w-full md:w-[35%] flex flex-col items-center text-center">
-                    <img
-                        src="/images/wrench1.webp"
-                        style={{
-                            filter: "saturate(110%) brightness(0.95) contrast(1)",
-                        }}
-                        alt="AI Wrenches"
-                        className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
-                    />
-
-                    <p className="text-headingWhite mt-12 mb-4">
-                        {tool.Name} Can Be Found In The Following Categories:
-                    </p>
-
-                    <p className="text-headingWhite">
-                        {" "}
-                        {tool.Categories && tool.Categories.length > 0
-                            ? tool.Categories.map((cat, idx) => (
-                                  <span key={cat.slug || cat.name}>
-                                      <Link
-                                          href={`/category/${cat.slug || cat.name.toLowerCase()}`}
-                                          className="text-accentGreen hover:text-headingWhite"
-                                      >
-                                          {cat.name}
-                                      </Link>
-                                      {idx < tool.Categories.length - 1
-                                          ? ", "
-                                          : ""}
-                                  </span>
-                              ))
-                            : "Uncategorized"}
-                    </p>
-                    <p className="text-grayText mt-4 mb-12">
-                        We encourage you to visit our
-                        <a
-                            href={`/categories`}
-                            className="text-accentGreen hover:text-headingWhite"
-                        >
-                            {" "}
-                            categories{" "}
-                        </a>
-                        page. There you'll be able to research differnt
-                        categories and compare similar tools side-by-side.
-                    </p>
-                </div>
-
-                {/* Spacer */}
-                <div className="hidden md:block w-[2%]" />
-
-                {/* Right: Content Column */}
-                <div className="w-full md:w-[53%]">
-                    {/* Flex container with left/right items on same row */}
-                    <div className="flex justify-between items-center mb-2">
+        // OUTER WRAPPER: 90% of screen width, centered
+        // <div className="w-[80%] mx-auto flex flex-col md:flex-row">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start">
+            {/* LEFT COLUMN: 60% of outer container */}
+            <div className="w-full flex justify-center">
+                {/* INNER WRAPPER: 80% of left column, padded on mobile */}
+                <div className="w-full md:w-[90%] px-4 sm:px-6 md:px-0 text-left flex flex-col">
+                    <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                         <h1 className="text-3xl text-headingWhite font-bold ">
                             Reviewing {tool.Name}
                         </h1>
                         <BackButton />
                     </div>
-                    <ToolDetailCard tool={tool} />
+                    <div>
+                        <ToolDetailCard tool={tool} />
+                    </div>
                 </div>
+            </div>
+
+            {/* Right column: image */}
+            <div className="w-full md:w-[20%]">
+                <img
+                    src={`${tool.Logo}`}
+                    style={{
+                        filter: "saturate(110%) brightness(0.95) contrast(1)",
+                    }}
+                    alt="AI Wrenches"
+                    className="object-cover rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+                />
             </div>
         </div>
     );

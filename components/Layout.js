@@ -63,8 +63,10 @@ export default function Layout({
 
             {/* Main content */}
             <main className="flex-1 w-full px-6 py-4">
-                <div className={fullWidth ? "w-full" : "max-w-6xl mx-auto "}>
-                    {children}
+                <div className="mt-4 md:mt-8 lg:mt-16 mb-6">
+                    <div className={fullWidth ? "w-full" : "max-w-6xl mx-auto"}>
+                        {children}
+                    </div>
                 </div>
             </main>
 

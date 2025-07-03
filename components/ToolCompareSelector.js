@@ -13,9 +13,9 @@ export default function ToolCompareSelector({ tools }) {
     };
 
     return (
-        <div className="bg-cardDark rounded">
-            <div className="max-w-6xl mx-auto px-4 py-4">
-                <div className="flex flex-col md:flex-row md:items-end md:space-x-4 space-y-4 md:space-y-0">
+        <div className="border border-gray-700 p-6 rounded-lg bg-cardDark">
+            <div>
+                <div className="flex flex-col md:flex-row md:items-end md:space-x-4 space-y-2 md:space-y-0">
                     <div className="flex-1">
                         <label
                             htmlFor="toolA"

@@ -37,8 +37,8 @@ export default function ToolsPage({ tools }) {
     const paginatedTools = sortedTools.slice(startIndex, endIndex);
 
     return (
-        <div className="w-full lg:w-[80%] mx-auto flex flex-col items-start py-12">
-            <div className="w-full flex justify-between items-center mb-2">
+        <div className="max-w-6xl mx-auto flex flex-col items-start">
+            <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                 <h1 className="text-3xl text-headingWhite font-bold Capitalize">
                     Browsing All Tools
                 </h1>
@@ -46,7 +46,7 @@ export default function ToolsPage({ tools }) {
             </div>
 
             <div className="w-full">
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                     {paginatedTools.map((tool) => (
                         <li key={tool.Name}>
                             <ToolCard tool={tool} />
@@ -63,11 +63,10 @@ export default function ToolsPage({ tools }) {
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className={`px-4 py-2 rounded ${
-                                    currentPage === page
+                                className={`px-4 py-2 rounded ${currentPage === page
                                         ? "bg-accentGreen text-black font-bold"
                                         : "bg-gray-700 text-white"
-                                }`}
+                                    }`}
                             >
                                 {page}
                             </button>
@@ -75,6 +74,8 @@ export default function ToolsPage({ tools }) {
                     )}
                 </div>
             )}
+
+
         </div>
     );
 }

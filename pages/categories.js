@@ -21,48 +21,34 @@ export async function getStaticProps() {
 
 export default function CategoriesPage({ categories }) {
     return (
-        <div className="w-[80%] mx-auto py-12">
-            <div className="flex flex-col md:flex-row items-start gap-y-12 lg:gap-x-12">
-                {/* Left: Image Column */}
-                <div className="w-full md:w-[35%] flex justify-center items-start">
-                    <img
-                        src="/images/wrench1.webp"
-                        style={{
-                            filter: "saturate(110%) brightness(.85) contrast(1)",
-                        }}
-                        alt="AI Wrenches"
-                        className="w-auto h-auto object-cover rounded-lg shadow-3xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
-                    />
-                </div>
+        <div className="max-w-6xl mx-auto">
+            <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
 
-                {/* Spacer */}
-                <div className="hidden md:block w-[2%]" />
-
-                {/* Right: Content Column */}
-                <div className="w-full md:w-[53%]">
-                    <h1 className="text-3xl text-headingWhite font-bold mt-6 mb-8 ">
+                    <h1 className="text-3xl text-headingWhite font-bold">
                         Explore Our Categories
                     </h1>
-                    <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[...categories]
-                            .sort((a, b) => a.name.localeCompare(b.name))
-                            .map((cat) => (
-                                <Link
-                                    key={cat.id}
-                                    href={`/category/${cat.slug}`}
-                                    className="block bg-cardDark p-6 rounded-md"
-                                >
-                                    <h2 className="text-lg text-accentGreen hover:text-headingWhite font-bold">
-                                        {cat.name}
-                                    </h2>
-                                    <p className=" text-grayText mt-1">
-                                        {cat.description}
-                                    </p>
-                                </Link>
-                            ))}
-                    </div>
-                </div>
+
             </div>
+
+            <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {[...categories]
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((cat) => (
+                        <Link
+                            key={cat.id}
+                            href={`/category/${cat.slug}`}
+                            className="block border border-gray-700 p-6 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors"
+                        >
+                            <h2 className="text-lg text-accentGreen hover:text-headingWhite font-bold mb-2">
+                                {cat.name}
+                            </h2>
+                            <p className=" text-grayText">
+                                {cat.description}
+                            </p>
+                        </Link>
+                    ))}
+            </div>
+
         </div>
     );
 }
