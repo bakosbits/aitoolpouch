@@ -91,11 +91,10 @@ export default function Home({ tools }) {
 
             {/* Right column: image */}
             <div className="w-full md:w-[40%]">
-                <div className="w-full md:w-[80%]">
+                <div className="w-full md:w-[70%]">
                     <img
                         src="/images/wrench1.webp"
                         style={{
-                            transform: "scaleX(-1)",
                             filter: "saturate(110%) brightness(0.95) contrast(1)",
                         }}
                         alt="AI Wrenches"
