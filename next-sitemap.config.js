@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: 'https://aitoolpouch.com',
-  generateRobotsTxt: true,
-}
+    siteUrl: "https://aitoolpouch.com",
+    generateRobotsTxt: true,
+};
