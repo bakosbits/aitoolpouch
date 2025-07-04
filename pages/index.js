@@ -104,7 +104,7 @@ export default function Home({ tools }) {
                         <img
                             src="/images/wrench1.webp"
                             style={{
-                                transform: scaleX(-1),
+                                transform: "scaleX(-1)",
                                 filter: "saturate(110%) brightness(0.95) contrast(1)",
                             }}
                             alt="AI Wrenches"
