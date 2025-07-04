@@ -3,16 +3,19 @@ import { getAllArticles } from "@/lib/airtable";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {
-    const posts = await getAllArticles();
+    const articles = await getAllArticles();
     return {
         props: {
-            posts,
+            articles
         },
         revalidate: 21600,
     };
 }
 
-export default function BlogIndex({ posts }) {
+export default function BlogIndex({ articles }) {
+    console.log("articles:", articles)
+    const validArticles = articles.filter((a) => a?.slug)
+
     return (
         <>
             <SeoHead
@@ -22,27 +25,27 @@ export default function BlogIndex({ posts }) {
                 }
                 url={`https://aitoolpouch.com/blog/`}
             />
-            <div className="w-full max-w-5xl mx-auto">
+            <div className="w-full max-w-4xl mx-auto">
                 <h1 className="text-3xl md:text-4xl font-bold text-headingWhite mb-8">
                     Bit by Bit
                 </h1>
                 <ul className="space-y-6">
-                    {posts.map((post) => (
+                    {articles.map((article) => (
                         <li
-                            key={post.id}
+                            key={article.id}
                             className="border border-gray-700 p-6 rounded-lg hover:bg-gray-800 transition-colors"
                         >
-                            <Link href={`/blog/${post.slug}`}>
+                            <Link href={`/blog/${article.slug}`}>
                                 <h2 className="text-2xl font-semibold text-accentGreen hover:underline">
-                                    {post.title}
+                                    {article.title}
                                 </h2>
                             </Link>
                             <p className="text-sm text-gray-400 mt-1">
-                                {post.date}
+                                {article.date}
                             </p>
-                            {post.summary && (
+                            {article.summary && (
                                 <p className="text-grayText mt-2">
-                                    {post.summary}
+                                    {article.summary}
                                 </p>
                             )}
                         </li>
