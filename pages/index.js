@@ -73,7 +73,7 @@ export default function Home({ tools }) {
                                     3. <strong>Why</strong> does it matter?
                                 </li>
                             </ul>
-                            <p className="text-grayText mb-2">
+                            <p className="text-grayText mb-4">
                                 You can quickly determine which tools belong in
                                 your tool pouch. Select from one of our
                                 <Link
@@ -85,7 +85,7 @@ export default function Home({ tools }) {
                                 </Link>
                                 to get started.
                             </p>
-                            <p className="text-grayText mb-2">
+                            <p className="text-grayText mb-4">
                                 ...or search for a tool that you already had in
                                 mind:
                             </p>
