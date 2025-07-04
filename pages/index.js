@@ -24,7 +24,7 @@ export default function Home({ tools }) {
                 }
                 url={`https://aitoolpouch.com/`}
             />
-            // OUTER WRAPPER: 90% of screen width, centered
+            {/* OUTER WRAPPER: 90% of screen width, centered */}
             <div className="w-full w-[90%] mx-auto flex flex-col md:flex-row gap-8">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] pt-[0%] md:pt-[5%] flex justify-center">
