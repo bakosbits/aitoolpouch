@@ -1,15 +1,23 @@
 import BackButton from "@/components/BackButton";
+import SeoHead from "@/components/SeoHead";
 export default function Custom404() {
     return (
-        <div className="flex flex-col justify-center items-center bg-backgroundDark px-6 py-20 text-center">
-            <h1 className="text-4xl font-bold mb-4 text-headingWhite">
-                Oops. Well, that doesn't seem to exist.
-            </h1>
-            <p className="mb-8 text-grayText">
-                We couldn’t locate what you were looking for. It must be a
-                glitch.
-            </p>
-            <BackButton />
-        </div>
+        <>
+            <SeoHead
+                title={`404 Not Found`}
+                description={`This page doesn’t exist or may have moved. Use the menu to explore the best AI tools by profession on AI Tool Pouch.`}
+                url={`https://aitoolpouch.com/404/`}
+            />
+            <div className="flex flex-col justify-center items-center bg-backgroundDark px-6 py-20 text-center">
+                <h1 className="text-4xl font-bold mb-4 text-headingWhite">
+                    Oops. Well, that doesn't seem to exist.
+                </h1>
+                <p className="mb-8 text-grayText">
+                    We couldn’t locate what you were looking for. It must be a
+                    glitch.
+                </p>
+                <BackButton />
+            </div>
+        </>
     );
 }

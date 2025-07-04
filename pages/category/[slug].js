@@ -2,6 +2,7 @@ import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
 import ToolCompareSelector from "@/components/ToolCompareSelector";
 import BackButton from "@/components/BackButton";
+import SeoHead from "@/components/SeoHead";
 
 export async function getStaticPaths() {
     const categories = await getAllCategories();
@@ -54,28 +55,35 @@ export default function CategoryPage({ tools, category }) {
     );
 
     return (
-        <div className="max-w-6xl mx-auto">
-            <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                <h1 className="text-3xl text-headingWhite font-bold">
-                    Compare Tools for {category}
-                </h1>
-                <BackButton />
-            </div>
-
-            {tools.length > 1 && (
-                <div className="mb-6">
-                    <ToolCompareSelector tools={tools} />
+        <>
+            <SeoHead
+                title={`AI Tools in ${category.Name}`}
+                description={`AI Tools in ${category.Name}. Research And Compare AI Tools Side By Side. Grouped By Profession.`}
+                url={`https://aitoolpouch.com/category/${category.Name}/`}
+            />
+            <div className="max-w-6xl mx-auto">
+                <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
+                    <h1 className="text-3xl text-headingWhite font-bold">
+                        Compare Tools for {category}
+                    </h1>
+                    <BackButton />
                 </div>
-            )}
-            <div className="w-full">
-                <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                    {sortedTools.map((tool) => (
-                        <li key={tool.Name} className="h-full">
-                            <ToolCard tool={tool} />
-                        </li>
-                    ))}
-                </ul>
+
+                {tools.length > 1 && (
+                    <div className="mb-6">
+                        <ToolCompareSelector tools={tools} />
+                    </div>
+                )}
+                <div className="w-full">
+                    <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+                        {sortedTools.map((tool) => (
+                            <li key={tool.Name} className="h-full">
+                                <ToolCard tool={tool} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
-        </div>
+        </>
     );
 }

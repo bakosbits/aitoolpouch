@@ -1,15 +1,5 @@
 import { getAllArticles, getArticleBySlug } from "@/lib/airtable";
-
-export default function BlogPost({ post }) {
-    if (!post) return <p>Post not found.</p>;
-
-    return (
-        <article className="prose">
-            <h1>{post.title}</h1>
-            <div>{post.content}</div>
-        </article>
-    );
-}
+import SeoHead from "@/components/SeoHead";
 
 export async function getStaticPaths() {
     const articles = await getAllArticles();
@@ -39,4 +29,23 @@ export async function getStaticProps({ params }) {
     return {
         props: { post },
     };
+}
+
+export default function BlogPost({ post }) {
+    if (!post) return <p>Post not found.</p>;
+
+    return (
+        <>
+            <SeoHead
+                title={`${post.title}`}
+                description={`${post.title}`}
+                url={`https://aitoolpouch.com/${post.Title}/`}
+            />
+
+            <article className="prose">
+                <h1>{post.title}</h1>
+                <div>{post.content}</div>
+            </article>
+        </>
+    );
 }

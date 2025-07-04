@@ -4,7 +4,6 @@ A professionally structured directory of AI tools, organized by profession and u
 
 ![image](https://github.com/user-attachments/assets/4828a5d0-01d1-45d3-aab2-33456b6bd869)
 
-
 Built with:
 
 - 🧱 **Next.js** for performance and SEO

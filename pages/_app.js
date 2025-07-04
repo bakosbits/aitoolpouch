@@ -14,9 +14,14 @@ function MyApp({ Component, pageProps }) {
         router.pathname.startsWith("/tool");
 
     return (
-        <Layout fullWidth={isFullWidth} categories={pageProps.categories || []}>
-            <Component {...pageProps} />
-        </Layout>
+        <>
+            <Layout
+                fullWidth={isFullWidth}
+                categories={pageProps.categories || []}
+            >
+                <Component {...pageProps} />
+            </Layout>
+        </>
     );
 }
 
