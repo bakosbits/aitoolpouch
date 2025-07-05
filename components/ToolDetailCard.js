@@ -18,7 +18,7 @@ export default function ToolDetailCard({ tool }) {
                     alt={`${tool.Name} logo`}
                     className="h-12 w-12 object-contain"
                 />
-                <h2 className="text-lg font-bold text-headingWhite">
+                <h2 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
                 </h2>
             </div>
@@ -74,7 +74,7 @@ export default function ToolDetailCard({ tool }) {
             )}
             <div className="mt-auto">
                 <a
-                    href={tool.Link}
+                    href={`/go/${tool.Slug}`}
                     className="flex items-center text-accentGreen hover:text-headingWhite font-medium mt-6 mb-2"
                     target="_blank"
                     rel="noopener noreferrer"

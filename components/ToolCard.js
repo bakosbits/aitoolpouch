@@ -41,7 +41,7 @@ export default function ToolCard({ tool }) {
                     Read more
                 </a>
                 <a
-                    href={`${tool.Link}`}
+                    href={`/go/${tool.Slug}`}
                     className="flex items-center text-accentGreen hover:text-headingWhite font-medium"
                     target="_blank"
                     rel="noopener noreferrer"

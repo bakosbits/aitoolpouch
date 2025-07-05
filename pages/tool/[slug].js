@@ -59,16 +59,35 @@ export default function ToolPage({ tool }) {
                         </div>
                     </div>
 
-                    {/* Right column: image */}
-                    <div className="w-full md:w-[20%]">
+                    {/* Right column: image + paragraph + categories stacked */}
+                    <div className="w-full md:w-[20%] flex flex-col items-left text-left">
                         <img
-                            src={`${tool.Logo}`}
-                            style={{
-                                filter: "saturate(110%) brightness(0.95) contrast(1)",
-                            }}
-                            alt="AI Wrenches"
-                            className="object-cover rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+                            src={tool.Logo}
+                            alt={tool.Name}
+                            className="w-auto object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
                         />
+
+                        <p className="text-headingWhite mb-2">
+                            {tool.Name} belongs to these categories:
+                        </p>
+                        <p className="text-left">
+                            {""}
+                            {tool.Categories && tool.Categories.length > 0
+                                ? tool.Categories.map((cat, idx) => (
+                                      <span key={cat.slug || cat.name}>
+                                          <Link
+                                              href={`/category/${cat.slug || cat.name.toLowerCase()}`}
+                                              className="text-left text-accentGreen hover:text-headingWhite"
+                                          >
+                                              {cat.name}
+                                          </Link>
+                                          {idx < tool.Categories.length - 1
+                                              ? ", "
+                                              : ""}
+                                      </span>
+                                  ))
+                                : "Uncategorized"}
+                        </p>
                     </div>
                 </div>
             </div>

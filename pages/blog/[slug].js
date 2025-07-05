@@ -1,6 +1,6 @@
 import { getAllArticles, getArticleBySlug } from "@/lib/airtable";
-import Head from 'next/head'
-import ReactMarkdown from 'react-markdown'
+import Head from "next/head";
+import ReactMarkdown from "react-markdown";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticPaths() {
@@ -18,7 +18,6 @@ export async function getStaticPaths() {
     };
 }
 
-
 export async function getStaticProps({ params }) {
     const articles = await getAllArticles();
     const article = articles.find((a) => a.slug === params.slug);
@@ -29,7 +28,6 @@ export async function getStaticProps({ params }) {
         },
     };
 }
-
 
 export default function BlogPost({ title, summary, content, author, date }) {
     return (
@@ -42,10 +40,10 @@ export default function BlogPost({ title, summary, content, author, date }) {
             <article>
                 <h1 className="text-4xl font-bold text-white mb-3">{title}</h1>
                 <div className="text-gray-500 text-sm mb-6">
-                By {author} • {new Date(date).toLocaleDateString()}
+                    By {author} • {new Date(date).toLocaleDateString()}
                 </div>
                 <p className="text-lg text-gray-400 italic mb-8">{summary}</p>
-                <hr className="border-gray-700 mb-8" />                
+                <hr className="border-gray-700 mb-8" />
                 <div className="prose prose-invert max-w-none">
                     <ReactMarkdown>{content}</ReactMarkdown>
                 </div>

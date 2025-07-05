@@ -6,15 +6,15 @@ export async function getStaticProps() {
     const articles = await getAllArticles();
     return {
         props: {
-            articles
+            articles,
         },
         revalidate: 21600,
     };
 }
 
 export default function BlogIndex({ articles }) {
-    console.log("articles:", articles)
-    const validArticles = articles.filter((a) => a?.slug)
+    console.log("articles:", articles);
+    const validArticles = articles.filter((a) => a?.slug);
 
     return (
         <>

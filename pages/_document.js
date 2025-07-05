@@ -4,6 +4,11 @@ export default function Document() {
     return (
         <Html lang="en">
             <Head>
+                <script
+                    defer
+                    data-domain="aitoolpouch.com"
+                    src="https://plausible.io/js/script.outbound-links.js"
+                ></script>
                 {/* Charset and Viewport (optional here; usually set in _app.js or individual pages) */}
                 <meta charSet="utf-8" />
 
