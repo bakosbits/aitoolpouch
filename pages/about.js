@@ -28,10 +28,10 @@ export default function AboutPage() {
                                 In a rapidly evolving landscape of artificial
                                 intelligence, finding valuable and relevant
                                 tools for your profession can be overwhelming.
-                                We intendto cut through the noise, providing a
+                                We intend to cut through the noise, providing a
                                 focused and reliable resource that empowers
                                 professionals to leverage AI effectively in
-                                their daily tasks. It woon't be too far off into
+                                their daily tasks. It won't be too far off into
                                 the future where every individual and business
                                 is looking to integrate AI to their daily
                                 routine. We want to help you avoid the paradox
