@@ -40,12 +40,12 @@ export default function ToolPage({ tool }) {
                 description={`Detailed Information about ${tool.Name}`}
                 url={`https://aitoolpouch.com/tool/${tool.Name}/`}
             />
-            {/* OUTER WRAPPER: 90% of screen width, centered */}
+            {/* OUTER WRAPPER: 80% of screen width, centered */}
             <div className="w-[80%] mx-auto flex flex-col md:flex-row">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start">
-                    {/* LEFT COLUMN: 60% of outer container */}
+                    {/* LEFT COLUMN: 100% of outer container */}
                     <div className="w-full flex justify-center">
-                        {/* INNER WRAPPER: 80% of left column, padded on mobile */}
+                        {/* INNER WRAPPER: 90% of left column, padded on mobile */}
                         <div className="w-full md:w-[90%] px-4 sm:px-6 md:px-0 text-left flex flex-col">
                             <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                                 <h1 className="text-3xl text-headingWhite font-bold ">
@@ -59,7 +59,7 @@ export default function ToolPage({ tool }) {
                         </div>
                     </div>
 
-                    {/* Right column: image + paragraph + categories stacked */}
+                    {/* Right column: image + categories stacked */}
                     <div className="w-full md:w-[20%] flex flex-col items-left text-left">
                         <img
                             src={tool.Logo}

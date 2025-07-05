@@ -49,7 +49,6 @@ export default function ComparePage({ toolA, toolB }) {
                 url={`https://aitoolpouch.com/compare/${toolA.Slug}/vs/${toolB.Slug}`}
             />
             <div className="max-w-6xl mx-auto">
-                {/* <div className="flex items-center justify-between"> */}
                 <div className="h-full flex items-center justify-between border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                     <h1 className="text-3xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}
@@ -58,11 +57,11 @@ export default function ComparePage({ toolA, toolB }) {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Start here */}
+                    {/* Map into the ToolCard */}
                     {[toolA, toolB].map((tool, index) => (
                         <ToolDetailCard key={index} tool={tool} />
                     ))}
-                    {/* end here */}
+                    {/* end map */}
                 </div>
             </div>
         </>

@@ -9,17 +9,17 @@ export default function LegalPage() {
                 description={`Legal and Affiliate Disclosures`}
                 url={`https://aitoolpouch.com/legal/`}
             />
-            // OUTER WRAPPER: 90% of screen width, centered
+            {/* OUTER WRAPPER: 90% of screen width, centered */}
             <div className="w-full md:w-[90%] mx-auto flex flex-col md:flex-row gap-6">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] flex justify-center">
-                    {/* INNER WRAPPER: 80% of left column, padded on mobile */}
+                    {/* INNER WRAPPER: 75% of left column, padded on mobile */}
                     <div className="w-full md:w-[75%] text-left flex flex-col">
                         <div>
                             <h1 className="text-2xl text-headingWhite font-bold mb-6">
                                 Legal & Disclosures
                             </h1>
-                            {/* Expanded Affiliate Disclosure */}
+                            {/* Affiliate Disclosure */}
                             <h2 className="text-xl text-headingWhite font-semibold mb-1">
                                 Affiliate Disclosure
                             </h2>

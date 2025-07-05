@@ -28,7 +28,7 @@ export default function Home({ tools }) {
             <div className="w-full w-[90%] mx-auto flex flex-col md:flex-row gap-8">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] pt-[0%] md:pt-[5%] flex justify-center">
-                    {/* INNER WRAPPER: 80% of left column, padded on mobile */}
+                    {/* INNER WRAPPER: 60% of left column, padded on mobile */}
                     <div className="w-full md:w-[60%] text-left flex flex-col">
                         <div>
                             <h1 className="text-headingWhite text-3xl md:text-4xl font-bold mb-4">

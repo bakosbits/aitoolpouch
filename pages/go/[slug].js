@@ -61,7 +61,7 @@ const AFFILIATE_MAP = {
     "adobe-firefly": "https://firefly.adobe.com/",
     kittl: "https://www.kittl.com/",
     "webflow-with-ai": "https://webflow.com/",
-    draftbit: "https://draftbit.com/",
+    draftbit: "https://draftbit.com?fpr=4kwpq3",
     flick: "https://www.flick.social/",
     anyword: "https://www.anyword.com/",
     postwise: "https://www.postwise.ai",
