@@ -35,7 +35,7 @@ const AFFILIATE_MAP = {
 "writesonic": "https://www.writesonic.com",
 "copy.ai": "https://www.copy.ai",
 "scalenut": "https://www.jasper.ai",
-"sudowrite": "https://www.sudowrite.com",
+"sudowrite": "https://www.sudowrite.com/?via=14830rb",
 "notion-ai": "https://www.notion.so",
 "glass-ai": "https://www.glass.health",
 "nuance-dragon-medical-one": "https://www.nuance.com",
