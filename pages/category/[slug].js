@@ -57,9 +57,9 @@ export default function CategoryPage({ tools, category }) {
     return (
         <>
             <SeoHead
-                title={`AI Tools in ${category.Name}`}
-                description={`AI Tools in ${category.Name}. Research And Compare AI Tools Side By Side. Grouped By Profession.`}
-                url={`https://aitoolpouch.com/category/${category.Name}/`}
+                title={`AI Tools in ${category}`}
+                description={`AI Tools in ${category}. Research And Compare AI Tools Side By Side. Grouped By Profession.`}
+                url={`https://aitoolpouch.com/category/${category}/`}
             />
             <div className="max-w-6xl mx-auto">
                 <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">

@@ -1,5 +1,5 @@
 import React from "react";
-import SeoHead from "@/components/SearchBar";
+import SeoHead from "@/components/SeoHead";
 
 export default function PrivacyPolicyPage() {
     return (

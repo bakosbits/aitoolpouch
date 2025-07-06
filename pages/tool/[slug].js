@@ -67,9 +67,9 @@ export default function ToolPage({ tool }) {
                             className="w-auto object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
                         />
 
-                        <p className="text-headingWhite mb-2">
-                            {tool.Name} belongs to these categories:
-                        </p>
+                        <h2 className="text-xl font-bold text-headingWhite mb-2">
+                            Found in:
+                        </h2>
                         <p className="text-left">
                             {""}
                             {tool.Categories && tool.Categories.length > 0

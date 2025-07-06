@@ -37,8 +37,6 @@ export default function AboutPage() {
                                 routine. We want to help you avoid the paradox
                                 of choice.
                             </p>
-
-                            {/* New Section: How We Curate */}
                             <h2 className="text-xl text-headingWhite font-semibold mb-1">
                                 How We Curate
                             </h2>
@@ -53,8 +51,6 @@ export default function AboutPage() {
                                 value and solve specific problems, ensuring our
                                 directory remains a high-quality resource.
                             </p>
-
-                            {/* New Section: Why Trust Us? */}
                             <h2 className="text-xl text-headingWhite font-semibold mb-1">
                                 Why Trust Us?
                             </h2>
@@ -71,13 +67,10 @@ export default function AboutPage() {
                                 commitment is always to transparency and
                                 unbiased information.
                             </p>
-
                             <p className="mb-4 text-grayText">
                                 We’re building a smarter, more practical way to
                                 explore the AI landscape.
                             </p>
-
-                            {/* Optional: Future Outlook - A small addition for a forward-looking touch */}
                             <h2 className="text-xl text-headingWhite font-semibold mb-1">
                                 Our Future
                             </h2>

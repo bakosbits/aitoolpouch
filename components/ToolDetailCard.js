@@ -13,11 +13,13 @@ export default function ToolDetailCard({ tool }) {
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             {/* Link to detail page */}
             <div className="flex items-center space-x-4 mb-4">
+                <div className="relative z-10 w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <img
-                    src={tool.Logo}
+                    src={`https://logo.clearbit.com/${tool.Domain}`}
                     alt={`${tool.Name} logo`}
                     className="h-12 w-12 object-contain"
                 />
+                </div>
                 <h2 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
                 </h2>

@@ -52,7 +52,6 @@ export default function ToolsPage({ tools }) {
                     </h1>
                     <BackButton />
                 </div>
-
                 <div className="w-full">
                     <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                         {paginatedTools.map((tool) => (
