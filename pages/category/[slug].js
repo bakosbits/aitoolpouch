@@ -63,7 +63,7 @@ export default function CategoryPage({ tools, category }) {
             />
             <div className="max-w-6xl mx-auto">
                 <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                    <h1 className="text-3xl text-headingWhite font-bold">
+                    <h1 className="text-2xl text-headingWhite font-bold">
                         Compare Tools for {category}
                     </h1>
                     <BackButton />

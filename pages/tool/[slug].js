@@ -48,7 +48,7 @@ export default function ToolPage({ tool }) {
                         {/* INNER WRAPPER: 90% of left column, padded on mobile */}
                         <div className="w-full md:w-[90%] text-left flex flex-col">
                             <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                                <h1 className="text-3xl text-headingWhite font-bold ">
+                                <h1 className="text-2xl text-headingWhite font-bold ">
                                     Reviewing {tool.Name}
                                 </h1>
                                 <BackButton />

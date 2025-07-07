@@ -48,7 +48,7 @@ export default function ToolsPage({ tools }) {
 
             <div className="max-w-6xl mx-auto flex flex-col items-start">
                 <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                    <h1 className="text-3xl text-headingWhite font-bold Capitalize">
+                    <h1 className="text-2xl text-headingWhite font-bold Capitalize">
                         Browsing All Tools
                     </h1>
                     <BackButton />
@@ -68,29 +68,6 @@ export default function ToolsPage({ tools }) {
                 totalPages={totalPages}
                 onPageChange={(page) => setCurrentPage(page)}
                 />
-
-
-                {/* Pagination Controls
-                {totalPages > 1 && (
-                    <div className="flex justify-end w-full mt-10 space-x-2">
-                        {Array.from(
-                            { length: totalPages },
-                            (_, i) => i + 1,
-                        ).map((page) => (
-                            <button
-                                key={page}
-                                onClick={() => setCurrentPage(page)}
-                                className={`px-4 py-2 rounded ${
-                                    currentPage === page
-                                        ? "bg-accentGreen text-black font-bold"
-                                        : "bg-gray-700 text-white"
-                                }`}
-                            >
-                                {page}
-                            </button>
-                        ))}
-                    </div>
-                )} */}
             </div>
         </>
     );

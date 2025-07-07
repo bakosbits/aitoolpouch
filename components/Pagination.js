@@ -23,13 +23,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   const visiblePages = getVisiblePages(currentPage, totalPages);
 
   return (
-    <div className="flex flex-wrap justify-center w-full mt-10 gap-2 px-4">
+    <div className="flex flex-wrap justify-center w-full mt-10 gap-2">
       {visiblePages.map((page, idx) => (
         <button
           key={idx}
           disabled={page === "…"}
           onClick={() => typeof page === "number" && onPageChange(page)}
-          className={`px-4 py-2 rounded text-sm min-w-[40px] text-center ${
+          className={`py-2 rounded text-sm min-w-[40px] text-center ${
             page === currentPage
               ? "bg-accentGreen text-black font-bold"
               : page === "…"

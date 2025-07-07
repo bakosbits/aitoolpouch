@@ -50,7 +50,7 @@ export default function ComparePage({ toolA, toolB }) {
             />
             <div className="max-w-6xl mx-auto">
                 <div className="h-full flex items-center justify-between border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                    <h1 className="text-3xl text-headingWhite font-bold">
+                    <h1 className="text-2xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}
                     </h1>
                     <BackButton />

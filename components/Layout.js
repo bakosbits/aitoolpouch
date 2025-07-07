@@ -72,7 +72,7 @@ export default function Layout({
 
             {/* Footer */}
             <footer className="py-4  text-grayText">
-                <div className="w-full px-6 max-w-6xl mx-auto font-semibold">
+                <div className="w-full px-0 md:px-6 max-w-6xl mx-auto font-semibold">
                     <nav className="flex flex-wrap justify-center space-x-6">
                         <Link
                             href="/about"
