@@ -4,6 +4,7 @@ import { getAllTools } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
 import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
+import Pagination from "@/components/Pagination";
 
 const ITEMS_PER_PAGE = 12;
 
@@ -62,7 +63,14 @@ export default function ToolsPage({ tools }) {
                     </ul>
                 </div>
 
-                {/* Pagination Controls */}
+                <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={(page) => setCurrentPage(page)}
+                />
+
+
+                {/* Pagination Controls
                 {totalPages > 1 && (
                     <div className="flex justify-end w-full mt-10 space-x-2">
                         {Array.from(
@@ -82,7 +90,7 @@ export default function ToolsPage({ tools }) {
                             </button>
                         ))}
                     </div>
-                )}
+                )} */}
             </div>
         </>
     );

@@ -41,12 +41,12 @@ export default function ToolPage({ tool }) {
                 url={`https://aitoolpouch.com/tool/${tool.Name}/`}
             />
             {/* OUTER WRAPPER: 80% of screen width, centered */}
-            <div className="w-[80%] mx-auto flex flex-col md:flex-row">
-                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start">
+            <div className="w-full md:w-[80%] mx-auto flex flex-col md:flex-row">
+                <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start gap-6">
                     {/* LEFT COLUMN: 100% of outer container */}
                     <div className="w-full flex justify-center">
                         {/* INNER WRAPPER: 90% of left column, padded on mobile */}
-                        <div className="w-full md:w-[90%] px-4 sm:px-6 md:px-0 text-left flex flex-col">
+                        <div className="w-full md:w-[90%] text-left flex flex-col">
                             <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                                 <h1 className="text-3xl text-headingWhite font-bold ">
                                     Reviewing {tool.Name}
