@@ -21,7 +21,7 @@ export default function FoundationalModelsPage() {
                 url={`https://aitoolpouch.com/foundational-models/`}
             />
             <div className="max-w-5xl mx-auto w-full">
-                <h1 className="text-3xl text-headingWhite font-bold mb-6">
+                <h1 className="text-2xl text-headingWhite font-bold mb-6">
                     Foundational Models: Understanding the Core of Modern AI
                 </h1>
 
@@ -37,17 +37,15 @@ export default function FoundationalModelsPage() {
                 </p>
 
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">                    
-                    <img
-                        src="/logos/openai.webp"
-                        alt="GPT logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/openai.webp"
+                            alt="GPT logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             1. GPT (OpenAI)
-                        </h1>
+                        </h1>                        
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -69,17 +67,15 @@ export default function FoundationalModelsPage() {
                     tasks without task-specific training.
                 </p>
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">                      
-                    <img
-                        src="/logos/claude.webp"
-                        alt="GPT logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/claude.webp"
+                            alt="GPT logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             2. Claude
-                        </h1>
+                        </h1>                        
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -100,17 +96,15 @@ export default function FoundationalModelsPage() {
                     tools that emphasize ethical or instructable behavior.
                 </p>
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">  
-                    <img
-                        src="/logos/gemini.webp"
-                        alt="Gemini logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/gemini.webp"
+                            alt="Gemini logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             3. Gemini (Formerly Bard)
-                        </h1>
+                        </h1>                        
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -130,15 +124,13 @@ export default function FoundationalModelsPage() {
                     existing workflows.
                 </p>
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">                      
-                    <img
-                        src="/logos/mistral.webp"
-                        alt="Mistral logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/mistral.webp"
+                            alt="Mistral logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             4. Mistral
                         </h1>
                     </div>
@@ -160,15 +152,13 @@ export default function FoundationalModelsPage() {
                     cutting-edge AI without requiring a proprietary ecosystem.
                 </p>
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">                      
-                    <img
-                        src="/logos/meta.webp"
-                        alt="LLaMA logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/meta.webp"
+                            alt="LLaMA logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             5. LLaMA (Large Language Model Meta AI)
                         </h1>
                     </div>
@@ -190,15 +180,13 @@ export default function FoundationalModelsPage() {
                     commercial applications.
                 </p>
                 <div className="flex items-center space-x-4">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center mb-4">                      
-                    <img
-                        src="/logos/openai.webp"
-                        alt="DALL-E logo"
-                        className="h-12 w-12 object-contain"
-                    />
-                    </div>
-                    <div className="h-16 flex items-center">
-                        <h1 className="text-2xl text-headingWhite font-bold leading-none">
+                    <div className="flex items-center justify-center space-x-4 mb-4">
+                        <img
+                            src="/logos/openai.webp"
+                            alt="DALL-E logo"
+                            className="h-12 w-12 object-contain"
+                        />
+                        <h1 className="text-xl text-headingWhite font-bold leading-none">
                             6. DALL·E
                         </h1>
                     </div>
@@ -220,7 +208,7 @@ export default function FoundationalModelsPage() {
                     generate images, audio, and video.
                 </p>
 
-                <h1 className="text-2xl mt-8 text-headingWhite font-bold leading-none">
+                <h1 className="text-xl mt-8 text-headingWhite font-bold leading-none">
                     Why Foundational Models Matter
                 </h1>
                 <p className="mt-4 mb-4">

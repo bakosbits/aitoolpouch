@@ -77,6 +77,10 @@ export default function ToolsPage({ tools }) {
     const endIndex = startIndex + ITEMS_PER_PAGE;
     const paginatedTools = filteredTools.slice(startIndex, endIndex);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [currentPage]);
+
     const isSearch = query.trim() !== '';
 
     return (
@@ -88,17 +92,16 @@ export default function ToolsPage({ tools }) {
             />
 
             <div className="max-w-6xl mx-auto flex flex-col items-start">
-                <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
-                    <h1 className="text-2xl text-headingWhite font-bold Capitalize">
-                        {isSearch ? `Search Results for "${query}"` : 'Browsing All Tools'}
-                    </h1>
-                    <BackButton />
+                <div className="w-full mb-6">
+                    <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
                 </div>
                 <div className="w-full mb-6">
                     < SearchBar tools={tools} />
                 </div>
-                <div className="w-full mb-6">
-                    <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
+                <div className="w-full flex justify-between items-center  mb-6">
+                    <h1 className="text-2xl text-headingWhite font-bold">
+                        {isSearch ? `Search Results for "${query}"` : 'Browsing All Tools'}
+                    </h1>
                 </div>
                 <div className="w-full">
                     <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">

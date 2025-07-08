@@ -1,18 +1,16 @@
-import Link from "next/link";
-
 export default function ToolCard({ tool, compareList = [], toggleCompare }) {
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             <div className="flex items-center space-x-4 mb-2">
                 <img
-                    src={`https://cdn.brandfetch.io/${tool.Domain}?c=1id03xd53EDa-VjPpgF`}
+                    src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
                     alt={`${tool.Name} logo`}
                     className="h-14 w-14 object-contain"
                 />
 
-                <h2 className="text-2xl font-bold text-headingWhite">
+                <h1 className="text-xl font-bold text-headingWhite">
                     {tool.Name}
-                </h2>
+                </h1>
             </div>
 
             {tool["Base Model"] && (
@@ -27,18 +25,18 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                     : tool.Description}
             </p>
 
-            <h2 className="text-xl text-headingWhite font-bold">
+            <h1 className="text-xl text-headingWhite font-bold">
                 Why it matters:
-            </h2>
+            </h1>
             <p className=" text-grayText mb-4">
                 {tool.Why?.length > 100
                     ? tool.Why.slice(0, 100) + "..."
                     : tool.Why}
             </p>
-            <div className="mt-auto">
+            <div className="mt-auto text-sm">
                 <a
                     href={`/tool/${tool.Slug}`}
-                    className="flex items-center text-accentGreen hover:text-headingWhite font-medium mb-2"
+                    className="flex items-center text-sm text-accentGreen hover:text-headingWhite mb-2"
                     rel="noopener noreferrer"
                 >
                     <svg
@@ -51,7 +49,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                 </a>
                 <a
                     href={`/go/${tool.Slug}`}
-                    className="flex items-center text-accentGreen hover:text-headingWhite font-medium mb-2"
+                    className="flex items-center text-sm text-accentGreen hover:text-headingWhite mb-2"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -69,7 +67,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         checked={compareList.some((t) => t.id === tool.id)}
                         onChange={() => toggleCompare(tool)}
                     />
-                    <span className="text-accentGreen font-medium">Compare</span>
+                    <span className="text-sm text-accentGreen">Compare</span>
                 </label>
             </div>
         </div>

@@ -40,13 +40,13 @@ export default function Home({ tools, latestTools }) {
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
                     <div className="w-full md:w-[60%] text-left flex flex-col">
                         <div>
-                            <h1 className="text-headingWhite text-3xl md:text-4xl font-bold mb-4">
+                            <h1 className="text-headingWhite text-3xl font-bold mb-4">
                                 Welcome
                             </h1>
                             <p className="text-grayText mb-2">
                                 You can't help but notice the endless sea of AI
                                 driven tools in the market today. It's no
-                                suprise that many of us end up feeling
+                                surprise that many of us end up feeling
                                 overwhelmed when deciding on the right AI tool.
                             </p>
                             <p className="text-grayText mb-4">
@@ -58,7 +58,7 @@ export default function Home({ tools, latestTools }) {
                                 a format that enables you to make quick, well
                                 informed choices.
                             </p>
-                            <h1 className="text-headingWhite text-xl md:text-xl font-bold mb-4">
+                            <h1 className="text-headingWhite text-xl font-bold mb-4">
                                 Discover powerful AI tools tailored to your
                                 profession.
                             </h1>
@@ -91,7 +91,7 @@ export default function Home({ tools, latestTools }) {
                         <div className="mb-6">
                             <SearchBar tools={tools} />
                         </div>
-                            <h1 className="text-headingWhite text-xl md:text-xl font-bold mb-4">
+                            <h1 className="text-headingWhite text-xl font-bold mb-4">
                                 Latest Additions:
                             </h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

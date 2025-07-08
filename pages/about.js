@@ -21,9 +21,9 @@ export default function AboutPage() {
                             <h1 className="text-2xl text-headingWhite font-semibold mb-6">
                                 About AI Tool Pouch
                             </h1>
-                            <h2 className="text-xl text-headingWhite font-semibold mb-1">
+                            <h1 className="text-xl text-headingWhite font-semibold mb-1">
                                 Our Mission & Vision
-                            </h2>
+                            </h1>
                             <p className="mb-4 text-grayText">
                                 In a rapidly evolving landscape of artificial
                                 intelligence, finding valuable and relevant
@@ -37,9 +37,9 @@ export default function AboutPage() {
                                 routine. We want to help you avoid the paradox
                                 of choice.
                             </p>
-                            <h2 className="text-xl text-headingWhite font-semibold mb-1">
+                            <h1 className="text-xl text-headingWhite font-semibold mb-1">
                                 How We Curate
-                            </h2>
+                            </h1>
                             <p className="mb-4 text-grayText">
                                 Our process is straightforward. We tear into
                                 each tool by assessing its core functionality,
@@ -51,9 +51,9 @@ export default function AboutPage() {
                                 value and solve specific problems, ensuring our
                                 directory remains a high-quality resource.
                             </p>
-                            <h2 className="text-xl text-headingWhite font-semibold mb-1">
+                            <h1 className="text-xl text-headingWhite font-semibold mb-1">
                                 Why Trust Us?
-                            </h2>
+                            </h1>
                             <p className="mb-4 text-grayText">
                                 All tools are independently researched and
                                 categorized by us. The reviews and
@@ -71,9 +71,9 @@ export default function AboutPage() {
                                 We’re building a smarter, more practical way to
                                 explore the AI landscape.
                             </p>
-                            <h2 className="text-xl text-headingWhite font-semibold mb-1">
+                            <h1 className="text-xl text-headingWhite font-semibold mb-1">
                                 Our Future
-                            </h2>
+                            </h1>
                             <p className="mb-4 text-grayText">
                                 As the world of AI continues to evolve, so too
                                 will AI Tool Pouch. We will continue to add new
@@ -90,7 +90,7 @@ export default function AboutPage() {
                 <div className="w-full md:w-[40%]">
                     <div className="w-full md:w-[75%]">
                         <img
-                            src="/images/wrench2.webp"
+                            src="/images/wrench1.webp"
                             style={{
                                 filter: "saturate(110%) brightness(0.95) contrast(0.98)",
                             }}

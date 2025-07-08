@@ -9,7 +9,9 @@ export default function MiniToolCard({ tool }) {
                     alt={tool.Name}
                     className="w-10 h-10 object-contain mb-4"
                 />
-                <h2 className="text-lg font-bold text-headingWhite mb-4">{tool.Name}</h2>
+                <h1 className="text-lg font-bold text-headingWhite mb-4">
+                    {tool.Name}
+                </h1>
             </div>
 
             <p className="text-sm text-whiteText mb-4">
@@ -17,11 +19,11 @@ export default function MiniToolCard({ tool }) {
                     ? tool.Description.slice(0, 100) + "..."
                     : tool.Description}
             </p>
-            <div className="flex-grow"></div>
-            <div>
+
+            <div className="mt-auto">
                 <a
                     href={`/tool/${tool.Slug}`}
-                    className="text-sm flex items-center text-accentGreen hover:text-headingWhite"
+                    className="text-xs flex items-center text-accentGreen hover:text-headingWhite"
                     rel="noopener noreferrer"
                 >
                     Read more

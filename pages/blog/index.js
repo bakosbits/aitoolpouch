@@ -26,7 +26,7 @@ export default function BlogIndex({ articles }) {
                 url={`https://aitoolpouch.com/blog/`}
             />
             <div className="w-full max-w-4xl mx-auto">
-                <h1 className="text-3xl md:text-4xl font-bold text-headingWhite mb-8">
+                <h1 className="text-2xl md:text-2xl font-bold text-headingWhite mb-8">
                     Bit by Bit
                 </h1>
                 <ul className="space-y-6">
@@ -36,11 +36,11 @@ export default function BlogIndex({ articles }) {
                             className="border border-gray-700 p-6 rounded-lg hover:bg-gray-800 transition-colors"
                         >
                             <Link href={`/blog/${article.slug}`}>
-                                <h2 className="text-2xl font-semibold text-accentGreen hover:underline">
+                                <h1 className="text-xl font-semibold text-accentGreen hover:underline">
                                     {article.title}
-                                </h2>
+                                </h1>
                             </Link>
-                            <p className="text-sm text-gray-400 mt-1">
+                            <p className="text-gray-400 text-xs mt-1">
                                 {article.date}
                             </p>
                             {article.summary && (

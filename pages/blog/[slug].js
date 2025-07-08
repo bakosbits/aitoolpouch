@@ -38,11 +38,11 @@ export default function BlogPost({ title, summary, content, author, date }) {
                 url={`https://aitoolpouch.com/blog/`}
             />
             <article>
-                <h1 className="text-4xl font-bold text-white mb-3">{title}</h1>
-                <div className="text-gray-500 text-sm mb-6">
+                <h1 className="text-2xl font-bold text-white mb-3">{title}</h1>
+                <div className="text-gray-500 text-xs mb-6">
                     By {author} • {new Date(date).toLocaleDateString()}
                 </div>
-                <p className="text-lg text-gray-400 italic mb-8">{summary}</p>
+                <p className="text-gray-400 italic mb-8">{summary}</p>
                 <hr className="border-gray-700 mb-8" />
                 <div className="prose prose-invert max-w-none">
                     <ReactMarkdown>{content}</ReactMarkdown>

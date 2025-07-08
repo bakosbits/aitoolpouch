@@ -1,27 +1,33 @@
 export default function DetailToolCard({ tool }) {
-    const featuresText = tool.Features; // assuming "Features" is the Airtable field name
+
+    const featuresText = tool.Features;
     const featuresList = featuresText
         .split("\n")
         .filter((line) => line.trim() !== "");
-    const cautionsText = tool.Cautions; // assuming "Features" is the Airtable field name
+
+    const cautionsText = tool.Cautions;
     const cautionsList = cautionsText
         .split("\n")
         .filter((line) => line.trim() !== "");
+
     const pricingList = Array.isArray(tool.Pricing) ? tool.Pricing : [];
+    const formattedPricing = pricingList.length > 1
+        ? pricingList.slice(0, -1).join(', ') + ' and ' + pricingList[pricingList.length - 1]
+        : pricingList[0];
 
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             {/* Link to detail page */}
             <div className="flex items-center space-x-4 mb-4">
                 <img
-                    src={`https://cdn.brandfetch.io/${tool.Domain}?c=1id03xd53EDa-VjPpgF`}
+                    src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
                     alt={`${tool.Name} logo`}
                     className="h-14 w-14 object-contain"
                 />
 
-                <h2 className="text-2xl font-bold text-headingWhite">
+                <h1 className="text-xl font-bold text-headingWhite">
                     {tool.Name}
-                </h2>
+                </h1>
             </div>
 
             {tool["Base Model"] && (
@@ -31,52 +37,46 @@ export default function DetailToolCard({ tool }) {
             )}
             <p className="text-grayText mb-4">{tool.Description}</p>
 
-            <h2 className="text-xl text-headingWhite font-bold mb-1">
+            <h1 className="text-xl text-headingWhite font-bold mb-1">
                 Why it matters:
-            </h2>
+            </h1>
             <p className="text-grayText mb-4">{tool.Why}</p>
-            <h2 className="text-xl text-headingWhite font-bold mb-1">
+            <h1 className="text-xl text-headingWhite font-bold mb-1">
                 Details:
-            </h2>
+            </h1>
             <p className="text-grayText mb-4">{tool.Details}</p>
-            <h2 className="text-xl text-headingWhite font-bold mb-1">
+            <h1 className="text-xl text-headingWhite font-bold mb-1">
                 Top Features:
-            </h2>
+            </h1>
             <ul className="list-disc ml-6 space-y-2 text-grayText mb-4">
                 {featuresList.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ul>
-            <h2 className="text-xl text-headingWhite font-bold mb-1">
+            <h1 className="text-xl text-headingWhite font-bold mb-1">
                 Top Cautions:
-            </h2>
+            </h1>
             <ul className="list-disc ml-6 space-y-2 text-grayText mb-4">
                 {cautionsList.map((item, index) => (
                     <li key={index}>{item}</li>
                 ))}
             </ul>
-            <h2 className="text-lg font-bold text-headingWhite mb-1">
+            <h1 className="text-xl font-bold text-headingWhite mb-1">
                 Who's It For?
-            </h2>
+            </h1>
             <p className="text-grayText mb-4">{tool.Buyer}</p>
             {pricingList.length > 0 && (
                 <div>
-                    <h2 className="text-lg font-bold text-headingWhite mb-1">
+                    <h1 className="text-xl font-bold text-headingWhite mb-1">
                         Pricing Options:
-                    </h2>
-                    <div className="flex flex-wrap gap-2">
-                        {pricingList.map((item, index) => (
-                            <span key={index}>
-                                <p className="text-grayText">{item} </p>
-                            </span>
-                        ))}
-                    </div>
+                    </h1>
+                    <p>{formattedPricing}</p>                
                 </div>
             )}
-            <div className="mt-auto">
+            <div className="mt-auto text-sm ">
                 <a
                     href={`/go/${tool.Slug}`}
-                    className="flex items-center text-accentGreen hover:text-headingWhite font-medium mt-6 mb-2"
+                    className="flex items-center text-sm text-accentGreen hover:text-headingWhite mt-6 mb-2"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

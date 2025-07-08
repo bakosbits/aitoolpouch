@@ -29,7 +29,7 @@ export default function CategoriesPage({ categories }) {
                 url={`https://aitoolpouch.com/categories/`}
             />
             <div className="max-w-6xl mx-auto">
-                <div className="w-full flex  grid grid-cols-1 justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
+                <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold mb-4">
                         Explore Our Categories
                     </h1>
@@ -49,9 +49,9 @@ export default function CategoriesPage({ categories }) {
                                 href={`/category/${cat.slug}`}
                                 className="block border border-gray-700 p-6 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors"
                             >
-                                <h2 className="text-lg text-accentGreen hover:text-headingWhite font-bold mb-2">
+                                <h1 className="text-xl text-accentGreen hover:text-headingWhite font-bold mb-2">
                                     {cat.name}
-                                </h2>
+                                </h1>
                                 <p className=" text-grayText">
                                     {cat.description}
                                 </p>
