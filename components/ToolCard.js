@@ -1,16 +1,14 @@
 import Link from "next/link";
 
-export default function ToolCard({ tool }) {
+export default function ToolCard({ tool, compareList = [], toggleCompare }) {
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             <div className="flex items-center space-x-4 mb-2">
-                <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <img
-                    src={`https://logo.clearbit.com/${tool.Domain}`}
+                    src={`https://cdn.brandfetch.io/${tool.Domain}?c=1id03xd53EDa-VjPpgF`}
                     alt={`${tool.Name} logo`}
-                    className="h-12 w-12 object-contain"
+                    className="h-14 w-14 object-contain"
                 />
-                </div>
 
                 <h2 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
@@ -23,12 +21,20 @@ export default function ToolCard({ tool }) {
                 </p>
             )}
 
-            <p className=" text-grayText mb-4">{tool.Description}</p>
+            <p className=" text-grayText mb-4">
+                {tool.Description?.length > 100
+                    ? tool.Description.slice(0, 100) + "..."
+                    : tool.Description}
+            </p>
 
             <h2 className="text-xl text-headingWhite font-bold">
                 Why it matters:
             </h2>
-            <p className=" text-grayText mb-4">{tool.Why}</p>
+            <p className=" text-grayText mb-4">
+                {tool.Why?.length > 100
+                    ? tool.Why.slice(0, 100) + "..."
+                    : tool.Why}
+            </p>
             <div className="mt-auto">
                 <a
                     href={`/tool/${tool.Slug}`}
@@ -45,7 +51,7 @@ export default function ToolCard({ tool }) {
                 </a>
                 <a
                     href={`/go/${tool.Slug}`}
-                    className="flex items-center text-accentGreen hover:text-headingWhite font-medium"
+                    className="flex items-center text-accentGreen hover:text-headingWhite font-medium mb-2"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
@@ -57,6 +63,14 @@ export default function ToolCard({ tool }) {
                     </svg>
                     Visit {tool.Name}
                 </a>
+                <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                        type="checkbox"
+                        checked={compareList.some((t) => t.id === tool.id)}
+                        onChange={() => toggleCompare(tool)}
+                    />
+                    <span className="text-accentGreen font-medium">Compare</span>
+                </label>
             </div>
         </div>
     );

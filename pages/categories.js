@@ -38,8 +38,6 @@ export default function CategoriesPage({ categories }) {
                         they types of use cases it handles best. Once you've selected a category you can get detail 
                         on individual tools or compare two side-by-side to compare and contrast.
                     </p> 
-                    <p className="text-headingWhite">Answers to 3 questions await: What is it? Who's it for? Why should I care?
-                    </p>
                 </div>
 
                 <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">

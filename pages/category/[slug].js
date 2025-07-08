@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
-import ToolCompareSelector from "@/components/ToolCompareSelector";
+import SearchBar from "@/components/SearchBar";
 import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
+import CompareBar from "@/components/CompareBar";
 
 export async function getStaticPaths() {
     const categories = await getAllCategories();
@@ -44,15 +46,20 @@ export async function getStaticProps({ params }) {
 }
 
 export default function CategoryPage({ tools, category }) {
-    if (!category) {
-        return (
-            <p className="text-red-600 text-center mt-6">Category not found.</p>
-        );
-    }
+    const [compareList, setCompareList] = useState([]);
 
-    const sortedTools = [...tools].sort((a, b) =>
-        (a.Name || "").localeCompare(b.Name || ""),
-    );
+    const toggleCompare = (tool) => {
+        setCompareList((prev) => {
+            const exists = prev.find((t) => t.id === tool.id);
+            if (exists) {
+                return prev.filter((t) => t.id !== tool.id);
+            } else {
+                return prev.length < 2 ? [...prev, tool] : prev;
+            }
+        });
+    };
+
+    const sortedTools = [...tools].sort((a, b) => a.Name.localeCompare(b.Name));
 
     return (
         <>
@@ -68,17 +75,18 @@ export default function CategoryPage({ tools, category }) {
                     </h1>
                     <BackButton />
                 </div>
-
-                {tools.length > 1 && (
-                    <div className="mb-6">
-                        <ToolCompareSelector tools={tools} />
-                    </div>
-                )}
+                <div className="w-full mb-6">
+                    <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
+                </div>
                 <div className="w-full">
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
                         {sortedTools.map((tool) => (
-                            <li key={tool.Name} className="h-full">
-                                <ToolCard tool={tool} />
+                            <li key={tool.Name}>
+                                <ToolCard
+                                    tool={tool}
+                                    compareList={compareList}
+                                    toggleCompare={toggleCompare}
+                                />
                             </li>
                         ))}
                     </ul>

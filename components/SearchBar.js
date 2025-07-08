@@ -1,42 +1,16 @@
-import Link from "next/link";
-import { getAllTools } from "@/lib/airtable";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-export default function SearchBar({ tools }) {
+export default function SearchBar() {
     const [query, setQuery] = useState("");
     const router = useRouter();
 
     const handleSearch = (e) => {
         e.preventDefault();
-
-        if (!Array.isArray(tools)) {
-            return;
-        }
-
-        const normalized = query.trim().toLowerCase().replace(/\s+/g, "");
-
-        const match = tools.find(
-            (tool) =>
-                tool.Name?.toLowerCase().replace(/\s+/g, "") === normalized ||
-                tool.Slug?.toLowerCase() === normalized,
-        );
-
-        if (match) {
-            router.push(`/tool/${match.Slug}`);
-        } else {
-            router.push("/404");
+        if (query.trim()) {
+            router.push(`/tools?q=${encodeURIComponent(query.trim())}`);
         }
     };
-
-    if (!Array.isArray(tools)) {
-        return (
-            <div className="p-8 text-red-500 text-xl">
-                Error loading tools. Please try refreshing or check your
-                Airtable config.
-            </div>
-        );
-    }
 
     return (
         <form onSubmit={handleSearch} className="gap-4">
@@ -46,13 +20,13 @@ export default function SearchBar({ tools }) {
                         type="text"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
-                        placeholder="Search for a tool..."
+                        placeholder="Search tools..."
                         className="w-full px-4 py-2 rounded-md bg-backgroundDark text-whiteHeading placeholder-text-whiteHeading border border-accentGreen"
                     />
                 </div>
                 <button
                     type="submit"
-                    className="p-2 bg-accentGreen rounded-md hover:bg-green-400 transition"
+                    className="flex items-center gap-1 bg-accentGreen text-backgroundDark px-3 py-1.5 rounded font-semibold hover:bg-headingWhite transition"
                     aria-label="Search"
                 >
                     <svg
@@ -67,6 +41,7 @@ export default function SearchBar({ tools }) {
                             clipRule="evenodd"
                         />
                     </svg>
+                    Search
                 </button>
             </div>
         </form>

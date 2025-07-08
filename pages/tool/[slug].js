@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import { getAllTools, getAllCategories } from "@/lib/airtable";
-import ToolDetailCard from "@/components/ToolDetailCard";
+import DetailToolCard from "@/components/DetailToolCard";
 import BackButton from "@/components/BackButton";
 import Link from "next/link";
 import SeoHead from "@/components/SeoHead";
@@ -54,7 +54,7 @@ export default function ToolPage({ tool }) {
                                 <BackButton />
                             </div>
                             <div>
-                                <ToolDetailCard tool={tool} />
+                                <DetailToolCard tool={tool} />
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@ export default function ToolPage({ tool }) {
                     {/* Right column: image + categories stacked */}
                     <div className="w-full md:w-[20%] flex flex-col items-left text-left">
                         <img
-                            src={tool.Logo}
+                            src={`https://cdn.brandfetch.io/${tool.Domain}?c=1id03xd53EDa-VjPpgF`}
                             alt={tool.Name}
                             className="w-auto object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
                         />

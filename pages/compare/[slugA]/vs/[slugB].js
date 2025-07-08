@@ -1,5 +1,6 @@
 import { getAllTools, getAllCategories } from "@/lib/airtable";
-import ToolDetailCard from "@/components/ToolDetailCard";
+import { useState } from 'react';
+import DetailToolCard from "@/components/DetailToolCard";
 import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
 
@@ -29,17 +30,29 @@ export async function getStaticProps({ params }) {
     const toolA = tools.find((t) => t.Slug.toLowerCase() === params.slugA);
     const toolB = tools.find((t) => t.Slug.toLowerCase() === params.slugB);
 
+    const categoriesA = Array.isArray(toolA?.Categories)
+        ? toolA.Categories.map((cat) => (typeof cat === 'object' ? cat.name : cat))
+        : [];
+
+    const categoriesB = Array.isArray(toolB?.Categories)
+        ? toolB.Categories.map((cat) => (typeof cat === 'object' ? cat.name : cat))
+        : [];
+
+    const hasSharedCategory = categoriesA.some((cat) => categoriesB.includes(cat));
+
+
     return {
         props: {
             toolA,
             toolB,
+            hasSharedCategory,
         },
         revalidate: 21600,
     };
 }
 
-export default function ComparePage({ toolA, toolB }) {
-    if (!toolA || !toolB) return <p>Comparison failed.</p>;
+export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
+    const [showWarning, setShowWarning] = useState(true);
 
     return (
         <>
@@ -49,6 +62,22 @@ export default function ComparePage({ toolA, toolB }) {
                 url={`https://aitoolpouch.com/compare/${toolA.Slug}/vs/${toolB.Slug}`}
             />
             <div className="max-w-6xl mx-auto">
+                {showWarning && !hasSharedCategory && (
+                     <div className="h-full flex items-center justify-between border border-red-600 p-6 rounded-lg text-headingWhite bg-backgroundDark mb-6">
+                        <span>Heads up! These tools belong to different categories. For best results consider comparing tools in the same 
+                            <a href="/categories" className="text-accentGreen hover:text-headingWhite transition-colors duration-150">
+                                <span bg-backgroundDark> category.</span>
+                            </a>                            
+                        </span>    
+                        <button
+                            onClick={() => setShowWarning(false)}
+                            className="ml-4 text-red-600 hover:text-red-800 text-xl font-bold"
+                            aria-label="Close warning"
+                        >
+                            ×
+                        </button>
+                    </div>
+                )}                
                 <div className="h-full flex items-center justify-between border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}
@@ -59,7 +88,7 @@ export default function ComparePage({ toolA, toolB }) {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Map into the ToolCard */}
                     {[toolA, toolB].map((tool, index) => (
-                        <ToolDetailCard key={index} tool={tool} />
+                        <DetailToolCard key={index} tool={tool} />
                     ))}
                     {/* end map */}
                 </div>
