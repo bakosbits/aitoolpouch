@@ -2,13 +2,11 @@ import Link from "next/link";
 
 export default function ToolCard({ tool, compareList = [], toggleCompare }) {
     return (
-
         <Link
             href={`/tool/${tool.Slug}`}
             className="block h-full group"
             passHref
         >
-
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
                 <div className="flex items-center space-x-4 mb-2">
                     <img
@@ -16,24 +14,20 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         alt={`${tool.Name} logo`}
                         className="h-14 w-14 object-contain"
                     />
-
                     <h1 className="text-xl font-bold text-headingWhite">
                         {tool.Name}
                     </h1>
                 </div>
-
                 {tool["Base Model"] && (
                     <p className="text-headingWhite mb-4">
                         Powered by {tool["Base Model"]}
                     </p>
                 )}
-
                 <p className=" text-grayText mb-4">
                     {tool.Description?.length > 100
                         ? tool.Description.slice(0, 100) + "..."
                         : tool.Description}
                 </p>
-
                 <h1 className="text-xl text-headingWhite font-bold">
                     Why it matters:
                 </h1>
@@ -43,13 +37,13 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         : tool.Why}
                 </p>
                 <div className="mt-auto text-sm">
-                <a
+                    <a
                         href={`/go/${tool.Slug}`}
                         className="flex items-center text-accentGreen hover:text-headingWhite font-medium"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => {
-                            e.stopPropagation(); 
+                            e.stopPropagation();
                         }}
                     >
                         <svg
@@ -69,10 +63,12 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                             checked={compareList.some((t) => t.id === tool.id)}
                             onChange={() => toggleCompare(tool)}
                         />
-                        <span className="text-accentGreen font-medium">Compare</span>
+                        <span className="text-accentGreen font-medium">
+                            Compare
+                        </span>
                     </label>
                 </div>
-        </div>
+            </div>
         </Link>
     );
 }

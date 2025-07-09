@@ -1,13 +1,13 @@
 {
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
+    "headers": [
         {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "Referrer-Policy",
+                    "value": "strict-origin-when-cross-origin"
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

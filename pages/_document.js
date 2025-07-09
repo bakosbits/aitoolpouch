@@ -24,7 +24,6 @@ export default function Document() {
 
                 {/* You can also include a default OG image fallback here */}
             </Head>
-
             <body>
                 <Main />
                 <div id="portal-root"></div>

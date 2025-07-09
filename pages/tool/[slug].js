@@ -52,7 +52,6 @@ export default function ToolPage({ tool }) {
                         <div className="w-full md:-[80%] flex">
                             <DetailToolCard tool={tool} />
                         </div>
-
                         {/* Right column */}
                         <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
                             <img
@@ -67,18 +66,18 @@ export default function ToolPage({ tool }) {
                                 {""}
                                 {tool.Categories && tool.Categories.length > 0
                                     ? tool.Categories.map((cat, idx) => (
-                                        <span key={cat.slug || cat.name}>
-                                            <Link
-                                                href={`/category/${cat.slug || cat.name.toLowerCase()}`}
-                                                className="text-left text-accentGreen hover:text-headingWhite"
-                                            >
-                                                {cat.name}
-                                            </Link>
-                                            {idx < tool.Categories.length - 1
-                                                ? ", "
-                                                : ""}
-                                        </span>
-                                    ))
+                                          <span key={cat.slug || cat.name}>
+                                              <Link
+                                                  href={`/category/${cat.slug || cat.name.toLowerCase()}`}
+                                                  className="text-left text-accentGreen hover:text-headingWhite"
+                                              >
+                                                  {cat.name}
+                                              </Link>
+                                              {idx < tool.Categories.length - 1
+                                                  ? ", "
+                                                  : ""}
+                                          </span>
+                                      ))
                                     : "Uncategorized"}
                             </p>
                         </div>

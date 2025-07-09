@@ -49,7 +49,6 @@ export default function MobileMenu({ categories = [] }) {
                     >
                         &times;
                     </button>
-
                     {/* Menu Links */}
                     <ul className="flex flex-col gap-6 mt-16 text-xl text-grayText">
                         <li>

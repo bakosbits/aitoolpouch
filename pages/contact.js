@@ -30,7 +30,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="max-w-xl mx-auto py-12 px-6 bg-cardDark rounded-md mt-20">
+        <div className="max-w-xl mx-auto py-12 px-6 bg-cardDark rounded-md">
             <h1 className="text-2xl font-bold text-headingWhite mb-6">
                 Contact Us
             </h1>

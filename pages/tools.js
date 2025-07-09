@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getAllTools } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
-import CompareBar from '@/components/CompareBar';
+import CompareBar from "@/components/CompareBar";
 import SearchBar from "@/components/SearchBar";
 import SeoHead from "@/components/SeoHead";
 import Pagination from "@/components/Pagination";
@@ -22,11 +22,10 @@ export async function getStaticProps() {
 
 export default function ToolsPage({ tools }) {
     const router = useRouter();
-    const query = router.query.q?.toLowerCase() || '';
+    const query = router.query.q?.toLowerCase() || "";
 
     const [filteredTools, setFilteredTools] = useState(tools);
     const [currentPage, setCurrentPage] = useState(1);
-
 
     const [compareList, setCompareList] = useState([]);
 
@@ -44,29 +43,30 @@ export default function ToolsPage({ tools }) {
     // Filter tools based on the search query
     useEffect(() => {
         if (query) {
-            const filtered = tools.filter((tool) => {
-                const name = tool.Name?.toLowerCase() || '';
-                const desc = tool.Description?.toLowerCase() || '';
-                const detail = tool.Detail?.toLowerCase() || '';
-                const features =
-                    Array.isArray(tool.Features)
-                        ? tool.Features.join(' ').toLowerCase()
-                        : (tool.Features || '').toLowerCase();
+            const filtered = tools
+                .filter((tool) => {
+                    const name = tool.Name?.toLowerCase() || "";
+                    const desc = tool.Description?.toLowerCase() || "";
+                    const detail = tool.Detail?.toLowerCase() || "";
+                    const features = Array.isArray(tool.Features)
+                        ? tool.Features.join(" ").toLowerCase()
+                        : (tool.Features || "").toLowerCase();
 
-                return (
-                    name.includes(query) ||
-                    desc.includes(query) ||
-                    detail.includes(query) ||
-                    features.includes(query)
-                );
-            })
+                    return (
+                        name.includes(query) ||
+                        desc.includes(query) ||
+                        detail.includes(query) ||
+                        features.includes(query)
+                    );
+                })
                 .sort((a, b) => a.Name.localeCompare(b.Name));
 
             setFilteredTools(filtered);
             setCurrentPage(1);
-
         } else {
-            const sorted = [...tools].sort((a, b) => a.Name.localeCompare(b.Name));
+            const sorted = [...tools].sort((a, b) =>
+                a.Name.localeCompare(b.Name),
+            );
             setFilteredTools(sorted);
         }
     }, [query, tools]);
@@ -77,34 +77,43 @@ export default function ToolsPage({ tools }) {
     const paginatedTools = filteredTools.slice(startIndex, endIndex);
 
     useEffect(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }, [currentPage]);
 
-    const isSearch = query.trim() !== '';
+    const isSearch = query.trim() !== "";
 
     return (
         <>
             <SeoHead
-                title={isSearch ? `Search Results for "${query}"` : 'Browse All Tools'}
-                description={isSearch ? `Tools matching "${query}"` : 'Explore our full library of AI tools'}
+                title={
+                    isSearch
+                        ? `Search Results for "${query}"`
+                        : "Browse All Tools"
+                }
+                description={
+                    isSearch
+                        ? `Tools matching "${query}"`
+                        : "Explore our full library of AI tools"
+                }
                 url={`https://aitoolpouch.com/tools/`}
             />
-
             <div className="max-w-6xl mx-auto flex flex-col items-start">
                 <div className="w-full">
-                    <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
+                    <CompareBar
+                        compareList={compareList}
+                        toggleCompare={toggleCompare}
+                    />
                 </div>
                 <div className="w-full justify-between items-center mb-4">
-  
-                        <h1 className="text-2xl text-headingWhite font-bold">
-                            {isSearch ? `Search Results for "${query}"` : 'Browsing All Tools'}
-                        </h1>
+                    <h1 className="text-2xl text-headingWhite font-bold">
+                        {isSearch
+                            ? `Search Results for "${query}"`
+                            : "Browsing All Tools"}
+                    </h1>
                 </div>
-                   <div className="w-full mx-auto justify-between items-center mb-6 gap-6">
-                        < SearchBar tools={tools} />
-                        </div>
-
-
+                <div className="w-full mx-auto justify-between items-center mb-6 gap-6">
+                    <SearchBar tools={tools} />
+                </div>
                 <div className="w-full">
                     <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                         {paginatedTools.map((tool) => (
@@ -118,7 +127,6 @@ export default function ToolsPage({ tools }) {
                         ))}
                     </ul>
                 </div>
-
                 <Pagination
                     currentPage={currentPage}
                     totalPages={totalPages}

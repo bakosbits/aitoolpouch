@@ -85,7 +85,6 @@ export default function AboutPage() {
                         </div>
                     </div>
                 </div>
-
                 {/* Right column: image */}
                 <div className="w-full md:w-[40%]">
                     <div className="w-full md:w-[75%]">

@@ -1,5 +1,4 @@
 export default function DetailToolCard({ tool }) {
-
     const featuresText = tool.Features;
     const featuresList = featuresText
         .split("\n")
@@ -11,9 +10,12 @@ export default function DetailToolCard({ tool }) {
         .filter((line) => line.trim() !== "");
 
     const pricingList = Array.isArray(tool.Pricing) ? tool.Pricing : [];
-    const formattedPricing = pricingList.length > 1
-        ? pricingList.slice(0, -1).join(', ') + ' and ' + pricingList[pricingList.length - 1]
-        : pricingList[0];
+    const formattedPricing =
+        pricingList.length > 1
+            ? pricingList.slice(0, -1).join(", ") +
+              " and " +
+              pricingList[pricingList.length - 1]
+            : pricingList[0];
 
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
@@ -23,19 +25,16 @@ export default function DetailToolCard({ tool }) {
                     alt={`${tool.Name} logo`}
                     className="h-14 w-14 object-contain"
                 />
-
                 <h1 className="text-xl font-bold text-headingWhite">
                     {tool.Name}
                 </h1>
             </div>
-
             {tool["Base Model"] && (
                 <p className="text-headingWhite mb-4">
                     Powered by {tool["Base Model"]}
                 </p>
             )}
             <p className="text-grayText mb-4">{tool.Description}</p>
-
             <h1 className="text-xl text-headingWhite font-bold mb-1">
                 Why it matters:
             </h1>
@@ -69,7 +68,7 @@ export default function DetailToolCard({ tool }) {
                     <h1 className="text-xl font-bold text-headingWhite mb-1">
                         Pricing Options:
                     </h1>
-                    <p>{formattedPricing}</p>                
+                    <p>{formattedPricing}</p>
                 </div>
             )}
             <div className="mt-auto text-sm ">

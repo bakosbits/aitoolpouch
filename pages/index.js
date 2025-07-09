@@ -8,11 +8,13 @@ export async function getStaticProps() {
     const tools = await getAllTools();
 
     const newestTools = tools
-        .filter(tool => !!tool.Created)
+        .filter((tool) => !!tool.Created)
         .sort((a, b) => new Date(b.Created) - new Date(a.Created))
         .slice(0, 8);
 
-    const latestTools = newestTools.sort((a, b) => a.Name.localeCompare(b.Name));
+    const latestTools = newestTools.sort((a, b) =>
+        a.Name.localeCompare(b.Name),
+    );
 
     return {
         props: {
@@ -68,10 +70,11 @@ export default function Home({ tools, latestTools }) {
                                 relevant details for each tool in your target
                                 category. You can conduct side-by-side
                                 comparisons to help you narrow down your search
-                                to something that best fits your needs. We answer
-                                the who, what and why so you can quickly determine
-                                which tools belong in your tool pouch. To jumpstart 
-                                your selection process choose from one of our
+                                to something that best fits your needs. We
+                                answer the who, what and why so you can quickly
+                                determine which tools belong in your tool pouch.
+                                To jumpstart your selection process choose from
+                                one of our
                                 <Link
                                     href="/categories"
                                     className="text-accentGreen hover:text-headingWhite transition"
@@ -84,22 +87,20 @@ export default function Home({ tools, latestTools }) {
                         </div>
                     </div>
                 </div>
-
                 {/* Right column: image */}
                 <div className="w-full md:w-[40%]">
                     <div className="w-full md:w-[80%]">
                         <div className="mb-6">
                             <SearchBar tools={tools} />
                         </div>
-                            <h1 className="text-headingWhite text-xl font-bold mb-4">
-                                Latest Additions:
-                            </h1>
+                        <h1 className="text-headingWhite text-xl font-bold mb-4">
+                            Latest Additions:
+                        </h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {latestTools.map((tool) => (
                                 <MiniToolCard key={tool.Slug} tool={tool} />
                             ))}
                         </div>
-
                     </div>
                 </div>
             </div>

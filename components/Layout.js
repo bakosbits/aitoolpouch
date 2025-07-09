@@ -7,7 +7,7 @@ export default function Layout({
     categories = [],
 }) {
     return (
-         <div className="bg-backgroundDark text-grayText min-h-screen flex flex-col">
+        <div className="bg-backgroundDark text-grayText min-h-screen flex flex-col">
             {/* Header */}
             <header className="fixed top-0 left-0 right-0 z-50 bg-backgroundDark border-b border-gray-700  flex items-center justify-between">
                 {/* Unified Header */}
@@ -53,23 +53,20 @@ export default function Layout({
                             Blog
                         </Link>
                     </nav>
-
                     {/* Mobile Menu Toggle */}
                     <div className="lg:hidden">
                         <MobileMenu categories={categories} />
                     </div>
                 </div>
             </header>
-
             {/* Main content */}
             <main className="flex-1 w-full px-6 py-4">
-                <div className="mt-4 md:mt-24 lg:mt-32 mb-6">
+                <div className="mt-20 md:mt-32 mb-6">
                     <div className={fullWidth ? "w-full" : "max-w-6xl mx-auto"}>
                         {children}
                     </div>
                 </div>
             </main>
-
             {/* Footer */}
             <footer className="py-4  text-grayText">
                 <div className="w-full px-0 md:px-6 max-w-6xl mx-auto font-semibold">

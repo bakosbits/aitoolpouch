@@ -67,8 +67,11 @@ export default function CategoryPage({ tools, category }) {
                 url={`https://aitoolpouch.com/category/${category}/`}
             />
             <div className="w-full mb-6">
-                <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
-            </div>            
+                <CompareBar
+                    compareList={compareList}
+                    toggleCompare={toggleCompare}
+                />
+            </div>
             <div className="max-w-6xl mx-auto">
                 <div className="w-full flex justify-between items-center mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">

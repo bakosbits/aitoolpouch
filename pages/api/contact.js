@@ -9,13 +9,17 @@ export default async function handler(req, res) {
 
     if (contact_company && contact_company.trim() !== "") {
         // Successfully caught a bot, but return 200 to confuse spammers
-        return res.status(200).json({ success: true, message: "Thank you for your message." });
+        return res
+            .status(200)
+            .json({ success: true, message: "Thank you for your message." });
     }
 
     const elapsed = Date.now() - Number(startTime);
     if (elapsed < 2000) {
         // Likely a bot, return 200 to confuse spammers
-        return res.status(200).json({ success: true, message: "Thank you for your message." });
+        return res
+            .status(200)
+            .json({ success: true, message: "Thank you for your message." });
     }
 
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);

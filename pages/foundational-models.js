@@ -20,11 +20,10 @@ export default function FoundationalModelsPage() {
                 description={"The Core Of Modern AI Foundational Models"}
                 url={`https://aitoolpouch.com/foundational-models/`}
             />
-            <div className="max-w-5xl mx-auto w-full mt-8">
+            <div className="max-w-5xl mx-auto w-full ">
                 <h1 className="text-2xl text-headingWhite font-bold mb-6">
                     Foundational Models: Understanding the Core of Modern AI
                 </h1>
-
                 <p className="mb-6">
                     The rise of AI tools and applications today can be traced
                     back to a handful of foundational models that serve as the
@@ -35,7 +34,6 @@ export default function FoundationalModelsPage() {
                     important foundational models, explaining what each one does
                     and why it matters.
                 </p>
-
                 <div className="flex items-center space-x-4">
                     <div className="flex items-center justify-center space-x-4 mb-4">
                         <img
@@ -45,7 +43,7 @@ export default function FoundationalModelsPage() {
                         />
                         <h1 className="text-xl text-headingWhite font-bold leading-none">
                             1. GPT (OpenAI)
-                        </h1>                        
+                        </h1>
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -75,7 +73,7 @@ export default function FoundationalModelsPage() {
                         />
                         <h1 className="text-xl text-headingWhite font-bold leading-none">
                             2. Claude
-                        </h1>                        
+                        </h1>
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -104,7 +102,7 @@ export default function FoundationalModelsPage() {
                         />
                         <h1 className="text-xl text-headingWhite font-bold leading-none">
                             3. Gemini (Formerly Bard)
-                        </h1>                        
+                        </h1>
                     </div>
                 </div>
                 <p className="text-headingWhite">
@@ -207,7 +205,6 @@ export default function FoundationalModelsPage() {
                     multimodal, extending beyond just text to manipulate and
                     generate images, audio, and video.
                 </p>
-
                 <h1 className="text-xl mt-8 text-headingWhite font-bold leading-none">
                     Why Foundational Models Matter
                 </h1>
@@ -219,7 +216,6 @@ export default function FoundationalModelsPage() {
                     Understanding the strengths and characteristics of each
                     helps professionals choose the right platform to build on.
                 </p>
-
                 <p className="mb-6">
                     Whether you’re developing new tools, deploying AI in
                     business workflows, or just exploring capabilities,

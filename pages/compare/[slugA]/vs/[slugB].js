@@ -1,5 +1,5 @@
 import { getAllTools, getAllCategories } from "@/lib/airtable";
-import { useState } from 'react';
+import { useState } from "react";
 import DetailToolCard from "@/components/DetailToolCard";
 import SeoHead from "@/components/SeoHead";
 
@@ -30,15 +30,20 @@ export async function getStaticProps({ params }) {
     const toolB = tools.find((t) => t.Slug.toLowerCase() === params.slugB);
 
     const categoriesA = Array.isArray(toolA?.Categories)
-        ? toolA.Categories.map((cat) => (typeof cat === 'object' ? cat.name : cat))
+        ? toolA.Categories.map((cat) =>
+              typeof cat === "object" ? cat.name : cat,
+          )
         : [];
 
     const categoriesB = Array.isArray(toolB?.Categories)
-        ? toolB.Categories.map((cat) => (typeof cat === 'object' ? cat.name : cat))
+        ? toolB.Categories.map((cat) =>
+              typeof cat === "object" ? cat.name : cat,
+          )
         : [];
 
-    const hasSharedCategory = categoriesA.some((cat) => categoriesB.includes(cat));
-
+    const hasSharedCategory = categoriesA.some((cat) =>
+        categoriesB.includes(cat),
+    );
 
     return {
         props: {
@@ -62,12 +67,18 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
             />
             <div className="max-w-6xl mx-auto">
                 {showWarning && !hasSharedCategory && (
-                     <div className="h-full flex items-center justify-between border border-red-600 p-6 rounded-lg text-headingWhite bg-backgroundDark mb-6">
-                        <span>Heads up! These tools belong to different categories. For best results consider comparing tools in the same 
-                            <a href="/categories" className="text-accentGreen hover:text-headingWhite transition-colors duration-150">
+                    <div className="h-full flex items-center justify-between border border-red-600 p-6 rounded-lg text-headingWhite bg-backgroundDark mb-6">
+                        <span>
+                            Heads up! These tools belong to different
+                            categories. For best results consider comparing
+                            tools in the same
+                            <a
+                                href="/categories"
+                                className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
+                            >
                                 <span bg-backgroundDark> category.</span>
-                            </a>                            
-                        </span>    
+                            </a>
+                        </span>
                         <button
                             onClick={() => setShowWarning(false)}
                             className="ml-4 text-red-600 hover:text-red-800 text-xl font-bold"
@@ -76,13 +87,12 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                             ×
                         </button>
                     </div>
-                )}                
+                )}
                 <div className="h-full flex items-center justify-between mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}
                     </h1>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Map into the ToolCard */}
                     {[toolA, toolB].map((tool, index) => (

@@ -33,11 +33,15 @@ export default function CategoriesPage({ categories }) {
                     <h1 className="text-2xl text-headingWhite font-bold mb-4">
                         Explore Our Categories
                     </h1>
-                    <p className="text-grayText mb-4">Each category below contains a listing of top AI tools best suited for the category. 
-                        We find that grouping these tools by profession helps the end user quickly understand
-                        they types of use cases it handles best. Once you've selected a category you can get detail 
-                        on individual tools or compare two side-by-side to compare and contrast.
-                    </p> 
+                    <p className="text-grayText mb-4">
+                        Each category below contains a listing of top AI tools
+                        best suited for the category. We find that grouping
+                        these tools by profession helps the end user quickly
+                        understand they types of use cases it handles best. Once
+                        you've selected a category you can get detail on
+                        individual tools or compare two side-by-side to compare
+                        and contrast.
+                    </p>
                 </div>
 
                 <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
