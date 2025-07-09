@@ -39,7 +39,7 @@ export async function getStaticProps({ params }) {
             category: matchingCategory.name,
             categories,
         },
-        revalidate: 21600,
+        revalidate: 1800,
     };
 }
 

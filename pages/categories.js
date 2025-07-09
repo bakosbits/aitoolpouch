@@ -1,4 +1,3 @@
-// pages/categories.js
 import { getAllCategories } from "@/lib/airtable";
 import Link from "next/link";
 import SeoHead from "@/components/SeoHead";
@@ -16,7 +15,7 @@ export async function getStaticProps() {
         props: {
             categories,
         },
-        revalidate: 21600,
+        revalidate: 1800,
     };
 }
 
