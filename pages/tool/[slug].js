@@ -47,7 +47,7 @@ export default function ToolPage({ tool }) {
                             </h1>
                     </div>
 
-                    <div className="flex gap-6">
+                    <div className="w-full w-[80%] flex gap-6">
                         <div className="w-full flex">
                             <DetailToolCard tool={tool} />
                         </div>
