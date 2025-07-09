@@ -10,11 +10,11 @@ export default function LegalPage() {
                 url={`https://aitoolpouch.com/legal/`}
             />
             {/* OUTER WRAPPER: 90% of screen width, centered */}
-            <div className="w-full md:w-[90%] mx-auto flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-[80%] mx-auto flex flex-col md:flex-row gap-6">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] flex justify-center">
                     {/* INNER WRAPPER: 75% of left column, padded on mobile */}
-                    <div className="w-full md:w-[75%] text-left flex flex-col">
+                    <div className="w-full md:w-[75%] text-left flex flex-col mt-8">
                         <div>
                             <h1 className="text-2xl text-headingWhite font-bold mb-6">
                                 Legal & Disclosures
@@ -112,7 +112,7 @@ export default function LegalPage() {
 
                 {/* Right column: image */}
                 <div className="w-full md:w-[40%]">
-                    <div className="w-full md:w-[75%]">
+                    <div className="w-full md:w-[75%] mt-8">
                         <img
                             src="/images/wrench3.webp"
                             style={{

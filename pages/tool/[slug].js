@@ -39,21 +39,22 @@ export default function ToolPage({ tool }) {
                 description={`Detailed Information about ${tool.Name}`}
                 url={`https://aitoolpouch.com/tool/${tool.Name}/`}
             />
-            <div className="flex mx-auto items-center justify-center">
-                <div className="w-full mx-auto max-w-6xl">
-                    <div className="flex">
-                            <h1 className="text-2xl text-headingWhite font-bold mb-4">
-                                Reviewing {tool.Name}
-                            </h1>
+            <div className="min-h-screen flex flex-col items-center justify-center">
+                <div className="w-full max-w-6xl">
+                    {/* Top Row */}
+                    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <h1 className="text-2xl text-headingWhite font-bold">
+                            Reviewing {tool.Name}
+                        </h1>
                     </div>
-
-                    <div className="w-full w-[80%] flex gap-6">
-                        <div className="w-full flex">
+                    {/* Left column */}
+                    <div className="flex flex-col md:flex-row gap-6">
+                        <div className="w-full md:-[80%] flex">
                             <DetailToolCard tool={tool} />
                         </div>
 
-                        {/* Right column: image + categories stacked */}
-                        <div className="w-full w-[20%] hidden md:flex md:flex-col flex items-start text-left">
+                        {/* Right column */}
+                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
                             <img
                                 src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
                                 alt={tool.Name}
@@ -80,9 +81,9 @@ export default function ToolPage({ tool }) {
                                     ))
                                     : "Uncategorized"}
                             </p>
-                        </div>                            
+                        </div>
                     </div>
-                </div>                        
+                </div>
             </div>
         </>
     );

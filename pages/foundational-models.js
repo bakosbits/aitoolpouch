@@ -20,7 +20,7 @@ export default function FoundationalModelsPage() {
                 description={"The Core Of Modern AI Foundational Models"}
                 url={`https://aitoolpouch.com/foundational-models/`}
             />
-            <div className="max-w-5xl mx-auto w-full">
+            <div className="max-w-5xl mx-auto w-full mt-8">
                 <h1 className="text-2xl text-headingWhite font-bold mb-6">
                     Foundational Models: Understanding the Core of Modern AI
                 </h1>
