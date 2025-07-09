@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { getAllTools } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
 import CompareBar from '@/components/CompareBar';
-import BackButton from "@/components/BackButton";
 import SearchBar from "@/components/SearchBar";
 import SeoHead from "@/components/SeoHead";
 import Pagination from "@/components/Pagination";
@@ -92,17 +91,20 @@ export default function ToolsPage({ tools }) {
             />
 
             <div className="max-w-6xl mx-auto flex flex-col items-start">
-                <div className="w-full mb-6">
+                <div className="w-full">
                     <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
                 </div>
-                <div className="w-full mb-6">
-                    < SearchBar tools={tools} />
+                <div className="w-full justify-between items-center mb-4">
+  
+                        <h1 className="text-2xl text-headingWhite font-bold">
+                            {isSearch ? `Search Results for "${query}"` : 'Browsing All Tools'}
+                        </h1>
                 </div>
-                <div className="w-full flex justify-between items-center  mb-6">
-                    <h1 className="text-2xl text-headingWhite font-bold">
-                        {isSearch ? `Search Results for "${query}"` : 'Browsing All Tools'}
-                    </h1>
-                </div>
+                   <div className="w-full mx-auto justify-between items-center mb-6 gap-6">
+                        < SearchBar tools={tools} />
+                        </div>
+
+
                 <div className="w-full">
                     <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
                         {paginatedTools.map((tool) => (

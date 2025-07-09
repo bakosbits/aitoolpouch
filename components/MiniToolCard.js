@@ -2,7 +2,12 @@ import Link from "next/link";
 
 export default function MiniToolCard({ tool }) {
     return (
-        <div className="bg-cardDark p-4 rounded-lg shadow-lg flex flex-col items-start">
+                <Link
+            href={`/tool/${tool.Slug}`}
+            className="block h-full group" // Added 'group' class for potential group-hover styling
+            passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
+        >
+        <div className="h-full bg-cardDark p-4 rounded-lg shadow-lg flex flex-col items-start group-hover:bg-gray-800 transition-colors">
             <div className="w-full flex items-center space-x-4">
                 <img
                     src={`https://cdn.brandfetch.io/${tool.Domain}?c=1id03xd53EDa-VjPpgF`}
@@ -14,21 +19,12 @@ export default function MiniToolCard({ tool }) {
                 </h1>
             </div>
 
-            <p className="text-sm text-whiteText mb-4">
+            <p className="text-sm text-whiteText">
                 {tool.Description?.length > 100
                     ? tool.Description.slice(0, 100) + "..."
                     : tool.Description}
             </p>
-
-            <div className="mt-auto">
-                <a
-                    href={`/tool/${tool.Slug}`}
-                    className="text-xs flex items-center text-accentGreen hover:text-headingWhite"
-                    rel="noopener noreferrer"
-                >
-                    Read more
-                </a>
-            </div>
         </div>
+        </Link>
     );
 }

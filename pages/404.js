@@ -1,4 +1,3 @@
-import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
 export default function Custom404() {
     return (
@@ -16,7 +15,6 @@ export default function Custom404() {
                     We couldn’t locate what you were looking for. It must be a
                     glitch.
                 </p>
-                <BackButton />
             </div>
         </>
     );

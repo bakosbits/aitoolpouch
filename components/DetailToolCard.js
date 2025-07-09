@@ -17,7 +17,6 @@ export default function DetailToolCard({ tool }) {
 
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
-            {/* Link to detail page */}
             <div className="flex items-center space-x-4 mb-4">
                 <img
                     src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}

@@ -10,7 +10,7 @@ export async function getStaticProps() {
     const newestTools = tools
         .filter(tool => !!tool.Created)
         .sort((a, b) => new Date(b.Created) - new Date(a.Created))
-        .slice(0, 6);
+        .slice(0, 8);
 
     const latestTools = newestTools.sort((a, b) => a.Name.localeCompare(b.Name));
 

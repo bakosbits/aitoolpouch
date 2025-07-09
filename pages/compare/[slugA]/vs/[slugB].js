@@ -1,7 +1,6 @@
 import { getAllTools, getAllCategories } from "@/lib/airtable";
 import { useState } from 'react';
 import DetailToolCard from "@/components/DetailToolCard";
-import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticPaths() {
@@ -78,11 +77,10 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                         </button>
                     </div>
                 )}                
-                <div className="h-full flex items-center justify-between border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
+                <div className="h-full flex items-center justify-between mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}
                     </h1>
-                    <BackButton />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

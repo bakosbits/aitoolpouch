@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
-import SearchBar from "@/components/SearchBar";
-import BackButton from "@/components/BackButton";
 import SeoHead from "@/components/SeoHead";
 import CompareBar from "@/components/CompareBar";
 
@@ -68,15 +66,14 @@ export default function CategoryPage({ tools, category }) {
                 description={`AI Tools in ${category}. Research And Compare AI Tools Side By Side. Grouped By Profession.`}
                 url={`https://aitoolpouch.com/category/${category}/`}
             />
+            <div className="w-full mb-6">
+                <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
+            </div>            
             <div className="max-w-6xl mx-auto">
-                <div className="w-full flex justify-between items-center border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
+                <div className="w-full flex justify-between items-center mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Compare Tools for {category}
                     </h1>
-                    <BackButton />
-                </div>
-                <div className="w-full mb-6">
-                    <CompareBar compareList={compareList} toggleCompare={toggleCompare} />
                 </div>
                 <div className="w-full">
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
