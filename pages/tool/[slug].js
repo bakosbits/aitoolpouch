@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import Image from "next/image";
 import { getAllTools, getAllCategories } from "@/lib/airtable";
 import DetailToolCard from "@/components/DetailToolCard";
 import Link from "next/link";
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         params: { slug: tool.Slug.toLowerCase() },
     }));
 
-    return { paths, fallback: false };
+    return { paths, fallback: 'blocking'};
 }
 
 export async function getStaticProps({ params }) {
@@ -23,7 +23,7 @@ export async function getStaticProps({ params }) {
         props: {
             tool,
         },
-        revalidate: 1800,
+        revalidate: 300,
     };
 }
 
@@ -53,7 +53,7 @@ export default function ToolPage({ tool }) {
                             <DetailToolCard tool={tool} />
                         </div>
                         {/* Right column */}
-                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
+                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">                             
                             <img
                                 src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
                                 alt={tool.Name}

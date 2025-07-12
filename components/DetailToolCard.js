@@ -29,9 +29,9 @@ export default function DetailToolCard({ tool }) {
                     {tool.Name}
                 </h1>
             </div>
-            {tool["Base Model"] && (
+            {tool["Base_Model"] && (
                 <p className="text-headingWhite mb-4">
-                    Powered by {tool["Base Model"]}
+                    Powered by {tool["Base_Model"]}
                 </p>
             )}
             <p className="text-grayText mb-4">{tool.Description}</p>

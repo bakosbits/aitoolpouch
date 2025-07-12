@@ -8,7 +8,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
             passHref
         >
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
-                <div className="flex items-center space-x-4 mb-2">
+                <div className="flex items-center space-x-4 mb-2">                   
                     <img
                         src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
                         alt={`${tool.Name} logo`}
@@ -18,9 +18,9 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         {tool.Name}
                     </h1>
                 </div>
-                {tool["Base Model"] && (
+                {tool["Base_Model"] && (
                     <p className="text-headingWhite mb-4">
-                        Powered by {tool["Base Model"]}
+                        Powered by {tool["Base_Model"]}
                     </p>
                 )}
                 <p className=" text-grayText mb-4">

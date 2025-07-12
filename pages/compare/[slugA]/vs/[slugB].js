@@ -51,7 +51,7 @@ export async function getStaticProps({ params }) {
             toolB,
             hasSharedCategory,
         },
-        revalidate: 1800,
+        revalidate: 300,
     };
 }
 
