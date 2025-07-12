@@ -38,7 +38,7 @@ export default function Home({ tools, latestTools }) {
             {/* OUTER WRAPPER: 90% of screen width, centered */}
             <div className="w-full w-[90%] mx-auto flex flex-col md:flex-row gap-8">
                 {/* LEFT COLUMN: 60% of outer container */}
-                <div className="w-full md:w-[60%] pt-[0%] md:pt-[5%] flex justify-center">
+                <div className="w-full md:w-[60%] mt-[0%] md:mt-[5%] flex justify-center">
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
                     <div className="w-full md:w-[60%] text-left flex flex-col">
                         <div>
@@ -94,7 +94,7 @@ export default function Home({ tools, latestTools }) {
                             <SearchBar tools={tools} />
                         </div>
                         <h1 className="text-headingWhite text-xl font-bold mb-4">
-                            Latest Additions:
+                            Our Latest Additions:
                         </h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {latestTools.map((tool) => (
