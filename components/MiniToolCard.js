@@ -3,8 +3,9 @@ export default function MiniToolCard({ tool }) {
     return (
         <Link
             href={`/tool/${tool.Slug}`}
-            className="block h-full group" // Added 'group' class for potential group-hover styling
-            passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
+            className="block h-full group" 
+            title={tool.Name}            
+            passHref
         >
             <div className="h-full bg-cardDark p-4 rounded-lg shadow-lg flex flex-col items-start group-hover:bg-gray-800 transition-colors">
                 <div className="w-full flex items-center space-x-4">

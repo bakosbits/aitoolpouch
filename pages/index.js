@@ -94,6 +94,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                 {featuredTools.map((tool) => (
                                     <Link
                                         href={`/tool/${tool.Slug}`}
+                                        title={tool.Name}
                                         className="block h-full group" // Added 'group' class for potential group-hover styling
                                         passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
                                     >

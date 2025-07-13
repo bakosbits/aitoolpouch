@@ -5,6 +5,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
         <Link
             href={`/tool/${tool.Slug}`}
             className="block h-full group"
+            title={tool.Name}
             passHref
         >
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
@@ -39,7 +40,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                 <div className="mt-auto text-sm">
                     <a
                         href={`/go/${tool.Slug}`}
-                        className="flex items-center text-accentGreen hover:text-headingWhite font-medium"
+                        className="flex items-center text-accentGreen hover:text-headingWhite font-medium mb-2"
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => {
