@@ -30,16 +30,17 @@ export default function CategoriesPage({ categories }) {
             <div className="max-w-6xl mx-auto">
                 <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold mb-4">
-                        Explore Our Categories
+                        Alignment By Profession
                     </h1>
                     <p className="text-grayText mb-4">
                         Each category below contains a listing of top AI tools
-                        best suited for the category. We find that grouping
-                        these tools by profession helps the end user quickly
-                        understand they types of use cases it handles best. Once
-                        you've selected a category you can get detail on
-                        individual tools or compare two side-by-side to compare
-                        and contrast.
+                        best suited for the category. This enables you to quickly 
+                        sharpen your focus by aligning with tools that map well into your 
+                        profession and/or use cases. Many AI tools have similar features but 
+                        implementation can help or hinder your productivity..  
+                        Some are better suited for your use cases than others. We've done the 
+                        heavy lifting for you. Once you've selected a category you can get explore 
+                        individual tools in detail and/or compare two side-by-side to compare and contrast.
                     </p>
                 </div>
 

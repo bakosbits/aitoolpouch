@@ -43,70 +43,80 @@ export default function Home({ tools, latestTools, featuredTools }) {
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] mt-[0%] md:mt-[5%] flex justify-center">
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
-                    <div className="w-full md:w-[80%] text-left flex flex-col">
-                        <div>
-                            <h1 className="text-headingWhite text-3xl font-bold mb-4">
-                                Welcome!
-                            </h1>
-                            <p className="text-grayText mb-2">
-                                You can't help but notice the endless sea of AI
-                                driven tools in the market today. It's no
-                                surprise that many of us end up feeling
-                                overwhelmed when deciding on the right AI tool.
-                            </p>
-                            <p className="text-grayText mb-4">
-                                Are you new to AI? Maybe you have a project with
-                                increased productivity goals and you're not sure
-                                where to start? You don't have to fumble through
-                                countless feature lists to find a solution. We
-                                hope you find our information to be laid out in
-                                a format that enables you to make quick, well
-                                informed choices.
-                            </p>
-                            <h1 className="text-headingWhite text-xl font-bold mb-4">
-                                Discover powerful AI tools tailored to your
-                                profession.
-                            </h1>
-                            <p className="text-grayText mb-5">
-                                We'll show you a manageable list of tools to
-                                choose from. From there you'll have access to
-                                relevant details for each tool in your target
-                                category. You can conduct side-by-side
-                                comparisons to help you narrow down your search
-                                to something that best fits your needs. We
-                                answer the who, what and why so you can quickly
-                                determine which tools belong in your tool pouch.
-                                To jumpstart your selection process choose from
-                                one of our
-                                <Link
-                                    href="/categories"
-                                    className="text-accentGreen hover:text-headingWhite transition"
-                                >
-                                    {" "}
-                                    categories{" "}
-                                </Link>
-                                to get started.
-                            </p>
-                            <h1 className="text-headingWhite text-xl font-bold mb-6">
-                                Hot Topics:
-                            </h1>
-                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                                {featuredTools.map((tool) => (
-                                    <Link
-                                        href={`/tool/${tool.Slug}`}
-                                        title={tool.Name}
-                                        className="block h-full group" // Added 'group' class for potential group-hover styling
-                                        passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
-                                    >
-                                        <img
-                                            key={tool.Slug}
-                                            src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
-                                            alt={`${tool.Name} logo`}
-                                            className="w-[180px] h-[180px] object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
-                                        />
-                                    </Link>
-                                ))}
+
+                    <div className="w-full md:w-[80%] justify-start text-left flex flex-col">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
+                            <div className="flex justify-between items-center">
+                                <h1 className="text-headingWhite text-3xl font-bold">
+                                    Welcome!
+                                </h1>
                             </div>
+                            <div className="flex text-accentGreen font-bold border border-gray-700 p-2 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors">
+                                <a href="/categories" 
+                                    className="hover:text-headingWhite transition-colors"
+                                >
+                                    Start Here: Find Your Category
+                                </a>
+                            </div>
+                        </div>
+                        <p className="text-grayText mb-2">
+                            You can't help but notice the endless sea of AI
+                            driven tools in the market. Did you know there 
+                            are +10,000 tools out there with some type of AI moniker? 
+                            It's no surprise that many of us struggle to find something that best fits our use case.
+                        </p>
+                        <p className="text-grayText mb-4">
+                            Are you new to AI? Maybe you have a project with
+                            increased productivity goals and you're not sure
+                            where to start? You don't have to fumble through
+                            countless feature lists to find a solution. We
+                            hope you find our information to be laid out in
+                            a format that enables you to make quick, well
+                            informed choices.
+                        </p>
+                        <h1 className="text-headingWhite text-xl font-bold mb-4">
+                            Discover powerful AI tools tailored to your
+                            profession.
+                        </h1>
+                        <p className="text-grayText mb-5">
+                            We'll show you a manageable list of tools to
+                            choose from. From there you'll have access to
+                            relevant details for each tool in your target
+                            category. You can conduct side-by-side
+                            comparisons to help you narrow down your search
+                            to something that best fits your needs. We
+                            answer the who, what and why so you can quickly
+                            determine which tools belong in your tool pouch.
+                            To jumpstart your selection process choose from
+                            one of our
+                            <Link
+                                href="/categories"
+                                className="text-accentGreen hover:text-headingWhite transition"
+                            >
+                                {" "}
+                                categories{" "}
+                            </Link>
+                            to get started.
+                        </p>
+                        <h1 className="text-headingWhite text-xl font-bold mb-6">
+                            Hot Topics:
+                        </h1>
+                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                            {featuredTools.map((tool) => (
+                                <Link
+                                    href={`/tool/${tool.Slug}`}
+                                    title={tool.Name}
+                                    className="block h-full group" // Added 'group' class for potential group-hover styling
+                                    passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
+                                >
+                                    <img
+                                        key={tool.Slug}
+                                        src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
+                                        alt={`${tool.Name} logo`}
+                                        className="w-[180px] h-[180px] object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+                                    />
+                                </Link>
+                            ))}
                         </div>
 
                     </div>
