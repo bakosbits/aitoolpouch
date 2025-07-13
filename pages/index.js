@@ -90,7 +90,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                             <h1 className="text-headingWhite text-xl font-bold mb-6">
                                 Hot Topics:
                             </h1>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                                 {featuredTools.map((tool) => (
                                     <Link
                                         href={`/tool/${tool.Slug}`}

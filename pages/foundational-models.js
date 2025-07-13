@@ -29,7 +29,7 @@ export default function FoundationalModelsPage() {
                     back to a handful of foundational models that serve as the
                     bedrock for everything from chatbots and image generation to
                     data analysis and code completion. These models aren’t just
-                    powerful—they’re general-purpose systems that other tools
+                    powerful, they’re general-purpose systems that other tools
                     are built on top of. Below, we break down six of the most
                     important foundational models, explaining what each one does
                     and why it matters.
@@ -86,7 +86,7 @@ export default function FoundationalModelsPage() {
                 </p>
                 <p className="mt-4 mb-4">
                     Claude is similar to GPT but places greater emphasis on
-                    constitutional AI—a method that encodes values and ethical
+                    constitutional AI, a method that encodes values and ethical
                     boundaries into the model via principles rather than
                     hard-coded rules. This makes Claude appealing in settings
                     where safety, moderation, and interpretability are
@@ -210,7 +210,7 @@ export default function FoundationalModelsPage() {
                 </h1>
                 <p className="mt-4 mb-4">
                     These models are called "foundational" because they’re not
-                    trained for one job—they enable many. Tools like Jasper,
+                    trained for one job, they enable many. Tools like Jasper,
                     Notion AI, Midjourney, and GitHub Copilot are all built on
                     top of one or more of these foundational systems.
                     Understanding the strengths and characteristics of each
