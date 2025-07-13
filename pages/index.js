@@ -1,11 +1,13 @@
 import Link from "next/link";
-import { getAllTools } from "@/lib/airtable";
+import { getAllTools, getFeaturedTools } from "@/lib/airtable";
 import SearchBar from "@/components/SearchBar";
 import MiniToolCard from "@/components/MiniToolCard";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {
     const tools = await getAllTools();
+    const featuredTools = await getFeaturedTools();
+
 
     const newestTools = tools
         .filter((tool) => !!tool.Created)
@@ -20,12 +22,13 @@ export async function getStaticProps() {
         props: {
             tools,
             latestTools,
+            featuredTools,
         },
-        revalidate: 1800,
+        revalidate: 300,
     };
 }
 
-export default function Home({ tools, latestTools }) {
+export default function Home({ tools, latestTools, featuredTools }) {
     return (
         <>
             <SeoHead
@@ -40,10 +43,10 @@ export default function Home({ tools, latestTools }) {
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] mt-[0%] md:mt-[5%] flex justify-center">
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
-                    <div className="w-full md:w-[60%] text-left flex flex-col">
+                    <div className="w-full md:w-[80%] text-left flex flex-col">
                         <div>
                             <h1 className="text-headingWhite text-3xl font-bold mb-4">
-                                Welcome
+                                Welcome!
                             </h1>
                             <p className="text-grayText mb-2">
                                 You can't help but notice the endless sea of AI
@@ -64,7 +67,7 @@ export default function Home({ tools, latestTools }) {
                                 Discover powerful AI tools tailored to your
                                 profession.
                             </h1>
-                            <p className="text-grayText">
+                            <p className="text-grayText mb-5">
                                 We'll show you a manageable list of tools to
                                 choose from. From there you'll have access to
                                 relevant details for each tool in your target
@@ -84,17 +87,37 @@ export default function Home({ tools, latestTools }) {
                                 </Link>
                                 to get started.
                             </p>
+                            <h1 className="text-headingWhite text-xl font-bold mb-6">
+                                Hot Topics:
+                            </h1>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                {featuredTools.map((tool) => (
+                                    <Link
+                                        href={`/tool/${tool.Slug}`}
+                                        className="block h-full group" // Added 'group' class for potential group-hover styling
+                                        passHref // Ensures the href is passed to the underlying <a> tag for proper SEO and accessibility
+                                    >
+                                        <img
+                                            key={tool.Slug}
+                                            src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
+                                            alt={`${tool.Name} logo`}
+                                            className="w-[180px] h-[180px] object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"
+                                        />
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
+
                     </div>
                 </div>
-                {/* Right column: image */}
+                {/* Right column: Search + Newest */}
                 <div className="w-full md:w-[40%]">
                     <div className="w-full md:w-[80%]">
                         <div className="mb-6">
                             <SearchBar tools={tools} />
                         </div>
                         <h1 className="text-headingWhite text-xl font-bold mb-4">
-                            Our Latest Additions:
+                            Latest Additions:
                         </h1>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {latestTools.map((tool) => (
