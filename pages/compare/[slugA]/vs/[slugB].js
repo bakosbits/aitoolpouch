@@ -7,20 +7,20 @@ export async function getStaticPaths() {
     const tools = await getAllTools();
     const paths = [];
 
-    tools.forEach((toolA) => {
-        tools.forEach((toolB) => {
-            if (toolA.Slug !== toolB.Slug) {
-                paths.push({
-                    params: {
-                        slugA: toolA.Slug.toLowerCase(),
-                        slugB: toolB.Slug.toLowerCase(),
-                    },
-                });
-            }
-        });
-    });
+    // tools.forEach((toolA) => {
+    //     tools.forEach((toolB) => {
+    //         if (toolA.Slug !== toolB.Slug) {
+    //             paths.push({
+    //                 params: {
+    //                     slugA: toolA.Slug.toLowerCase(),
+    //                     slugB: toolB.Slug.toLowerCase(),
+    //                 },
+    //             });
+    //         }
+    //     });
+    // });
 
-    return { paths, fallback: false };
+    return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
