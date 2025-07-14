@@ -37,15 +37,15 @@ export default function BlogIndex({ articles }) {
                         >
                             <Link href={`/blog/${article.slug}`}>
                                 <h1 className="text-xl font-semibold text-accentGreen hover:underline">
-                                    {article.title}
+                                    {article.Title}
                                 </h1>
                             </Link>
                             <p className="text-gray-400 text-xs mt-1">
-                                {article.date}
+                                {article.Date}
                             </p>
-                            {article.summary && (
+                            {article.Summary && (
                                 <p className="text-grayText mt-2">
-                                    {article.summary}
+                                    {article.Summary}
                                 </p>
                             )}
                         </li>

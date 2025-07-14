@@ -7,9 +7,9 @@ export async function getStaticPaths() {
     const records = await getAllArticles();
 
     const paths = records
-        .filter((a) => a.slug)
+        .filter((a) => a.Slug)
         .map((a) => ({
-            params: { slug: a.slug },
+            params: { slug: a.Slug },
         }));
 
     return {
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
     const articles = await getAllArticles();
-    const article = articles.find((a) => a.slug === params.slug);
+    const article = articles.find((a) => a.Slug === params.Slug);
 
     return {
         props: {
@@ -29,23 +29,23 @@ export async function getStaticProps({ params }) {
     };
 }
 
-export default function BlogPost({ title, summary, content, author, date }) {
+export default function BlogPost({ Title, Summary, Content, Author, Date }) {
     return (
         <div className="px-6 md:px-12 py-12 max-w-4xl mx-auto">
             <SeoHead
-                title={title}
-                description={summary}
+                title={Title}
+                description={Summary}
                 url={`https://aitoolpouch.com/blog/`}
             />
             <article>
-                <h1 className="text-2xl font-bold text-white mb-3">{title}</h1>
+                <h1 className="text-2xl font-bold text-white mb-3">{Title}</h1>
                 <div className="text-gray-500 text-xs mb-6">
-                    By {author} • {new Date(date).toLocaleDateString()}
+                    By {Author} • {new Date(Date).toLocaleDateString()}
                 </div>
-                <p className="text-gray-400 italic mb-8">{summary}</p>
+                <p className="text-gray-400 italic mb-8">{Summary}</p>
                 <hr className="border-gray-700 mb-8" />
                 <div className="prose prose-invert max-w-none">
-                    <ReactMarkdown>{content}</ReactMarkdown>
+                    <ReactMarkdown>{Content}</ReactMarkdown>
                 </div>
             </article>
         </div>
