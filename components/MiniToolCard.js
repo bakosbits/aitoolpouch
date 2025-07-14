@@ -19,9 +19,9 @@ export default function MiniToolCard({ tool }) {
                     </h1>
                 </div>
                 <p className="text-sm text-whiteText">
-                    {tool.Description?.length > 100
-                        ? tool.Description.slice(0, 100) + "..."
-                        : tool.Description}
+                    {tool.Why?.length > 100
+                        ? tool.Why.slice(0, 100) + "..."
+                        : tool.Why}
                 </p>
             </div>
         </Link>

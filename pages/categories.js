@@ -27,7 +27,7 @@ export default function CategoriesPage({ categories }) {
                 description={"Top AI Tools. AI tools for all professions"}
                 url={`https://aitoolpouch.com/categories/`}
             />
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
                 <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold mb-4">
                         Alignment By Profession
@@ -44,7 +44,7 @@ export default function CategoriesPage({ categories }) {
                     </p>
                 </div>
 
-                <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                     {[...categories]
                         .sort((a, b) => a.name.localeCompare(b.name))
                         .map((cat) => (

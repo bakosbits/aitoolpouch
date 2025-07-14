@@ -72,8 +72,8 @@ export default function CategoryPage({ tools, category }) {
                     toggleCompare={toggleCompare}
                 />
             </div>
-            <div className="max-w-6xl mx-auto">
-                <div className="w-full flex justify-between items-center mb-6">
+            <div className="max-w-7xl mx-auto">
+                <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Compare Tools for {category}
                     </h1>

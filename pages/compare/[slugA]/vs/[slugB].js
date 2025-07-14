@@ -65,7 +65,7 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                 description={`Compare ${toolA.Name} and ${toolB.Name} across features, pricing, and ideal use cases.`}
                 url={`https://aitoolpouch.com/compare/${toolA.Slug}/vs/${toolB.Slug}`}
             />
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
                 {showWarning && !hasSharedCategory && (
                     <div className="h-full flex items-center justify-between border border-red-600 p-6 rounded-lg text-headingWhite bg-backgroundDark mb-6">
                         <span>

@@ -45,24 +45,37 @@ export default function Home({ tools, latestTools, featuredTools }) {
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
 
                     <div className="w-full md:w-[80%] justify-start text-left flex flex-col">
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
-                            <div className="flex justify-between items-center">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+                            <div className="flex justify-between items-center mb-4">
                                 <h1 className="text-headingWhite text-3xl font-bold">
                                     Welcome!
                                 </h1>
                             </div>
-                            <div className="flex text-accentGreen font-bold border border-gray-700 p-2 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors">
-                                <a href="/categories" 
-                                    className="hover:text-headingWhite transition-colors"
+                            <div className="flex flex-row justify-between items-center text-backgroundDark font-semibold border border-gray-700 p-2 rounded-lg bg-accentGreen hover:bg-headingWhite transition-colors mb-4">
+                                <a href="/categories"
+                                    className="flex items-center justify-center space-x-2 flex-nowrap"
                                 >
-                                    Start Here: Find Your Category
+                                    Start Here
+                                    <svg
+                                        className="w-6 h-6 text-black"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10.293 15.707a1 1 0 010-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                    Find Your Category
                                 </a>
                             </div>
                         </div>
                         <p className="text-grayText mb-2">
                             You can't help but notice the endless sea of AI
-                            driven tools in the market. Did you know there 
-                            are +10,000 tools out there with some type of AI moniker? 
+                            driven tools in the market. Did you know there
+                            are +10,000 tools out there with some type of AI moniker?
                             It's no surprise that many of us struggle to find something that best fits our use case.
                         </p>
                         <p className="text-grayText mb-4">

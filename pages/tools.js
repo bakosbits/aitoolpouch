@@ -97,7 +97,7 @@ export default function ToolsPage({ tools }) {
                 }
                 url={`https://aitoolpouch.com/tools/`}
             />
-            <div className="max-w-6xl mx-auto flex flex-col items-start">
+            <div className="max-w-7xl mx-auto flex flex-col items-start">
                 <div className="w-full">
                     <CompareBar
                         compareList={compareList}
