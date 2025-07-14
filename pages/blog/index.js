@@ -8,13 +8,13 @@ export async function getStaticProps() {
         props: {
             articles,
         },
-        revalidate: 1800,
+        revalidate: 3000,
     };
 }
 
 export default function BlogIndex({ articles }) {
     console.log("articles:", articles);
-    const validArticles = articles.filter((a) => a?.slug);
+    const validArticles = articles.filter((a) => a?.Slug);
 
     return (
         <>
@@ -35,7 +35,7 @@ export default function BlogIndex({ articles }) {
                             key={article.id}
                             className="border border-gray-700 p-6 rounded-lg hover:bg-gray-800 transition-colors"
                         >
-                            <Link href={`/blog/${article.slug}`}>
+                            <Link href={`/blog/${article.Slug}`}>
                                 <h1 className="text-xl font-semibold text-accentGreen hover:underline">
                                     {article.Title}
                                 </h1>

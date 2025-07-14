@@ -10,7 +10,7 @@ export default function LegalPage() {
                 url={`https://aitoolpouch.com/legal/`}
             />
             {/* OUTER WRAPPER: 90% of screen width, centered */}
-            <div className="w-full md:w-[80%] mx-auto flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-[90%] mx-auto flex flex-col md:flex-row gap-6">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] flex justify-center">
                     {/* INNER WRAPPER: 75% of left column, padded on mobile */}

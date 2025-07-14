@@ -55,7 +55,7 @@ export default function Layout({
                     </nav>
                     {/* Mobile Menu Toggle */}
                     <div className="lg:hidden">
-                        <MobileMenu categories={categories} />
+                        {/* <MobileMenu categories={categories} /> */}
                     </div>
                 </div>
             </header>

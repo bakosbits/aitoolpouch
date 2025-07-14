@@ -10,7 +10,7 @@ export default function TermsOfUsePage() {
                 url={`https://aitoolpouch.com/terms/`}
             />
             {/* OUTER WRAPPER: 90% of screen width, centered */}
-            <div className="w-[80%] mx-auto flex flex-col md:flex-row gap-6">
+            <div className="w-[90%] mx-auto flex flex-col md:flex-row gap-6">
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] flex justify-center">
                     {/* INNER WRAPPER: 80% of left column, padded on mobile */}
