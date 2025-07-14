@@ -79,7 +79,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                         mb-4 whitespace-nowrap">                                    
                                     <span>Find Your Category</span> {/* Group the main text */}
                                     <svg
-                                        className="w-6 h-6" /* Adjusted size, added hover effect */
+                                        className="w-6 h-6"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -90,7 +90,6 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    {/* Removed "Start Here" here as it seems redundant with "Find Your Category" */}
                                 </a>
                             </div>
                         </div>
