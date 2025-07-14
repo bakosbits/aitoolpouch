@@ -11,7 +11,7 @@ export default function Document() {
                 ></script>
                 {/* Charset and Viewport (optional here; usually set in _app.js or individual pages) */}
                 <meta charSet="utf-8" />
-
+                <meta name="fo-verify" content="82ce619f-ae9b-47b7-8be9-c6a7c7952f20" />
                 {/* Favicon */}
                 <link rel="icon" href="/favicon.ico" />
 
