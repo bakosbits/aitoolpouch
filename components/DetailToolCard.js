@@ -25,7 +25,7 @@ export default function DetailToolCard({ tool }) {
                     alt={`${tool.Name} logo`}
                     className="h-14 w-14 object-contain"
                 />
-                <h1 className="text-xl font-bold text-headingWhite">
+                <h1 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
                 </h1>
             </div>

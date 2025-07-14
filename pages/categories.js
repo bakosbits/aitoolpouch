@@ -30,16 +30,16 @@ export default function CategoriesPage({ categories }) {
             <div className="max-w-7xl mx-auto">
                 <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold mb-4">
-                        Alignment By Profession
+                        Alignment By Profession | Skill | Trade | Craft
                     </h1>
                     <p className="text-grayText mb-4">
                         Each category below contains a listing of top AI tools
-                        best suited for the category. This enables you to quickly 
-                        sharpen your focus by aligning with tools that map well into your 
-                        profession and/or use cases. Many AI tools have similar features but 
-                        implementation can help or hinder your productivity..  
-                        Some are better suited for your use cases than others. We've done the 
-                        heavy lifting for you. Once you've selected a category you can get explore 
+                        best suited for the category. This enables you to quickly
+                        sharpen your focus by aligning with tools that map well into your
+                        profession and/or use cases. Many AI tools have similar features but
+                        implementation can help or hinder your productivity..
+                        Some are better suited for your use cases than others. We've done the
+                        heavy lifting for you. Once you've selected a category you can get explore
                         individual tools in detail and/or compare two side-by-side to compare and contrast.
                     </p>
                 </div>
@@ -51,14 +51,18 @@ export default function CategoriesPage({ categories }) {
                             <Link
                                 key={cat.id}
                                 href={`/category/${cat.slug}`}
-                                className="block border border-gray-700 p-6 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors"
-                            >
+                                className="block border border-gray-700 p-4 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors flex flex-col">
                                 <h1 className="text-xl text-accentGreen hover:text-headingWhite font-bold mb-2">
                                     {cat.name}
                                 </h1>
-                                <p className=" text-grayText">
+                                <p className=" text-grayText mb-2">
                                     {cat.description}
                                 </p>
+                                <div className="mt-auto">
+                                    <p className="text-sm text-headingWhite">
+                                        {cat.count} tools
+                                    </p>
+                                </div>
                             </Link>
                         ))}
                 </div>

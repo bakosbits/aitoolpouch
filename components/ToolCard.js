@@ -15,7 +15,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         alt={`${tool.Name} logo`}
                         className="h-14 w-14 object-contain"
                     />
-                    <h1 className="text-xl font-bold text-headingWhite">
+                    <h1 className="text-2xl font-bold text-headingWhite">
                         {tool.Name}
                     </h1>
                 </div>
@@ -32,7 +32,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                 <h1 className="text-xl text-headingWhite font-bold">
                     Why it matters:
                 </h1>
-                <p className=" text-grayText mb-4">
+                <p className="text-grayText mb-4">
                     {tool.Why?.length > 100
                         ? tool.Why.slice(0, 100) + "..."
                         : tool.Why}

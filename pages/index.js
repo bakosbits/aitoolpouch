@@ -45,17 +45,35 @@ export default function Home({ tools, latestTools, featuredTools }) {
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
 
                     <div className="w-full md:w-[80%] justify-start text-left flex flex-col">
+                        <h1 className="text-headingWhite text-3xl font-bold mb-4 ">
+                            Welcome!
+                        </h1>
+                        <p className="text-grayText mb-2">
+                            You can't help but notice the endless sea of AI
+                            driven tools in the market. Did you know there
+                            are +10,000 tools out there with some type of AI moniker?
+                            It's no surprise that many of us struggle to find something that best fits our use case.
+                        </p>
+                        <p className="text-grayText mb-2">
+                            Are you new to AI? Maybe you have a project with
+                            increased productivity goals and you're not sure
+                            where to start? You don't have to fumble through
+                            countless feature lists to find a solution. We
+                            hope you find our information to be laid out in
+                            a format that enables you to make quick, well
+                            informed choices.
+                        </p>
                         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between">
-                            <div className="flex justify-between items-center mb-4">
-                                <h1 className="text-headingWhite text-3xl font-bold">
-                                    Welcome!
+                            <div className="flex justify-between items-center mb-2">
+                                <h1 className="text-headingWhite text-xl font-bold">
+                                    Discover powerful AI tools tailored to your profession.
                                 </h1>
                             </div>
                             <div className="flex flex-row justify-between items-center text-backgroundDark font-semibold border border-gray-700 p-2 rounded-lg bg-accentGreen hover:bg-headingWhite transition-colors mb-4">
                                 <a href="/categories"
                                     className="flex items-center justify-center space-x-2 flex-nowrap"
                                 >
-                                    Start Here
+                                    Find Your Category
                                     <svg
                                         className="w-6 h-6 text-black"
                                         fill="currentColor"
@@ -68,29 +86,10 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                             clipRule="evenodd"
                                         />
                                     </svg>
-                                    Find Your Category
+                                    Start Here
                                 </a>
                             </div>
                         </div>
-                        <p className="text-grayText mb-2">
-                            You can't help but notice the endless sea of AI
-                            driven tools in the market. Did you know there
-                            are +10,000 tools out there with some type of AI moniker?
-                            It's no surprise that many of us struggle to find something that best fits our use case.
-                        </p>
-                        <p className="text-grayText mb-4">
-                            Are you new to AI? Maybe you have a project with
-                            increased productivity goals and you're not sure
-                            where to start? You don't have to fumble through
-                            countless feature lists to find a solution. We
-                            hope you find our information to be laid out in
-                            a format that enables you to make quick, well
-                            informed choices.
-                        </p>
-                        <h1 className="text-headingWhite text-xl font-bold mb-4">
-                            Discover powerful AI tools tailored to your
-                            profession.
-                        </h1>
                         <p className="text-grayText mb-5">
                             We'll show you a manageable list of tools to
                             choose from. From there you'll have access to
