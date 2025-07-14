@@ -33,7 +33,7 @@ export default function AdminDashboard() {
     );
 }
 
-function AdminCard({ title, description, href }) {
+function AdminCard({ Title, description, href }) {
     return (
         <Link href={href} className="block bg-gray-800 rounded-lg shadow-lg p-6 hover:bg-accentGreen transition">
             <h2 className="text-xl font-bold text-headingWhite mb-2">{title}</h2>

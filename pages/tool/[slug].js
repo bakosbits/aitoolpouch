@@ -66,12 +66,12 @@ export default function ToolPage({ tool }) {
                                 {""}
                                 {tool.Categories && tool.Categories.length > 0
                                     ? tool.Categories.map((cat, idx) => (
-                                          <span key={cat.slug || cat.name}>
+                                          <span key={cat.Slug || cat.Name}>
                                               <Link
-                                                  href={`/category/${cat.slug || cat.name.toLowerCase()}`}
+                                                  href={`/category/${cat.Slug || cat.Name.toLowerCase()}`}
                                                   className="text-left text-accentGreen hover:text-headingWhite"
                                               >
-                                                  {cat.name}
+                                                  {cat.Name}
                                               </Link>
                                               {idx < tool.Categories.length - 1
                                                   ? ", "

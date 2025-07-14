@@ -45,7 +45,7 @@ export default function ToolsPage({ tools }) {
         if (query) {
             const filtered = tools
                 .filter((tool) => {
-                    const name = tool.Name?.toLowerCase() || "";
+                    const Name = tool.Name?.toLowerCase() || "";
                     const desc = tool.Description?.toLowerCase() || "";
                     const detail = tool.Detail?.toLowerCase() || "";
                     const features = Array.isArray(tool.Features)
@@ -53,7 +53,7 @@ export default function ToolsPage({ tools }) {
                         : (tool.Features || "").toLowerCase();
 
                     return (
-                        name.includes(query) ||
+                        Name.includes(query) ||
                         desc.includes(query) ||
                         detail.includes(query) ||
                         features.includes(query)
@@ -90,7 +90,7 @@ export default function ToolsPage({ tools }) {
                         ? `Search Results for "${query}"`
                         : "Browse All Tools"
                 }
-                description={
+                Description={
                     isSearch
                         ? `Tools matching "${query}"`
                         : "Explore our full library of AI tools"

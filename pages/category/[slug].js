@@ -1,14 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
 import ToolCard from "@/components/ToolCard";
 import SeoHead from "@/components/SeoHead";
 import CompareBar from "@/components/CompareBar";
+import Pagination from "@/components/Pagination";
+
+const ITEMS_PER_PAGE = 12;
 
 export async function getStaticPaths() {
     const categories = await getAllCategories();
 
     const paths = categories.map((cat) => ({
-        params: { slug: cat.slug },
+        params: { slug: cat.Slug },
     }));
 
     return { paths, fallback: false };
@@ -21,7 +24,7 @@ export async function getStaticProps({ params }) {
     const categories = await getAllCategories();
 
     // Find the full category record by matching slug
-    const matchingCategory = categories.find((cat) => cat.slug === slug);
+    const matchingCategory = categories.find((cat) => cat.Slug === slug);
 
     // If the slug is invalid (no match), return 404
     if (!matchingCategory) {
@@ -36,7 +39,7 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             tools,
-            category: matchingCategory.name,
+            category: matchingCategory.Name,
             categories,
         },
         revalidate: 1800,
@@ -45,8 +48,9 @@ export async function getStaticProps({ params }) {
 
 export default function CategoryPage({ tools, category }) {
     const [compareList, setCompareList] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);    
 
-    const toggleCompare = (tool) => {
+    function toggleCompare(tool) {
         setCompareList((prev) => {
             const exists = prev.find((t) => t.id === tool.id);
             if (exists) {
@@ -55,9 +59,24 @@ export default function CategoryPage({ tools, category }) {
                 return prev.length < 2 ? [...prev, tool] : prev;
             }
         });
-    };
+    }
+
 
     const sortedTools = [...tools].sort((a, b) => a.Name.localeCompare(b.Name));
+
+    const totalPages = Math.ceil(sortedTools.length / ITEMS_PER_PAGE);
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+    const endIndex = startIndex + ITEMS_PER_PAGE;
+    const paginatedTools = sortedTools.slice(startIndex, endIndex);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [tools, category]);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [currentPage]);  
+    
 
     return (
         <>
@@ -80,8 +99,8 @@ export default function CategoryPage({ tools, category }) {
                 </div>
                 <div className="w-full">
                     <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-                        {sortedTools.map((tool) => (
-                            <li key={tool.Name}>
+                        {paginatedTools.map((tool) => (
+                            <li key={tool.id}>
                                 <ToolCard
                                     tool={tool}
                                     compareList={compareList}
@@ -91,6 +110,11 @@ export default function CategoryPage({ tools, category }) {
                         ))}
                     </ul>
                 </div>
+                <Pagination
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={(page) => setCurrentPage(page)}
+                />                
             </div>
         </>
     );

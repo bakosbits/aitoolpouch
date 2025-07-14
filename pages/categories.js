@@ -24,7 +24,7 @@ export default function CategoriesPage({ categories }) {
         <>
             <SeoHead
                 title={`AI Tool Categories`}
-                description={"Top AI Tools. AI tools for all professions"}
+                Description={"Top AI Tools. AI tools for all professions"}
                 url={`https://aitoolpouch.com/categories/`}
             />
             <div className="max-w-7xl mx-auto">
@@ -46,21 +46,21 @@ export default function CategoriesPage({ categories }) {
 
                 <div className=" grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
                     {[...categories]
-                        .sort((a, b) => a.name.localeCompare(b.name))
+                        .sort((a, b) => a.Name.localeCompare(b.Name))
                         .map((cat) => (
                             <Link
                                 key={cat.id}
-                                href={`/category/${cat.slug}`}
+                                href={`/category/${cat.Slug}`}
                                 className="block border border-gray-700 p-4 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors flex flex-col">
                                 <h1 className="text-xl text-accentGreen hover:text-headingWhite font-bold mb-2">
-                                    {cat.name}
+                                    {cat.Name}
                                 </h1>
                                 <p className=" text-grayText mb-2">
-                                    {cat.description}
+                                    {cat.Description}
                                 </p>
                                 <div className="mt-auto">
-                                    <p className="text-sm text-headingWhite">
-                                        {cat.count} tools
+                                    <p className="text-xs text-headingWhite">
+                                        {cat.Count} tools
                                     </p>
                                 </div>
                             </Link>
