@@ -3,6 +3,7 @@ import { getAllTools, getAllCategories } from "@/lib/airtable";
 import DetailToolCard from "@/components/DetailToolCard";
 import Link from "next/link";
 import SeoHead from "@/components/SeoHead";
+import LogoCard from "@/components/LogoCard";
 
 export async function getStaticPaths() {
     const tools = await getAllTools();
@@ -53,11 +54,11 @@ export default function ToolPage({ tool }) {
                             <DetailToolCard tool={tool} />
                         </div>
                         {/* Right column */}
-                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">                             
-                            <img
-                                src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
-                                alt={tool.Name}
-                                className="object-cover rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
+                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
+                            <LogoCard
+                                name={tool.Name}
+                                domain={tool.Domain}
+                                klassName="object-cover rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
                             />
                             <h1 className="text-xl font-bold text-headingWhite mb-2">
                                 Found in:

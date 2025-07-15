@@ -7,18 +7,6 @@ export async function getStaticPaths() {
     const tools = await getAllTools();
     const paths = [];
 
-    // tools.forEach((toolA) => {
-    //     tools.forEach((toolB) => {
-    //         if (toolA.Slug !== toolB.Slug) {
-    //             paths.push({
-    //                 params: {
-    //                     slugA: toolA.Slug.toLowerCase(),
-    //                     slugB: toolB.Slug.toLowerCase(),
-    //                 },
-    //             });
-    //         }
-    //     });
-    // });
 
     return { paths, fallback: 'blocking' };
 }
@@ -31,13 +19,13 @@ export async function getStaticProps({ params }) {
 
     const categoriesA = Array.isArray(toolA?.Categories)
         ? toolA.Categories.map((cat) =>
-              typeof cat === "object" ? cat.name : cat,
+              typeof cat === "object" ? cat.Name : cat,
           )
         : [];
 
     const categoriesB = Array.isArray(toolB?.Categories)
         ? toolB.Categories.map((cat) =>
-              typeof cat === "object" ? cat.name : cat,
+              typeof cat === "object" ? cat.Name : cat,
           )
         : [];
 

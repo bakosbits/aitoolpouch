@@ -1,3 +1,5 @@
+import LogoCard from "./LogoCard";
+
 export default function DetailToolCard({ tool }) {
     const featuresText = tool.Features;
     const featuresList = featuresText
@@ -20,11 +22,7 @@ export default function DetailToolCard({ tool }) {
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             <div className="flex items-center space-x-4 mb-4">
-                <img
-                    src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
-                    alt={`${tool.Name} logo`}
-                    className="h-14 w-14 object-contain"
-                />
+                <LogoCard name={tool.Name} domain={tool.Domain} klassName="h-14 w-14 object-contain" />
                 <h1 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
                 </h1>

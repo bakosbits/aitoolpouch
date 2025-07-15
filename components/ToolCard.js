@@ -1,4 +1,5 @@
 import Link from "next/link";
+import LogoCard from "@/components/LogoCard";
 
 export default function ToolCard({ tool, compareList = [], toggleCompare }) {
     return (
@@ -9,12 +10,8 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
             passHref
         >
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
-                <div className="flex items-center space-x-4 mb-2">                   
-                    <img
-                        src={`https://cdn.brandfetch.io/${tool.Domain}/icon?c=1id03xd53EDa-VjPpgF`}
-                        alt={`${tool.Name} logo`}
-                        className="h-14 w-14 object-contain"
-                    />
+                <div className="flex items-center space-x-4 mb-2">        
+                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="h-14 w-14 object-contain" />
                     <h1 className="text-2xl font-bold text-headingWhite">
                         {tool.Name}
                     </h1>
