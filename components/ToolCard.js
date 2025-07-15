@@ -11,7 +11,7 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
         >
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
                 <div className="flex items-center space-x-4 mb-2">
-                    <LogoCard tool={tool} klassName="object-contain h-14 w-14" />
+                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="object-contain h-14 w-14" />
                     <h1 className="text-2xl font-bold text-headingWhite">
                         {tool.Name}
                     </h1>

@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-export default function LogoCard({ tool, klassName}) {
+export default function LogoCard({ name, domain, klassName}) {
     
     const clientId = "1id03xd53EDa-VjPpgF";
-    const toolName = tool.Name;
-    const toolDomain = tool.Domain;
+    const letter = name.charAt(0).toUpperCase();
+    const letterLink = `/logos/${letter}.jpg`;
+    const logoLink = `https://cdn.brandfetch.io/${domain}/fallback/404/icon?c=${clientId}`;
 
-    const letterLink = `/logos/${toolName.charAt(0).toUpperCase()}.jpg`;
-    const logoLink = `https://cdn.brandfetch.io/${toolDomain}/fallback/404/icon?c=${clientId}`;
+    useEffect(() => {
+    setSrc(`https://cdn.brandfetch.io/${domain}/fallback/404/icon?c=${clientId}`);
+    }, [domain]);
 
     const [src, setSrc] = useState(logoLink);
 
     return (
         <img       
             src={src}
-            alt={`${tool.Name} logo`}
+            alt={`${name} logo`}
             className={klassName}
             onError={() => setSrc(letterLink)}
         />   

@@ -120,12 +120,13 @@ export default function Home({ tools, latestTools, featuredTools }) {
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                             {featuredTools.map((tool) => (
                                 <Link
+                                    key={tool.Slug}
                                     href={`/tool/${tool.Slug}`}
                                     title={tool.Name}
                                     className="block h-full group"
                                     passHref
                                 >
-                                    <LogoCard tool={tool} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
+                                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
                                 </Link>
                             ))}
                         </div>
