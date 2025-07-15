@@ -125,7 +125,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                     className="block h-full group"
                                     passHref
                                 >
-                                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
+                                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
                                 </Link>
                             ))}
                         </div>
