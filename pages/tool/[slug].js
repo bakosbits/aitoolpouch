@@ -56,8 +56,7 @@ export default function ToolPage({ tool }) {
                         {/* Right column */}
                         <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
                             <LogoCard
-                                name={tool.Name}
-                                domain={tool.Domain}
+                                tool={tool}
                                 klassName="object-cover rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)] mb-4"
                             />
                             <h1 className="text-xl font-bold text-headingWhite mb-2">

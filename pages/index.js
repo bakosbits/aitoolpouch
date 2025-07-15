@@ -64,17 +64,17 @@ export default function Home({ tools, latestTools, featuredTools }) {
                             a format that enables you to make quick, well
                             informed choices.
                         </p>
-                        <div class="flex flex-col items-left sm:items-left justify-left">
+                        <div className="flex flex-col items-left sm:items-left justify-left">
                             <div className="flex justify-between items-center mb-4">
                                 <h1 className="text-headingWhite text-xl font-bold">
                                     Discover powerful AI tools tailored to your profession.
                                 </h1>
                             </div>
-                            <div class="flex justify-left w-full">
+                            <div className="flex justify-left w-full">
                                 <a
                                     href="/categories"
                                     title="Find Your Category"
-                                    class="inline-flex items-left justify-center space-x-2 flex-nowrap
+                                    className="inline-flex items-left justify-center space-x-2 flex-nowrap
                                         bg-accentGreen hover:bg-headingWhite transition-colors
                                         text-backgroundDark font-semibold border border-gray-700 p-2 rounded-lg shadow-md
                                         mb-4 whitespace-nowrap">                                    
@@ -125,7 +125,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                     className="block h-full group"
                                     passHref
                                 >
-                                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
+                                    <LogoCard tool={tool} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
                                 </Link>
                             ))}
                         </div>

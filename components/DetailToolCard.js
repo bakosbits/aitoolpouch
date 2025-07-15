@@ -22,7 +22,7 @@ export default function DetailToolCard({ tool }) {
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
             <div className="flex items-center space-x-4 mb-4">
-                <LogoCard name={tool.Name} domain={tool.Domain} klassName="h-14 w-14 object-contain" />
+                <LogoCard tool={tool}  klassName="object-contain h-14 w-14" />
                 <h1 className="text-2xl font-bold text-headingWhite">
                     {tool.Name}
                 </h1>
