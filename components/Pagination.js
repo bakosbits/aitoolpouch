@@ -1,33 +1,43 @@
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-    const getVisiblePages = (current, total) => {
-        const delta = 1;
-        const range = [];
+    
+const getVisiblePages = (current, total) => {
+    const range = [];
+    const delta = 2;
 
-        for (
-            let i = Math.max(2, current - delta);
-            i <= Math.min(total - 1, current + delta);
-            i++
-        ) {
-            range.push(i);
-        }
+    // Always show first page
+    range.push(1);
 
-        if (current - delta > 2) {
-            range.unshift("…");
-        }
-        if (current + delta < total - 1) {
-            range.push("…");
-        }
+    // Add left ellipsis if current - delta > 2
+    if (current - delta > 2) {
+        range.push("…");
+    }
 
-        range.unshift(1);
-        if (total > 1) range.push(total);
+    // Add middle pages
+    for (
+        let i = Math.max(2, current - delta);
+        i <= Math.min(total - 1, current + delta);
+        i++
+    ) {
+        range.push(i);
+    }
 
-        return range;
-    };
+    // Add right ellipsis if current + delta < total - 1
+    if (current + delta < total - 1) {
+        range.push("…");
+    }
+
+    // Always show last page
+    if (total > 1) range.push(total);
+
+    return range;
+};
+
 
     const visiblePages = getVisiblePages(currentPage, totalPages);
 
     return (
-        <div className="flex flex-wrap justify-center w-full mt-10 gap-2">
+
+        <div className="flex overflow-x-auto space-x-2 sm:flex-wrap justify-center w-full mt-10">
             {visiblePages.map((page, idx) => (
                 <button
                     key={idx}
