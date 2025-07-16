@@ -1,23 +1,17 @@
 import Link from "next/link";
 import { getAllTools, getFeaturedTools } from "@/lib/airtable";
+import { getLatestSortedTools } from "@/lib/toolUtils";
 import SearchBar from "@/components/SearchBar";
 import MiniToolCard from "@/components/MiniToolCard";
 import LogoCard from "@/components/LogoCard";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {
+
     const tools = await getAllTools();
     const featuredTools = await getFeaturedTools();
+    const latestTools = getLatestSortedTools(tools);
 
-
-    const newestTools = tools
-        .filter((tool) => !!tool.Created)
-        .sort((a, b) => new Date(b.Created) - new Date(a.Created))
-        .slice(0, 8);
-
-    const latestTools = newestTools.sort((a, b) =>
-        a.Name.localeCompare(b.Name),
-    );
 
     return {
         props: {
