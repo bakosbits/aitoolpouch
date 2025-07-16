@@ -37,7 +37,6 @@ export async function getStaticProps({ params }) {
         categoriesB.includes(cat),
     );
 
-}
 
     return {
         props: {
