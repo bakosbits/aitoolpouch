@@ -12,13 +12,17 @@ export async function getStaticPaths() {
         params: { slug: tool.Slug.toLowerCase() },
     }));
 
-    return { paths, fallback: 'blocking'};
+    return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
     const tools = await getAllTools();
 
     const tool = tools.find((t) => t.Slug.toLowerCase() === params.slug);
+
+    if (!tool) {
+        return { notFound: true };
+    }
 
     return {
         props: {
@@ -38,7 +42,7 @@ export default function ToolPage({ tool }) {
             <SeoHead
                 title={`${tool.Name}`}
                 description={`Detailed Information about ${tool.Name}`}
-                url={`https://aitoolpouch.com/tool/${tool.Name}/`}
+                url={`https://aitoolpouch.com/tool/${tool.Slug}/`}
             />
             <div className="min-h-screen flex flex-col items-center justify-center">
                 <div className="w-full max-w-6xl">
@@ -50,11 +54,11 @@ export default function ToolPage({ tool }) {
                     </div>
                     {/* Left column */}
                     <div className="flex flex-col md:flex-row gap-6">
-                        <div className="w-full md:-[80%] flex">
+                        <div className="w-full md:w-[80%] flex">
                             <DetailToolCard tool={tool} />
                         </div>
                         {/* Right column */}
-                        <div className="w-full md:w-[20%] hidden md:flex md:flex-col items-start text-left">
+                        <div className="w-full md:w-[20%] flex flex-col items-start text-left mt-6 md:mt-0">
                             <LogoCard
                                 name={tool.Name}
                                 domain={tool.Domain}
@@ -64,21 +68,17 @@ export default function ToolPage({ tool }) {
                                 Found in:
                             </h1>
                             <p className="text-left">
-                                {""}
-                                {tool.Categories && tool.Categories.length > 0
+                                {tool.Categories?.length > 0
                                     ? tool.Categories.map((cat, idx) => (
-                                          <span key={cat.Slug || cat.Name}>
-                                              <Link
-                                                  href={`/category/${cat.Slug || cat.Name.toLowerCase()}`}
-                                                  className="text-left text-accentGreen hover:text-headingWhite"
-                                              >
-                                                  {cat.Name}
-                                              </Link>
-                                              {idx < tool.Categories.length - 1
-                                                  ? ", "
-                                                  : ""}
-                                          </span>
-                                      ))
+                                        <Link
+                                            key={cat.Slug || cat.Name}
+                                            href={`/category/${cat.Slug || cat.Name.toLowerCase()}`}
+                                            className="text-accentGreen hover:text-headingWhite"
+                                        >
+                                            {cat.Name}
+                                        </Link>
+                                    ))
+                                        .reduce((acc, curr, idx) => acc.concat(idx > 0 ? [", ", curr] : [curr]), [])
                                     : "Uncategorized"}
                             </p>
                         </div>

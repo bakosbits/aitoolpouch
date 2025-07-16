@@ -17,6 +17,10 @@ export async function getStaticProps({ params }) {
     const toolA = tools.find((t) => t.Slug.toLowerCase() === params.slugA);
     const toolB = tools.find((t) => t.Slug.toLowerCase() === params.slugB);
 
+    if (!toolA || !toolB) {
+        return { notFound: true };
+    }
+
     const categoriesA = Array.isArray(toolA?.Categories)
         ? toolA.Categories.map((cat) =>
               typeof cat === "object" ? cat.Name : cat,
@@ -32,6 +36,8 @@ export async function getStaticProps({ params }) {
     const hasSharedCategory = categoriesA.some((cat) =>
         categoriesB.includes(cat),
     );
+
+}
 
     return {
         props: {
@@ -59,12 +65,12 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                         <span>
                             Heads up! These tools belong to different
                             categories. For best results consider comparing
-                            tools in the same
+                            tools in the same&nbsp;
                             <a
                                 href="/categories"
                                 className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
                             >
-                                <span bg-backgroundDark> category.</span>
+                                category.
                             </a>
                         </span>
                         <button
@@ -83,8 +89,8 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {/* Map into the ToolCard */}
-                    {[toolA, toolB].map((tool, index) => (
-                        <DetailToolCard key={index} tool={tool} />
+                    {[toolA, toolB].map((tool) => (
+                        <DetailToolCard key={tool.Slug} tool={tool} />
                     ))}
                     {/* end map */}
                 </div>

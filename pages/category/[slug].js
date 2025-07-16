@@ -92,7 +92,7 @@ export default function CategoryPage({ tools, category }) {
                 />
             </div>
             <div className="max-w-7xl mx-auto">
-                <div className="w-full flex  grid grid-cols-1 justify-between items-center mb-4">
+                <div className="w-full grid grid-cols-1 justify-between items-center mb-4">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Compare Tools for {category}
                     </h1>
