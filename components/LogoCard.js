@@ -15,8 +15,13 @@ export default function LogoCard({ name, domain, klassName}) {
 
     return (
         <img       
+<<<<<<< HEAD
             loading="lazy" 
             onError={() => setSrc(letterLink)}    
+=======
+            loading="lazy"
+            onError={() => setSrc(letterLink)}
+>>>>>>> 8e5059e6fddba12de51ea9840fea48a0f2ac6396
             src={src}
             alt={`${name} logo`}
             className={klassName}
