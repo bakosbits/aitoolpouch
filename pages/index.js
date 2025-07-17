@@ -38,7 +38,6 @@ export default function Home({ tools, latestTools, featuredTools }) {
                 {/* LEFT COLUMN: 60% of outer container */}
                 <div className="w-full md:w-[60%] mt-[0%] md:mt-[3%] flex justify-center">
                     {/* INNER WRAPPER: 60% of left column, padded on mobile */}
-
                     <div className="w-full md:w-[80%] justify-start text-left flex flex-col">
                         <h1 className="text-headingWhite text-3xl font-bold mb-4 ">
                             Welcome!
@@ -108,21 +107,23 @@ export default function Home({ tools, latestTools, featuredTools }) {
                             </Link>
                             to get started.
                         </p>
-                        <h1 className="text-headingWhite text-3xl font-bold mb-4">
-                            Hot Topics:
-                        </h1>
-                        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-                            {featuredTools.map((tool) => (
-                                <Link
-                                    key={tool.Slug}
-                                    href={`/tool/${tool.Slug}`}
-                                    title={tool.Name}
-                                    className="block h-full group"
-                                    passHref
-                                >
-                                    <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
-                                </Link>
-                            ))}
+                        <div className="hidden md:block">
+                            <h1 className="text-headingWhite text-3xl font-bold mb-4">
+                                Hot Topics:
+                            </h1>
+                            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                                {featuredTools.map((tool) => (
+                                    <Link
+                                        key={tool.Slug}
+                                        href={`/tool/${tool.Slug}`}
+                                        title={tool.Name}
+                                        className="block h-full group"
+                                        passHref
+                                    >
+                                        <LogoCard name={tool.Name} domain={tool.Domain} klassName="w-[180px] h-[180px] bg-headingWhite object-contain rounded-lg shadow-4xl shadow-[0_6px_16px_rgba(0,255,128,0.25)]"/>
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
