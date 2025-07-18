@@ -49,7 +49,6 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
-    const [showWarning, setShowWarning] = useState(true);
 
     return (
         <>
@@ -59,28 +58,6 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                 url={`https://aitoolpouch.com/compare/${toolA.Slug}/vs/${toolB.Slug}`}
             />
             <div className="max-w-7xl mx-auto">
-                {showWarning && !hasSharedCategory && (
-                    <div className="h-full flex items-center justify-between border border-red-600 p-6 rounded-lg text-headingWhite bg-backgroundDark mb-6">
-                        <span>
-                            Heads up! These tools belong to different
-                            categories. For best results consider comparing
-                            tools in the same&nbsp;
-                            <a
-                                href="/categories"
-                                className="text-accentGreen hover:text-headingWhite transition-colors duration-150"
-                            >
-                                category.
-                            </a>
-                        </span>
-                        <button
-                            onClick={() => setShowWarning(false)}
-                            className="ml-4 text-red-600 hover:text-red-800 text-xl font-bold"
-                            aria-label="Close warning"
-                        >
-                            ×
-                        </button>
-                    </div>
-                )}
                 <div className="h-full flex items-center justify-between mb-6">
                     <h1 className="text-2xl text-headingWhite font-bold">
                         Comparing {toolA.Name} -to- {toolB.Name}

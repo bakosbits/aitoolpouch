@@ -46,6 +46,11 @@ export default function WizardPage({ allTools }) {
 
     return (
         <>
+            <SeoHead
+                title={`Find the top AI tool for marketing, writing, content creation, solopreneurs`}
+                description={`Search by profession and use case to find the right AI tool for you.`}
+                url={`https://aitoolpouch.com/wizard`}
+            />
             <div className="w-full mb-6">
                 <CompareBar
                     compareList={compareList}
@@ -63,7 +68,7 @@ export default function WizardPage({ allTools }) {
                 {/* Left column */}
                 <div className="flex flex-col">
                     {/* Professional Context */}
-                    <h1 className="text-xl text-headingWhite font-bold mb-2">✨ Would you like to add context in the form of a profession?</h1>
+                    <h1 className="text-xl text-headingWhite font-bold mb-2">✨ Would you like to add a profession for a little context??</h1>
                     <div className="w-full border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                         {CONTEXTS.map((context) => (
                             <button
@@ -144,14 +149,14 @@ export default function WizardPage({ allTools }) {
                     )}
                     {/* Results*/}
                     {matchedTools.length > 0 ? (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                             {matchedTools.map((tool) => (
-                                    <WizardToolCard
-                                       key={tool.slug}
-                                        tool={tool}
-                                        compareList={compareList}
-                                        toggleCompare={toggleCompare}
-                                    />
+                                <WizardToolCard
+                                    key={tool.slug}
+                                    tool={tool}
+                                    compareList={compareList}
+                                    toggleCompare={toggleCompare}
+                                />
                             ))}
                         </div>
                     ) : (
@@ -162,7 +167,7 @@ export default function WizardPage({ allTools }) {
                                 <li>Enjoy.</li>
                             </ul>
                         </div>
-                        
+
                     )}
                 </div>
             </div>
