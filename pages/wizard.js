@@ -39,9 +39,7 @@ export default function WizardPage({ allTools }) {
 
 
     useEffect(() => {
-        console.log("State changed:", state);
         const matched = matchTools(allTools, state);
-        console.log("Matched tools:", matched);
         setMatchedTools(matched);
     }, [state]); ``
 
@@ -150,7 +148,7 @@ export default function WizardPage({ allTools }) {
                       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
                             {matchedTools.map((tool) => (
                                     <WizardToolCard
-                                       key={tool.id}
+                                       key={tool.slug}
                                         tool={tool}
                                         compareList={compareList}
                                         toggleCompare={toggleCompare}

@@ -4,12 +4,13 @@ import SeoHead from "@/components/SeoHead";
 
 export async function getStaticPaths() {
     const articles = await getAllArticles();
-    const paths = articles.map((article) => ({
-        params: { slug: article.Slug },
-    }));
+    // const paths = articles.map((article) => ({
+    //     params: { slug: article.Slug },
+    // }));
+    const paths = [];
     return {
         paths,
-        fallback: false,
+        fallback: 'blocking'
     };
 }
 
@@ -30,6 +31,7 @@ export async function getStaticProps({ params }) {
             author: article.Author,
             date: article.Date,
         },
+        revalidate: 300,
     };
 }
 
