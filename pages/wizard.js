@@ -26,7 +26,7 @@ export default function WizardPage({ allTools }) {
 
     const [compareList, setCompareList] = useState([]);
 
-    function toggleCompare(tool) {
+    const toggleCompare = (tool) => {
         setCompareList((prev) => {
             const exists = prev.find((t) => t.id === tool.id);
             if (exists) {
@@ -35,11 +35,12 @@ export default function WizardPage({ allTools }) {
                 return prev.length < 2 ? [...prev, tool] : prev;
             }
         });
-    }
-
+    };
 
     useEffect(() => {
+        console.log("State changed:", state);
         const matched = matchTools(allTools, state);
+        console.log("Matched tools:", matched);
         setMatchedTools(matched);
     }, [state]); ``
 
