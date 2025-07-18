@@ -7,7 +7,7 @@ import CompareBar from "@/components/CompareBar";
 import WizardToolCard from "@/components/WizardToolCard";
 
 const MODALITIES = ["Text", "Image", "Video", "Audio", "Code", "Data"];
-const PREFERENCES = ["Free tier", "No-code", "Open source", "Privacy-first", "API access", "Collaboration", "Customization"];
+const PREFERENCES = ["Free tier pricing", "No-code", "Open source", "Privacy-first", "API access", "Collaboration", "Customization"];
 const CONTEXTS = ["Development", "Design", "Marketing", "Sales", "Healthcare", "Education", "Legal", "Cybersecurity", "Finance", "Customer care", "Science", "Public engagement"];
 
 export async function getStaticProps() {
