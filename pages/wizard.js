@@ -56,7 +56,7 @@ export default function WizardPage({ allTools }) {
                 {/* Top row: spans both columns */}
                 <div className="md:col-span-2">
                     <div>
-                        <h1 className="text-2xl text-headingWhite font-bold mb-4">Your Interactive Instant Gratification Research Wizard 😊</h1>
+                        <h1 className="text-2xl text-headingWhite font-bold mb-4">Your Interactive Instant Gratification Research Widget 😊</h1>
                     </div>
                 </div>
 
@@ -72,11 +72,9 @@ export default function WizardPage({ allTools }) {
                                     dispatch({
                                         type: "SET_CONTEXT",
                                         payload: toggleSelection(state.context, context),
-                                        // payload: state.context === context ? null : context,
                                     })
                                 }
                                 className={state.context.includes(context) ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
-                                // className={state.context === context ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
                             >
                                 {context}
                             </button>

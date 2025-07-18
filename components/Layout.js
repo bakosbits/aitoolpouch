@@ -53,7 +53,7 @@ export default function Layout({
                             href="/wizard"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
-                            Research Wizard
+                            Research Widget
                         </Link>
                         <Link
                             href="/categories"
