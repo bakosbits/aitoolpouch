@@ -5,6 +5,7 @@ import { USE_CASES } from "@/lib/toolUtils";
 import { matchTools } from "@/lib/matchTools";
 import CompareBar from "@/components/CompareBar";
 import WizardToolCard from "@/components/WizardToolCard";
+import SeoHead from "@/components/SeoHead";
 
 const MODALITIES = ["Text", "Image", "Video", "Audio", "Code", "Data"];
 const PREFERENCES = ["Free tier pricing", "No-code", "Open source", "Privacy-first", "API access", "Collaboration", "Customization"];
