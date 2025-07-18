@@ -13,6 +13,7 @@
     "dependencies": {
         "@tailwindcss/typography": "^0.5.16",
         "airtable": "^0.12.2",
+        "natural": "^8.1.0",
         "next": "^15.3.4",
         "next-sitemap": "^4.2.3",
         "nextjs": "^0.0.3",

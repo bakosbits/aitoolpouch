@@ -1,4 +1,4 @@
-import { getAllArticles, getArticleBySlug } from "@/lib/airtable";
+import { getAllArticles, getArticleBySlug } from "@/lib/airTable";
 import ReactMarkdown from 'react-markdown'
 import SeoHead from "@/components/SeoHead";
 

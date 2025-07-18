@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllTools, getFeaturedTools } from "@/lib/airtable";
+import { getAllTools, getFeaturedTools } from "@/lib/airTable";
 import { getLatestSortedTools } from "@/lib/toolUtils";
 import SearchBar from "@/components/SearchBar";
 import MiniToolCard from "@/components/MiniToolCard";

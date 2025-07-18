@@ -1,4 +1,4 @@
-import { getAllTools, getAllCategories } from "@/lib/airtable";
+import { getAllTools, getAllCategories } from "@/lib/airTable";
 import { useState } from "react";
 import DetailToolCard from "@/components/DetailToolCard";
 import SeoHead from "@/components/SeoHead";

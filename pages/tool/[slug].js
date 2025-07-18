@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { getAllTools, getAllCategories } from "@/lib/airtable";
+import { getAllTools, getAllCategories } from "@/lib/airTable";
 import DetailToolCard from "@/components/DetailToolCard";
 import Link from "next/link";
 import SeoHead from "@/components/SeoHead";

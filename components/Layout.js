@@ -50,6 +50,12 @@ export default function Layout({
                             Foundational Models
                         </Link>
                         <Link
+                            href="/wizard"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                        >
+                            Research Wizard
+                        </Link>
+                        <Link
                             href="/categories"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >

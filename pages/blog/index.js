@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { getAllArticles } from "@/lib/airtable";
+import { getAllArticles } from "@/lib/airTable";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {

@@ -1,5 +1,5 @@
 import React from "react";
-import { getAllCategories } from "@/lib/airtable";
+import { getAllCategories } from "@/lib/airTable";
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {

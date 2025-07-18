@@ -1,4 +1,4 @@
-import { getAllCategories } from "@/lib/airtable";
+import { getAllCategories } from "@/lib/airTable";
 import Link from "next/link";
 import SeoHead from "@/components/SeoHead";
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getAllCategories, getToolsByCategory } from "@/lib/airtable";
+import { getAllCategories, getToolsByCategory } from "@/lib/airTable";
 import ToolCard from "@/components/ToolCard";
 import SeoHead from "@/components/SeoHead";
 import CompareBar from "@/components/CompareBar";

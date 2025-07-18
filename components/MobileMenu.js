@@ -71,6 +71,15 @@ export default function MobileMenu({ categories = [] }) {
                         </li>
                         <li>
                             <Link
+                                href="/wizard"
+                                onClick={() => setOpen(false)}
+                                className="hover:text-headingWhite"
+                            >
+                                Research Wizard
+                            </Link>
+                        </li>                        
+                        <li>
+                            <Link
                                 href="/categories"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
