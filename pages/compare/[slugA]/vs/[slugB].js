@@ -1,43 +1,62 @@
 import { getAllTools, getAllCategories } from "@/lib/airTable";
-import { useState } from "react";
+
 import DetailToolCard from "@/components/DetailToolCard";
 import SeoHead from "@/components/SeoHead";
 
+// Server-side: getStaticPaths
 export async function getStaticPaths() {
-    const tools = await getAllTools();
-    const paths = [];
 
+    console.log("[getStaticPaths] Generating paths for compare pages. Using fallback: 'blocking'.");
+
+    const tools = await getAllTools(); 
+    const paths = [];
+    console.log(`[getStaticPaths] Returning ${paths.length} paths for build (if any). Relying on 'blocking' fallback for dynamic paths.`);
 
     return { paths, fallback: 'blocking' };
 }
 
 export async function getStaticProps({ params }) {
-    const tools = await getAllTools();
+    const { slugA, slugB } = params;
+    console.log(`[getStaticProps] Fetching data for comparison: "${slugA}" vs "${slugB}"`);
 
+
+    const tools = await getAllTools();
+    console.log(`[getStaticProps] Fetched ${tools.length} total tools from Airtable.`);
+
+    console.log(`[getStaticProps] Searching for toolA with slug: "${slugA}"`);
     const toolA = tools.find((t) => t.Slug.toLowerCase() === params.slugA);
+    console.log(`[getStaticProps] Tool A found: ${toolA ? toolA.Name : 'NOT FOUND'}`);
+
+    console.log(`[getStaticProps] Searching for toolB with slug: "${slugB}"`);
     const toolB = tools.find((t) => t.Slug.toLowerCase() === params.slugB);
+    console.log(`[getStaticProps] Tool B found: ${toolB ? toolB.Name : 'NOT FOUND'}`);
 
     if (!toolA || !toolB) {
+        console.warn(`[getStaticProps] One or both tools not found for comparison (${slugA} vs ${slugB}). Returning notFound: true.`);
         return { notFound: true };
     }
 
     const categoriesA = Array.isArray(toolA?.Categories)
         ? toolA.Categories.map((cat) =>
-              typeof cat === "object" ? cat.Name : cat,
-          )
+                typeof cat === "object" ? cat.Name : cat,
+            )
         : [];
+    console.log(`[getStaticProps] Categories for ${toolA.Name}:`, categoriesA.join(', '));
 
     const categoriesB = Array.isArray(toolB?.Categories)
         ? toolB.Categories.map((cat) =>
-              typeof cat === "object" ? cat.Name : cat,
-          )
+                typeof cat === "object" ? cat.Name : cat,
+            )
         : [];
+    console.log(`[getStaticProps] Categories for ${toolB.Name}:`, categoriesB.join(', '));
+
 
     const hasSharedCategory = categoriesA.some((cat) =>
         categoriesB.includes(cat),
     );
+    console.log(`[getStaticProps] Shared category between ${toolA.Name} and ${toolB.Name}: ${hasSharedCategory}`);
 
-
+    console.log(`[getStaticProps] Successfully prepared data for comparison: ${toolA.Name} vs ${toolB.Name}.`);
     return {
         props: {
             toolA,
@@ -49,6 +68,22 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
+    console.log(`[ComparePage] Component rendered. Comparing: ${toolA?.Name || 'N/A'} vs ${toolB?.Name || 'N/A'}`);
+
+    if (
+        !toolA || !toolB ||
+        !toolA.Name || !toolB.Name ||
+        !toolA.Slug || !toolB.Slug
+    ) {
+        console.error("[ComparePage] Missing tool data on client-side render. Displaying error message.");
+        return (
+            <div className="max-w-2xl mx-auto py-12 text-center text-headingWhite">
+                <h2 className="text-xl font-bold mb-2">Comparison Not Available</h2>
+                <p>Sorry, one or both tools could not be loaded. Please try again later.</p>
+            </div>
+        );
+    }
+    console.log(`[ComparePage] Setting SEO title: "Compare ${toolA.Name} Against ${toolB.Name}"`);
 
     return (
         <>
@@ -64,11 +99,9 @@ export default function ComparePage({ toolA, toolB, hasSharedCategory }) {
                     </h1>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {/* Map into the ToolCard */}
                     {[toolA, toolB].map((tool) => (
-                        <DetailToolCard key={tool.Slug} tool={tool} />
+                        <DetailToolCard key={tool.Slug || tool.Name} tool={tool} />
                     ))}
-                    {/* end map */}
                 </div>
             </div>
         </>

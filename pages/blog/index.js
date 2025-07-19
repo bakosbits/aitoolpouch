@@ -13,7 +13,6 @@ export async function getStaticProps() {
 }
 
 export default function BlogIndex({ articles }) {
-    console.log("articles:", articles);
     const validArticles = articles.filter((a) => a?.Slug);
 
     return (

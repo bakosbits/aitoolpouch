@@ -2,12 +2,23 @@ import Link from "next/link";
 import LogoCard from "@/components/LogoCard";
 
 export default function ToolCard({ tool, compareList = [], toggleCompare }) {
+    console.log(`ToolCard rendered for: ${tool.Name} (Slug: ${tool.Slug})`);
+
+    const isChecked = compareList.some((t) => t.id === tool.id);
+    console.log(`  - Is currently in compare list: ${isChecked}`);
+
     return (
         <Link
             href={`/tool/${tool.Slug}`}
             className="block h-full group"
             title={tool.Name}
             passHref
+            onClick={(e) => {
+                // Prevent the link from triggering if the click originated from the "Visit" link or "Compare" label/input
+                if (e.target.closest('a[href^="/go/"]') === null && e.target.closest('label') === null) {
+                    console.log(`ToolCard clicked (excluding 'Visit' and 'Compare' controls): Navigating to ${tool.Name} (Slug: ${tool.Slug})`);
+                }
+            }}
         >
             <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark group-hover:bg-gray-800 transition-colors">
                 <div className="flex items-center space-x-4 mb-2">
@@ -41,7 +52,9 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={(e) => {
-                            e.stopPropagation();
+                            e.stopPropagation(); // Prevents the parent <Link> from being triggered
+                            console.log(`"Visit Tool" link clicked for: ${tool.Name} (URL: /go/${tool.Slug})`);
+                            // analytics.track('Visit Tool Clicked', { tool_name: tool.Name, tool_slug: tool.Slug, location: 'ToolCard' });
                         }}
                     >
                         <svg
@@ -54,12 +67,17 @@ export default function ToolCard({ tool, compareList = [], toggleCompare }) {
                     </a>
                     <label
                         className="flex items-center gap-2 cursor-pointer"
-                        onClick={(e) => e.stopPropagation()}
+                        onClick={(e) => {
+                            e.stopPropagation(); // Prevents the card's link from being triggered
+                            const newCheckedState = !compareList.some((t) => t.id === tool.id);
+                            console.log(`Compare checkbox toggled for ${tool.Name} (ID: ${tool.id}). New state: ${newCheckedState ? 'Added' : 'Removed'}`);
+                            // analytics.track('Compare Checkbox Toggled', { tool_name: tool.Name, tool_id: tool.id, action: newCheckedState ? 'add' : 'remove', location: 'ToolCard' });
+                        }}
                     >
                         <input
                             type="checkbox"
-                            checked={compareList.some((t) => t.id === tool.id)}
-                            onChange={() => toggleCompare(tool)}
+                            checked={isChecked} // Use the derived `isChecked` state
+                            onChange={() => toggleCompare(tool)} // `onChange` is for input elements
                         />
                         <span className="text-accentGreen font-medium">
                             Compare

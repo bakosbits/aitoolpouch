@@ -17,3 +17,15 @@ yarn-error.log*
 
 # Prettier
 .prettierrc
+
+# Editors
+.editorconfig
+.vscode
+.qodo
+
+# Database
+db.json
+
+# Others
+.env
+.env.test 

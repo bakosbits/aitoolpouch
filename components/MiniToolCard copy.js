@@ -2,17 +2,12 @@ import Link from "next/link";
 import LogoCard from "@/components/LogoCard";
 
 export default function MiniToolCard({ tool }) {
-    console.log(`MiniToolCard rendered for: ${tool.Name} (Slug: ${tool.Slug})`);
-
     return (
         <Link
             href={`/tool/${tool.Slug}`}
-            className="block h-full group"
-            title={tool.Name}
+            className="block h-full group" 
+            title={tool.Name}            
             passHref
-            onClick={() => {
-                console.log(`MiniToolCard clicked: Navigating to ${tool.Name} (Slug: ${tool.Slug})`);
-            }}
         >
             <div className="h-full bg-cardDark p-4 rounded-lg shadow-lg flex flex-col items-start group-hover:bg-gray-800 transition-colors">
                 <div className="w-full flex items-center space-x-4">

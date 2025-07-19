@@ -1,22 +1,32 @@
-import { useReducer, useMemo, useState } from "react";
+import { useReducer, useMemo, useState, useEffect } from "react"; // Added useEffect for client-side render log
 import { getAllTools } from "@/lib/airTable";
-import { questionnaireReducer, initialQuestionnaireState } from "@/lib/questionnaireReducer";
-import { USE_CASES, MODALITIES, PREFERENCES, CONTEXTS } from "@/lib/toolUtils";
+import { questionnaireReducer, initialQuestionnaireState,
+    USE_CASES, MODALITIES, PREFERENCES, CONTEXTS } from "@/lib/questionnaireUtils";
 import { matchTools } from "@/lib/matchTools";
 
 import CompareBar from "@/components/CompareBar";
 import QuestionnaireToolCard from "@/components/QuestionnaireToolCard";
 import SeoHead from "@/components/SeoHead";
 
-
-
+// Server-side: getStaticProps
 export async function getStaticProps() {
-    const allTools = await getAllTools();
+    console.log("[QuestionnairePage - getStaticProps] Starting data fetch for questionnaire page.");
+    try {
+        const allTools = await getAllTools();
+        console.log(`[QuestionnairePage - getStaticProps] Fetched ${allTools.length} total tools.`);
 
-    return {
-        props: { allTools },
-        revalidate: 300,
-    };
+        console.log("[QuestionnairePage - getStaticProps] Data prepared. Returning props for questionnaire page.");
+        return {
+            props: { allTools },
+            revalidate: 300, // Revalidate every 5 minutes
+        };
+    } catch (error) {
+        console.error("[QuestionnairePage - getStaticProps] ERROR fetching data for questionnaire page:", error.message, error.stack);
+        return {
+            props: { allTools: [] }, // Return empty array to avoid client-side crash
+            revalidate: 60, // Shorter revalidate on error
+        };
+    }
 }
 
 function toggleSelection(array, value) {
@@ -26,19 +36,40 @@ function toggleSelection(array, value) {
 }
 
 export default function QuestionnairePage({ allTools }) {
+    useEffect(() => {
+        console.log(`[QuestionnairePage] Component rendered. Initial tools count: ${allTools?.length || 0}`);
+    }, [allTools]); // Log on initial render and if allTools somehow changes
 
     const [state, dispatch] = useReducer(questionnaireReducer, initialQuestionnaireState);
     const [compareList, setCompareList] = useState([]);
-    const matchedTools = useMemo(() => matchTools(allTools, state), [allTools, state]);
+
+    useEffect(() => {
+        console.log("[QuestionnairePage] Questionnaire state updated:", JSON.stringify(state));
+    }, [state]);
+
+    const matchedTools = useMemo(() => {
+        console.log("[QuestionnairePage] Recalculating matched tools...");
+        const matches = matchTools(allTools, state);
+        console.log(`[QuestionnairePage] Matched ${matches.length} tools based on current questionnaire state.`);
+        return matches;
+    }, [allTools, state]); // `matchTools` has its own detailed logging, so this is high-level.
 
     const toggleCompare = (tool) => {
         setCompareList((prev) => {
             const exists = prev.find((t) => t.id === tool.id);
+            let newState;
             if (exists) {
-                return prev.filter((t) => t.id !== tool.id);
+                newState = prev.filter((t) => t.id !== tool.id);
+                console.log(`[QuestionnairePage] Tool "${tool.Name}" removed from compare list via toggleCompare.`);
             } else {
-                return prev.length < 2 ? [...prev, tool] : prev;
+                newState = prev.length < 2 ? [...prev, tool] : prev;
+                if (newState.length > prev.length) { // Only log if actually added
+                    console.log(`[QuestionnairePage] Tool "${tool.Name}" added to compare list via toggleCompare. Current count: ${newState.length}`);
+                } else {
+                    console.warn(`[QuestionnairePage] Attempted to add "${tool.Name}" to compare list, but already at max (2).`);
+                }
             }
+            return newState;
         });
     };
 
@@ -75,12 +106,13 @@ export default function QuestionnairePage({ allTools }) {
                         {CONTEXTS.map((context) => (
                             <button
                                 key={context}
-                                onClick={() =>
+                                onClick={() => {
+                                    console.log(`[QuestionnairePage] Context selected: "${context}"`);
                                     dispatch({
                                         type: "SET_CONTEXT",
                                         payload: toggleSelection(state.context, context),
-                                    })
-                                }
+                                    });
+                                }}
                                 className={state.context.includes(context) ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
                             >
                                 {context}
@@ -93,12 +125,13 @@ export default function QuestionnairePage({ allTools }) {
                         {USE_CASES.map((useCase) => (
                             <button
                                 key={useCase}
-                                onClick={() =>
+                                onClick={() => {
+                                    console.log(`[QuestionnairePage] Use Case selected: "${useCase}"`);
                                     dispatch({
                                         type: "SET_USE_CASES",
                                         payload: toggleSelection(state.useCases, useCase),
-                                    })
-                                }
+                                    });
+                                }}
                                 className={state.useCases.includes(useCase) ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
                             >
                                 {useCase}
@@ -111,12 +144,13 @@ export default function QuestionnairePage({ allTools }) {
                         {MODALITIES.map((modality) => (
                             <button
                                 key={modality}
-                                onClick={() =>
+                                onClick={() => {
+                                    console.log(`[QuestionnairePage] Modality selected: "${modality}"`);
                                     dispatch({
                                         type: "SET_MODALITIES",
                                         payload: toggleSelection(state.modalities, modality),
-                                    })
-                                }
+                                    });
+                                }}
                                 className={state.modalities.includes(modality) ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
                             >
                                 {modality}
@@ -129,12 +163,13 @@ export default function QuestionnairePage({ allTools }) {
                         {PREFERENCES.map((pref) => (
                             <button
                                 key={pref}
-                                onClick={() =>
+                                onClick={() => {
+                                    console.log(`[QuestionnairePage] Preference selected: "${pref}"`);
                                     dispatch({
                                         type: "SET_PREFERENCES",
                                         payload: toggleSelection(state.preferences, pref),
-                                    })
-                                }
+                                    });
+                                }}
                                 className={state.preferences.includes(pref) ? "px-4 py-2 text-accentGreen font-semibold" : "px-4 py-2 hover:text-headingWhite transition"}
                             >
                                 {pref}
@@ -145,8 +180,10 @@ export default function QuestionnairePage({ allTools }) {
                 {/* Right column */}
                 <div className="mx-auto flex flex-col lg:px-6">
                     {matchedTools.length > 0 ? (
+                        console.log("[QuestionnairePage] Displaying matched tools results."),
                         <h1 className="text-xl text-headingWhite font-bold mb-2">🧠 Your Results</h1>
                     ) : (
+                        console.log("[QuestionnairePage] Displaying instructions (no tools matched yet or no criteria selected)."),
                         <h1 className="text-xl text-headingWhite font-bold mb-2"> 🌐 Instructions</h1>
                     )}
                     {/* Results*/}
@@ -173,5 +210,3 @@ export default function QuestionnairePage({ allTools }) {
         </>
     );
 }
-
-

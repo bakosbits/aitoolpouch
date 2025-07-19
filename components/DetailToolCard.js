@@ -1,15 +1,17 @@
 import LogoCard from "./LogoCard";
 
 export default function DetailToolCard({ tool }) {
+    console.log("DetailToolCard rendered for tool:", tool.Name, "(ID:", tool.id || 'N/A', ")");
+
     const featuresText = tool.Features;
     const featuresList = featuresText
-        .split("\n")
-        .filter((line) => line.trim() !== "");
+        ? featuresText.split("\n").filter((line) => line.trim() !== "")
+        : []; 
 
     const cautionsText = tool.Cautions;
     const cautionsList = cautionsText
-        .split("\n")
-        .filter((line) => line.trim() !== "");
+        ? cautionsText.split("\n").filter((line) => line.trim() !== "")
+        : [];
 
     const pricingList = Array.isArray(tool.Pricing) ? tool.Pricing : [];
     const formattedPricing =
@@ -18,6 +20,11 @@ export default function DetailToolCard({ tool }) {
               " and " +
               pricingList[pricingList.length - 1]
             : pricingList[0];
+
+    // console.log("Features list generated:", featuresList.length, "items");
+    // console.log("Cautions list generated:", cautionsList.length, "items");
+    // console.log("Formatted pricing:", formattedPricing);
+
 
     return (
         <div className="h-full flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark">
@@ -75,6 +82,9 @@ export default function DetailToolCard({ tool }) {
                     className="flex items-center text-sm text-accentGreen hover:text-headingWhite mt-6 mb-2"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                        console.log(`"Visit Tool" link clicked for: ${tool.Name} (URL: /go/${tool.Slug})`);
+                    }}
                 >
                     <svg
                         className="w-4 h-4 mr-2 fill-current"

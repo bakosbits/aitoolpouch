@@ -1,50 +1,59 @@
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-    
-const getVisiblePages = (current, total) => {
-    const range = [];
-    const delta = 2;
+    console.log(`Pagination rendered. Current Page: ${currentPage}, Total Pages: ${totalPages}`);
 
-    // Always show first page
-    range.push(1);
+    const getVisiblePages = (current, total) => {
+        const range = [];
+        const delta = 2;
 
-    // Add left ellipsis if current - delta > 2
-    if (current - delta > 2) {
-        range.push("…");
-    }
+        console.log(`getVisiblePages called with current: ${current}, total: ${total}`);
 
-    // Add middle pages
-    for (
-        let i = Math.max(2, current - delta);
-        i <= Math.min(total - 1, current + delta);
-        i++
-    ) {
-        range.push(i);
-    }
+        // Always show first page
+        range.push(1);
 
-    // Add right ellipsis if current + delta < total - 1
-    if (current + delta < total - 1) {
-        range.push("…");
-    }
+        // Add left ellipsis if current - delta > 2
+        if (current - delta > 2) {
+            range.push("…");
+        }
 
-    // Always show last page
-    if (total > 1) range.push(total);
+        // Add middle pages
+        for (
+            let i = Math.max(2, current - delta);
+            i <= Math.min(total - 1, current + delta);
+            i++
+        ) {
+            range.push(i);
+        }
 
-    return range;
-};
+        // Add right ellipsis if current + delta < total - 1
+        if (current + delta < total - 1) {
+            range.push("…");
+        }
+
+        // Always show last page
+        if (total > 1) range.push(total);
+
+        console.log("Calculated visible pages:", range);
+
+        return range;
+    };
 
 
     const visiblePages = getVisiblePages(currentPage, totalPages);
 
     return (
-
         <div className="flex overflow-x-auto space-x-2 sm:flex-wrap justify-center w-full mt-10">
             {visiblePages.map((page, idx) => (
                 <button
                     key={idx}
                     disabled={page === "…"}
-                    onClick={() =>
-                        typeof page === "number" && onPageChange(page)
-                    }
+                    onClick={() => {
+                        if (typeof page === "number") {
+                            console.log(`Pagination button clicked: Navigating to page ${page}`);
+                            onPageChange(page);
+                        } else {
+                            console.log(`Ellipsis button clicked (should be disabled): ${page}`);
+                        }
+                    }}
                     className={`py-2 rounded text-sm min-w-[40px] text-center ${
                         page === currentPage
                             ? "bg-accentGreen text-black font-bold"

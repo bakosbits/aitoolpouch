@@ -5,10 +5,19 @@ export default function SearchBar() {
     const [query, setQuery] = useState("");
     const router = useRouter();
 
+    console.log("SearchBar component rendered.");
+
     const handleSearch = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission behavior
+
+        console.log(`Search initiated. Query input: "${query}"`);
+
         if (query.trim()) {
-            router.push(`/tools?q=${encodeURIComponent(query.trim())}`);
+            const encodedQuery = encodeURIComponent(query.trim());
+            console.log(`Valid query found: "${query.trim()}". Navigating to: /tools?q=${encodedQuery}`);
+            router.push(`/tools?q=${encodedQuery}`);
+        } else {
+            console.log("Search attempted with empty or whitespace-only query. No action taken.");
         }
     };
 
@@ -19,7 +28,10 @@ export default function SearchBar() {
                     <input
                         type="text"
                         value={query}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={(e) => {
+                            //console.log(`Search input changed: "${e.target.value}"`);
+                            setQuery(e.target.value);
+                        }}
                         placeholder="Search tools..."
                         className="w-full px-4 py-2 rounded-md bg-backgroundDark text-whiteHeading placeholder-text-whiteHeading border border-accentGreen"
                     />
