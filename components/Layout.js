@@ -50,17 +50,17 @@ export default function Layout({
                             Foundational Models
                         </Link>
                         <Link
-                            href="/questionnaire"
-                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
-                        >
-                            Use Cases
-                        </Link>
-                        <Link
                             href="/categories"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Categories
                         </Link>
+                        <Link
+                            href="/questionnaire"
+                            className="text-grayText hover:text-headingWhite transition-colors duration-150"
+                        >
+                            Use Cases
+                        </Link>                        
                         <Link
                             href="/tools"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"

@@ -43,20 +43,25 @@ export default function ToolsPage({ tools }) {
     // Filter tools based on the search query
     useEffect(() => {
         if (query) {
+            const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const searchRegex = new RegExp(escapedQuery, 'i');       
+
             const filtered = tools
                 .filter((tool) => {
-                    const Name = tool.Name?.toLowerCase() || "";
-                    const desc = tool.Description?.toLowerCase() || "";
-                    const detail = tool.Detail?.toLowerCase() || "";
+                    const Name = tool.Name || "";
+                    const why = tool.Why || "";
+                    const desc = tool.Description || "";
+                    const detail = tool.Detail || "";
                     const features = Array.isArray(tool.Features)
-                        ? tool.Features.join(" ").toLowerCase()
-                        : (tool.Features || "").toLowerCase();
+                        ? tool.Features.join(" ")
+                        : (tool.Features || "");
 
                     return (
-                        Name.includes(query) ||
-                        desc.includes(query) ||
-                        detail.includes(query) ||
-                        features.includes(query)
+                        Name.match(searchRegex) ||
+                        why.match(searchRegex) ||
+                        desc.match(searchRegex) ||
+                        detail.match(searchRegex) ||
+                        features.match(searchRegex)
                     );
                 })
                 .sort((a, b) => a.Name.localeCompare(b.Name));

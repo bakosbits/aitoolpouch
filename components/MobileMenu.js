@@ -71,6 +71,15 @@ export default function MobileMenu({ categories = [] }) {
                         </li>
                         <li>
                             <Link
+                                href="/categories"
+                                onClick={() => setOpen(false)}
+                                className="hover:text-headingWhite"
+                            >
+                                Categories
+                            </Link>
+                        </li>                        
+                        <li>
+                            <Link
                                 href="/questionnaire"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
@@ -78,15 +87,6 @@ export default function MobileMenu({ categories = [] }) {
                                 Use Cases
                             </Link>
                         </li>                        
-                        <li>
-                            <Link
-                                href="/categories"
-                                onClick={() => setOpen(false)}
-                                className="hover:text-headingWhite"
-                            >
-                                Categories
-                            </Link>
-                        </li>
                         <li>
                             <Link
                                 href="/tools"
