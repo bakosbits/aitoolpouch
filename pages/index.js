@@ -1,6 +1,7 @@
-import Link from "next/link";
 import { getAllTools, getFeaturedTools } from "@/lib/airTable";
 import { getLatestSortedTools } from "@/lib/toolUtils";
+import Link from "next/link";
+
 import SearchBar from "@/components/SearchBar";
 import MiniToolCard from "@/components/MiniToolCard";
 import LogoCard from "@/components/LogoCard";
@@ -10,8 +11,7 @@ export async function getStaticProps() {
 
     const tools = await getAllTools();
     const featuredTools = await getFeaturedTools();
-    const latestTools = getLatestSortedTools(tools);
-
+    const latestTools = getLatestSortedTools(tools, 8);
 
     return {
         props: {
@@ -63,7 +63,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                     Discover powerful AI tools tailored to your profession.
                                 </h1>
                             </div>
-                            <div className="flex justify-left w-full">
+                            <div className="flex justify-left w-full space-x-4">
                                 <a
                                     href="/categories"
                                     title="Find Your Category"
@@ -74,6 +74,28 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                     <span>Find Your Category</span> {/* Group the main text */}
                                     <svg
                                         className="w-6 h-6"
+                                        fill="currentColor"
+                                        viewBox="0 0 20 20"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            fillRule="evenodd"
+                                            d="M10.293 15.707a1 1 0 010-1.414L13.586 11H4a1 1 0 110-2h9.586l-3.293-3.293a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                                            clipRule="evenodd"
+                                        />
+                                    </svg>
+                                </a>
+
+                                <a
+                                    href="/questionnaire"
+                                    title="Define Your Use Case"
+                                    className="inline-flex items-left justify-center space-x-2 flex-nowrap
+                                        bg-accentGreen hover:bg-headingWhite transition-colors
+                                        text-backgroundDark font-semibold border border-gray-700 p-2 rounded-lg shadow-md
+                                        mb-4 whitespace-nowrap">                                    
+                                    <span>Define Your Use Case</span> {/* Group the main text */}
+                                    <svg
+                                        className="w-6 h-6 space-x-4"
                                         fill="currentColor"
                                         viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg"
@@ -96,16 +118,23 @@ export default function Home({ tools, latestTools, featuredTools }) {
                             to something that best fits your needs. We
                             answer the who, what and why so you can quickly
                             determine which tools belong in your tool pouch.
-                            To jumpstart your selection process choose from
-                            one of our
+                            To jumpstart your selection process browse our
                             <Link
                                 href="/categories"
                                 className="text-accentGreen hover:text-headingWhite transition"
                             >
                                 {" "}
                                 categories{" "}
+                            </Link>                            
+                                or define your
+                            <Link
+                                href="/questionnaire"
+                                className="text-accentGreen hover:text-headingWhite transition"
+                            >
+                                {" "}
+                                use case{" "}
                             </Link>
-                            to get started.
+                                to get started.
                         </p>
                         <div className="hidden md:block">
                             <h1 className="text-headingWhite text-3xl font-bold mb-4">

@@ -1,5 +1,7 @@
 import { getAllCategories } from "@/lib/airTable";
 import Link from "next/link";
+
+
 import SeoHead from "@/components/SeoHead";
 
 export async function getStaticProps() {

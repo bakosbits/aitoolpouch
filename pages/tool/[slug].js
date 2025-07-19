@@ -1,4 +1,4 @@
-import Image from "next/image";
+import React, { useMemo } from "react";
 import { getAllTools, getAllCategories } from "@/lib/airTable";
 import DetailToolCard from "@/components/DetailToolCard";
 import Link from "next/link";
@@ -33,9 +33,10 @@ export async function getStaticProps({ params }) {
 }
 
 export default function ToolPage({ tool }) {
-    const categoriesList = Array.isArray(tool.Categories)
-        ? tool.Categories
-        : [];
+    // const categoriesList = useMemo(
+    //     () => (Array.isArray(tool.Categories) ? tool.Categories : []),
+    //     [tool.Categories]
+    // );
 
     return (
         <>

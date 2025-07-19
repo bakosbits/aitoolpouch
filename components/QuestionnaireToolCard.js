@@ -1,7 +1,7 @@
 import Link from "next/link";
 import LogoCard from "@/components/LogoCard";
 
-export default function WizardToolCard({ tool, compareList = [], toggleCompare }) {
+export default function QuestionnaireToolCard({ tool, compareList = [], toggleCompare }) {
     return (
         <Link
             href={`/tool/${tool.Slug}`}

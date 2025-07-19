@@ -71,11 +71,11 @@ export default function MobileMenu({ categories = [] }) {
                         </li>
                         <li>
                             <Link
-                                href="/wizard"
+                                href="/questionnaire"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
                             >
-                                Research Wizard
+                                Use Cases
                             </Link>
                         </li>                        
                         <li>

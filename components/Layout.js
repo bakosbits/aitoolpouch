@@ -3,7 +3,7 @@ import MobileMenu from "./MobileMenu"; // adjust path if needed
 
 export default function Layout({
     children,
-    fullWidth = false,
+    fullWidth = true,
     categories = [],
 }) {
     return (
@@ -14,7 +14,7 @@ export default function Layout({
                 <div className="w-full px-4 py-4 flex items-center justify-between">
                     <Link
                         href="/"
-                        className="text-accentGreen text-2xl font-extrabold hover:text-headingWhite color: headingWhite tracking-tighter"
+                        className="text-accentGreen text-3xl font-bold hover:text-headingWhite color: headingWhite tracking-tighter"
                     >
                         <div className="flex justify-left gap-4 items-center">
 
@@ -50,10 +50,10 @@ export default function Layout({
                             Foundational Models
                         </Link>
                         <Link
-                            href="/wizard"
+                            href="/questionnaire"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
-                            Research Widget
+                            Use Cases
                         </Link>
                         <Link
                             href="/categories"
@@ -83,14 +83,14 @@ export default function Layout({
             {/* Main content */}
             <main className="flex-1 w-full px-6 py-4">
                 <div className="mt-20 md:mt-32 mb-6">
-                    <div className={fullWidth ? "w-full" : "max-w-7xl mx-auto"}>
+                    {/* <div className={fullWidth ? "w-full" : "max-w-7xl mx-auto"}> */}                    
                         {children}
-                    </div>
+                    {/* </div> */}
                 </div>
             </main>
             {/* Footer */}
             <footer className="py-4  text-grayText">
-                <div className="w-full px-0 md:px-6 max-w-6xl mx-auto font-semibold">
+                <div className="w-full px-0 md:px-6 max-w-7xl mx-auto font-semibold">
                     <nav className="flex flex-wrap justify-center space-x-6">
                         <Link
                             href="/about"

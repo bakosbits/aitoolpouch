@@ -50,7 +50,7 @@ export default function CategoryPage({ tools, category }) {
     const [compareList, setCompareList] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);    
 
-    function toggleCompare(tool) {
+    const toggleCompare = (tool) => {
         setCompareList((prev) => {
             const exists = prev.find((t) => t.id === tool.id);
             if (exists) {
@@ -59,8 +59,7 @@ export default function CategoryPage({ tools, category }) {
                 return prev.length < 2 ? [...prev, tool] : prev;
             }
         });
-    }
-
+    };
 
     const sortedTools = [...tools].sort((a, b) => a.Name.localeCompare(b.Name));
 

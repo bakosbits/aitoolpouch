@@ -1,31 +1,35 @@
-import { useReducer, useEffect, useState } from "react";
+import { useReducer, useMemo, useState } from "react";
 import { getAllTools } from "@/lib/airTable";
-import { wizardReducer, initialWizardState } from "@/lib/wizardReducer";
-import { USE_CASES } from "@/lib/toolUtils";
+import { questionnaireReducer, initialQuestionnaireState } from "@/lib/questionnaireReducer";
+import { USE_CASES, MODALITIES, PREFERENCES, CONTEXTS } from "@/lib/toolUtils";
 import { matchTools } from "@/lib/matchTools";
+
 import CompareBar from "@/components/CompareBar";
-import WizardToolCard from "@/components/WizardToolCard";
+import QuestionnaireToolCard from "@/components/QuestionnaireToolCard";
 import SeoHead from "@/components/SeoHead";
 
-const MODALITIES = ["Text", "Image", "Video", "Audio", "Code", "Data"];
-const PREFERENCES = ["Free tier pricing", "No-code", "Open source", "Privacy-first", "API access", "Collaboration", "Customization"];
-const CONTEXTS = ["Development", "Design", "Marketing", "Sales", "Healthcare", "Education", "Legal", "Cybersecurity", "Finance", "Customer care", "Science", "Public engagement"];
+
 
 export async function getStaticProps() {
     const allTools = await getAllTools();
 
     return {
         props: { allTools },
-        revalidate: 300, // Optional: ISR for freshness
+        revalidate: 300,
     };
 }
 
-export default function WizardPage({ allTools }) {
+function toggleSelection(array, value) {
+    return array.includes(value)
+        ? array.filter((v) => v !== value)
+        : [...array, value];
+}
 
-    const [state, dispatch] = useReducer(wizardReducer, initialWizardState);
-    const [matchedTools, setMatchedTools] = useState([]);
+export default function QuestionnairePage({ allTools }) {
 
+    const [state, dispatch] = useReducer(questionnaireReducer, initialQuestionnaireState);
     const [compareList, setCompareList] = useState([]);
+    const matchedTools = useMemo(() => matchTools(allTools, state), [allTools, state]);
 
     const toggleCompare = (tool) => {
         setCompareList((prev) => {
@@ -38,19 +42,13 @@ export default function WizardPage({ allTools }) {
         });
     };
 
-    useEffect(() => {
-        console.log("State changed:", state);
-        const matched = matchTools(allTools, state);
-        console.log("Matched tools:", matched);
-        setMatchedTools(matched);
-    }, [state]); ``
 
     return (
         <>
             <SeoHead
                 title={`Find the top AI tool for marketing, writing, content creation, solopreneurs`}
                 description={`Search by profession and use case to find the right AI tool for you.`}
-                url={`https://aitoolpouch.com/wizard`}
+                url={`https://aitoolpouch.com/questionnaire`}
             />
             <div className="w-full mb-6">
                 <CompareBar
@@ -58,18 +56,21 @@ export default function WizardPage({ allTools }) {
                     toggleCompare={toggleCompare}
                 />
             </div>
-            <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[60%_40%] gap-6">
+            <div className="w-full lg:w-[80%] mx-auto grid grid-cols-1 md:grid-cols-[40%_60%] gap-6">
                 {/* Top row: spans both columns */}
                 <div className="md:col-span-2">
                     <div>
-                        <h1 className="text-2xl text-headingWhite font-bold mb-4">Your Interactive Instant Gratification Research Widget 😊</h1>
+                        <h1 className="text-2xl text-headingWhite font-bold mb-4">Alignment By Use Case | Task | Project</h1>
+                        <div className="hidden md:block">
+                            <h1 className="text-GrayText mb-4">Answer Questions To Quickly Match A Tool To Your Needs</h1>
+                        </div>
                     </div>
                 </div>
 
                 {/* Left column */}
                 <div className="flex flex-col">
                     {/* Professional Context */}
-                    <h1 className="text-xl text-headingWhite font-bold mb-2">✨ Would you like to add a profession for a little context??</h1>
+                    <h1 className="text-xl text-headingWhite font-bold mb-2">✨ Would you like results that are aligned to a profession?</h1>
                     <div className="w-full border border-gray-700 p-6 rounded-lg bg-cardDark mb-6">
                         {CONTEXTS.map((context) => (
                             <button
@@ -142,7 +143,7 @@ export default function WizardPage({ allTools }) {
                     </div>
                 </div>
                 {/* Right column */}
-                <div className="flex flex-col">
+                <div className="mx-auto flex flex-col lg:px-6">
                     {matchedTools.length > 0 ? (
                         <h1 className="text-xl text-headingWhite font-bold mb-2">🧠 Your Results</h1>
                     ) : (
@@ -150,10 +151,10 @@ export default function WizardPage({ allTools }) {
                     )}
                     {/* Results*/}
                     {matchedTools.length > 0 ? (
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                             {matchedTools.map((tool) => (
-                                <WizardToolCard
-                                    key={tool.slug}
+                                <QuestionnaireToolCard
+                                    key={tool.id}
                                     tool={tool}
                                     compareList={compareList}
                                     toggleCompare={toggleCompare}
@@ -162,23 +163,15 @@ export default function WizardPage({ allTools }) {
                         </div>
                     ) : (
                         <div className="flex flex-col border border-gray-700 p-6 rounded-lg bg-cardDark hover:bg-gray-800 transition-colors">
-                            <ul>
-                                <li>Answer at least 1 of the questions to get started.</li>
-                                <li>Apply filters in any combination you wish.</li>
-                                <li>Enjoy.</li>
-                            </ul>
+                            <p>Answer at least 1 of the questions to get started. You're not required to answer every question. Each question can have multiple answers.
+                                Apply as many filters in any combination you wish, but remember - The amount of context you add impacts the results. Enjoy.
+                            </p>
                         </div>
-
                     )}
                 </div>
             </div>
-
         </>
     );
 }
 
-function toggleSelection(array, value) {
-    return array.includes(value)
-        ? array.filter((v) => v !== value)
-        : [...array, value];
-}
+
