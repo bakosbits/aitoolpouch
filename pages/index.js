@@ -118,7 +118,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                                 </a>
 
                                 <a
-                                    href="/questionnaire"
+                                    href="/usecases"
                                     title="Define Your Use Case"
                                     className="inline-flex items-left justify-center space-x-2 flex-nowrap
                                         bg-accentGreen hover:bg-headingWhite transition-colors
@@ -162,7 +162,7 @@ export default function Home({ tools, latestTools, featuredTools }) {
                             </Link>
                                 or define your
                             <Link
-                                href="/questionnaire"
+                                href="/usecases"
                                 className="text-accentGreen hover:text-headingWhite transition"
                                 onClick={() => console.log("[Home Page] Inline 'use case' link clicked.")}
                             >

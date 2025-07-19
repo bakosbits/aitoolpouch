@@ -56,7 +56,7 @@ export default function Layout({
                             Categories
                         </Link>
                         <Link
-                            href="/questionnaire"
+                            href="/use-cases"
                             className="text-grayText hover:text-headingWhite transition-colors duration-150"
                         >
                             Use Cases

@@ -1,8 +1,8 @@
 import Link from "next/link";
 import LogoCard from "@/components/LogoCard";
 
-export default function QuestionnaireToolCard({ tool, compareList = [], toggleCompare }) {
-    console.log(`QuestionnaireToolCard rendered for: ${tool.Name} (Slug: ${tool.Slug})`);
+export default function UseCasesToolCard({ tool, compareList = [], toggleCompare }) {
+    console.log(`UseCasesToolCard rendered for: ${tool.Name} (Slug: ${tool.Slug})`);
 
     const isChecked = compareList.some((t) => t.id === tool.id);
     console.log(`  - Is currently in compare list: ${isChecked}`);
@@ -17,7 +17,7 @@ export default function QuestionnaireToolCard({ tool, compareList = [], toggleCo
 
             onClick={(e) => {
                 if (e.target.closest('label') === null) {
-                    console.log(`QuestionnaireToolCard clicked (excluding compare checkbox): Navigating to ${tool.Name} (Slug: ${tool.Slug})`);
+                    console.log(`UseCasesToolCard clicked (excluding compare checkbox): Navigating to ${tool.Name} (Slug: ${tool.Slug})`);
                 }
             }}
         >

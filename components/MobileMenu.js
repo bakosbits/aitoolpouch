@@ -80,7 +80,7 @@ export default function MobileMenu({ categories = [] }) {
                         </li>                        
                         <li>
                             <Link
-                                href="/questionnaire"
+                                href="/use-cases"
                                 onClick={() => setOpen(false)}
                                 className="hover:text-headingWhite"
                             >

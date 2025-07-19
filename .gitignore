@@ -29,3 +29,4 @@ db.json
 # Others
 .env
 .env.test 
+.notes
